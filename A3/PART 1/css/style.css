@@ -16,10 +16,12 @@ body {
 h1 {
     color: darkslategray;
     border-bottom: dotted 10px purple;
+    font: 2rem
 }
 
 h2 {
     font-style: italic;
+    font: 1.5rem
 }
 
 ul.contact-details {
@@ -29,3 +31,15 @@ ul.contact-details {
     border-radius: 20px;
 }
 
+.job-title {
+    color: darkslategray;
+    font-weight: bold;
+}
+
+a:link {
+    color: green;
+}
+
+a:hover {
+    text-decoration: darkgreen;
+}
