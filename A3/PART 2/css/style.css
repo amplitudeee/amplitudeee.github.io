@@ -9,6 +9,7 @@ body {
   padding: 0 20px;
   min-width: 980px;
   max-width: 1400px;
+  line-height: auto;
 }
 
 /* Layout */
@@ -24,6 +25,7 @@ main {
 
 header {
     border-bottom: 5px solid #aa6666;
+    text-align: center;
 }
 
 footer {
@@ -38,10 +40,65 @@ h1 {
     font-size: 50px;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-weight: 10000;
+    letter-spacing: 3px;
 }
 
 h2 {
     font-size: 30px;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-weight: 10000;
+    margin-bottom:0%;
+    letter-spacing: 1.5px;
+}
+
+p {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+section h2 + p {
+    text-indent: 2rem;
+}
+
+nav ul {
+    padding-left: 0;
+}
+
+nav li {
+    list-style-type: none;
+    margin-bottom: 1rem;
+}
+
+nav li a {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-decoration: none;
+    display: inline-block;
+    width: 100%;
+    line-height: 3.5;
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 1px;
+    font-size: 1.3rem;
+    font-weight: bold;
+    border: 1px solid #aa6666;
+}
+
+a {
+    outline-color: transparent;
+}
+
+a:link {
+    color: darkred;
+}
+
+a:visited {
+    color:crimson;
+}
+
+a:focus,
+a:hover {
+    color: black;
+}
+
+a:active {
+    color: red;
 }
