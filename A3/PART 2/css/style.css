@@ -55,6 +55,8 @@ p {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+/* List Styling */
+
 section h2 + p {
     text-indent: 2rem;
 }
@@ -97,8 +99,20 @@ a:visited {
 a:focus,
 a:hover {
     color: black;
+    text-decoration: none;
 }
 
 a:active {
     color: red;
+}
+
+a[href^="http"]::after {
+    content: "";
+    display: inline-block;
+    width: 0.6em;
+    height: 0.6em;
+    margin-left: 0.25em;
+
+    background-size: 100%;
+    background-image: url(../external-link-52.png);
 }
