@@ -1,0 +1,110 @@
+HTML Hypertext Markup Language
+href Hypertext reference
+URL uniform resource locater
+CSS cascading style sheet
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Jane Doe - Web Dev</title>
+    <!--
+    Name: Matt Salvadori
+    File: index.html
+    Date: October 10 2025
+    Assignment 3 - Styling a biography page -->
+  </head>
+
+<link rel="stylesheet" href="./style.css"/>
+  <body>
+    <p>This is my page</p>
+  </body>
+</html>
+<!---->
+<body>contains the content that you want to show to web users</body>
+<!----Make an IMG-->
+<img src="./Lab1_Matt1_Sam2.img" alt="My Test image">alt=attribute
+<img src="../NOTES.docx/" alt="My Test image">
+<b></b><i></i><u></u><strong></strong><em></em><mark></mark><span></span>
+<h1>headings</h1>
+<ul>ordered List
+    <li>List Item</li>
+</ul>
+<ol>unordered List
+    <li>List item</li>
+</ol>
+<dl>description list
+    <dt>description title</dt>
+        <dd>description dialoge</dd>
+</dl>
+<a href="https://www.mozilla.org/en-US/about/manifesto/">Links</a>
+</html>
+
+
+CSS
+p {
+  font-family: sans-serif;
+  color: red;
+}
+
+li {
+  background-color: greenyellow;
+  border: 1px solid black;
+  margin-bottom: 5px;
+}
+
+// items sitting on a line -flexbox
+ul {
+  display: flex;
+  list-style-type: none;
+  padding: 0;
+}
+// multiple element changes as once
+p,
+li {
+}
+
+// create a class to use when inside an HTML element
+<li class="special">Item two</li>
+.special {
+  color: orange;
+  font-weight: bold;
+}
+
+// To select only an <em> that is nested inside 
+  an <li> element, you can use a selector called 
+    the descendant combinator, which takes the form 
+    of a space between two other selectors.
+li em {
+  color: rebeccapurple;
+}
+
+h1 + p {
+  font-size: 200%;
+}
+
+// style based on state
+a:link {
+  color: pink;
+}
+
+a:visited {
+  color: green;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+
+Front-end
+HTML, CSS, JavaScript
+|
+Back-end
+Node.js, .NET, PHP, Python, or some other server-side language
+|
+Database
+MySQL, Postgres, MongoDB, or some other database
+|
+Web server
+Your own, built around a server product such as Apache, or a service like Netlify
