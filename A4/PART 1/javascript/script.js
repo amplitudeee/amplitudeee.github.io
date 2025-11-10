@@ -57,4 +57,5 @@ function generateStory() {
 
   story.textContent = newStory;
   story.style.visibility = "visible";
+  story.classList.add("story-active");
 }

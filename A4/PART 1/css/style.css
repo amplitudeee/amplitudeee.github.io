@@ -1,3 +1,30 @@
-p.story{
-    background-color: rgb(255, 208, 0);
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: #f4f4f4;
+}
+p.story-active {
+    background-color: rgba(255, 208, 0, 0.753);
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+fieldset {
+    border: 0;
+}
+
+fieldset,
+legend{
+    padding: 0;
+    margin-top: 10px;
+}
+
+fieldset {
+    border: 0;
+}
+
+button.generate {
+    margin-top: 10px;
 }
