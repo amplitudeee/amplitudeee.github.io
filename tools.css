@@ -1,0 +1,102 @@
+<!--CSS--><!--CSS--><!--CSS--><!--CSS--><!--CSS--><!--CSS--><!--CSS-->
+<!--CSS REFERENCE-->
+<link rel="stylesheet" href="./style.css"/></html><!--Internal-->
+<link rel="stylesheet" href="https://www.w3schools.com/html/styles.css"> <!--External-->
+
+<!--BACKGROUND STYLES-->
+body {background-image:url("snow.jpg");
+      background-repeat: no-repeat;
+      background-position: right top;}
+
+<!--BORDER-->
+p{border-style: dotted;
+  border-width: 25px 10px 4px 35px; /* top, right, bottom, left */
+  border-width: 25px 10px; /* top/bottom, right/left */
+  border-color: red green blue yellow; /* top, right, bottom left */
+  border-color: #ff0000
+  border-color: rgb(255,0,0);
+  border-top-style:
+  border-right-style:
+  border-bottom-style:
+  border-left-style:
+  border: 5px solid red;
+  border-radius: 5px;
+}
+
+dotted - Defines a dotted border
+dashed - Defines a dashed border
+solid - Defines a solid border
+double - Defines a double border
+groove - Defines a 3D grooved border. The effect depends on the border-color value
+ridge - Defines a 3D ridged border. The effect depends on the border-color value
+inset - Defines a 3D inset border. The effect depends on the border-color value
+outset - Defines a 3D outset border. The effect depends on the border-color value
+none - Defines no border
+hidden - Defines a hidden border
+
+p {
+  font-family: sans-serif;
+  color: red;
+}
+
+li {
+  background-color: greenyellow;
+  border: 1px solid black;
+  margin-bottom: 5px;
+}
+
+// items sitting on a line -flexbox
+ul {
+  display: flex;
+  list-style-type: none;
+  padding: 0;
+}
+// multiple element changes as once
+p,
+li {
+}
+
+// create a class to use when inside an HTML element
+<li class="special">Item two</li>
+.special {
+  color: orange;
+  font-weight: bold;
+}
+
+// To select only an <em> that is nested inside 
+  an <li> element, you can use a selector called 
+    the descendant combinator, which takes the form 
+    of a space between two other selectors.
+li em {
+  color: rebeccapurple;
+}
+
+h1 + p {
+  font-size: 200%;
+}
+
+// style based on state
+a:link {
+  color: pink;
+}
+
+a:visited {
+  color: green;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+
+Front-end
+HTML, CSS, JavaScript
+|
+Back-end
+Node.js, .NET, PHP, Python, or some other server-side language
+|
+Database
+MySQL, Postgres, MongoDB, or some other database
+|
+Web server
+Your own, built around a server product such as Apache, or a service like Netlify\
