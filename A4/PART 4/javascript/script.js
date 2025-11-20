@@ -18,14 +18,114 @@ function randomRGB() {
     return `rgb(${random(0, 255)},${random(0, 255)},${random(0, 255)})`;
 }
 
-class Ball {
+class Shape {
+    constructor(x, y, velX, velY) {
+    // initialize properties
+        this.x = x;
+        this.y = y;
+        this.velX = velX;
+        this.velY = velY;
+    }
+
+    move() {
+        this.x += this.velX;
+        this.y += this.velY;
+    }
+}
+
+class evilCircle extends Shape {
+    // be passed just the x, y arguements
+    constructor(x, y) {
+        // pass the x, y arguments up to the Shape superclass along with values 
+        // for velX and velY hardcoded to 20. You should do this with 
+        // code like super(x, y, 20, 20);
+        super(x, y, this.velX, velY);
+
+        // evil circle specific properties
+        this.velX = 20;
+        this.velY = 20;
+        
+        //set color to white and size to 10.
+        this.color = white;
+        this.size = 10;
+        window.addEventListener("keydown", (e) => {
+            switch (e.key) {
+                case "a":
+                this.x -= this.velX;
+                break;
+                case "d":
+                this.x += this.velX;
+                break;
+                case "w":
+                this.y -= this.velY;
+                break;
+                case "s":
+                this.y += this.velY;
+                break;
+            }
+        });
+    }
+
+    draw() {
+    // draw the circle
+    ctx.beginPath();
+    // set line width to 3
+    ctx.lineWidth = 3;
+    // set stroke style to this.color
+    ctx.strokeStyle = this.color;
+    // define the circles properties and draw it
+    ctx.arc(this.x, this.y, this.size, 0, 2 * Math.PI);
+    // stroke the circle
+    ctx.stroke();
+    }
+
+    checkBounds() {
+    if (this.x + this.size >= width) {
+        this.x = -this.size;
+    }
+
+    if (this.x - this.size <= 0) {
+        this.x = -this.size;
+    }
+
+    if (this.y + this.size >= height) {
+        this.y = -this.size;
+    }
+
+    if (this.y - this.size <= 0) {
+        this.y = -this.size;
+    }
+
+    collisionDetect()
+    {
+        for (const ball of balls) {
+            // avoid checking collision with itself
+            if (ball.exists) {
+                // calculate distance between this.evilCircle and the ball
+                const dx = this.x - ball.x;
+                const dy = this.y - ball.y;
+                const distance = Math.sqrt(dx * dx + dy * dy);
+                // check for collision
+                if (distance < this.size + ball.size) {
+                    // ball is removed from the canvas
+                    ball.remove()
+                }
+            }
+        }
+    }
+}
+}
+
+class Ball extends Shape {
+    // Call the shape constructor using super()
     constructor(x, y, velX, velY, color, size) {
-    this.x = x;
-    this.y = y;
-    this.velX = velX;
-    this.velY = velY;
-    this.color = color;
-    this.size = size;
+        // call parent constructor
+        super(x, y, velX, velY);
+
+        // ball specific properties
+        this.color = color;
+        this.size = size;
+        const exists = true;
     }
 
     draw() {
@@ -58,11 +158,11 @@ class Ball {
 
     collisionDetect() {
         for (const ball of balls) {
-            if (this !== ball) {
+            if (!(this === ball) && ball.exists) {
                 const dx = this.x - ball.x;
                 const dy = this.y - ball.y;
                 const distance = Math.sqrt(dx * dx + dy * dy);
-
+                
                 if (distance < this.size + ball.size) {
                     ball.color = this.color = randomRGB();
                 }
@@ -90,13 +190,21 @@ while (balls.length < 25) {
 }
 
 function loop() {
-    ctx.fillStyle = "rgb(0 0 0 / 25%)";
+    // Next, set the canvas fill style to "rgb(0, 0, 0, 0.25)" and fill a rectangle starting at (0,0) with the width and height of the canvas.
+    ctx.fillStyle = "rgb(0 0 0 / 100%)";
     ctx.fillRect(0, 0, width, height);
 
+    // Finally, call the draw() method on evilCircle.
+    evilCircle.draw();
+
+
+    // Next, loop through all the balls in the balls array, calling the draw(), update(), and collisionDetect() methods on each one.
     for (const ball of balls) {
-        ball.draw();
-        ball.update();
-        ball.collisionDetect();
+        if (ball.exists) {
+            ball.draw();
+            ball.update();
+            ball.collisionDetect();
+        }
     }
     requestAnimationFrame(loop);
 }
