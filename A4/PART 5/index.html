@@ -7,21 +7,23 @@
     Name: Matt Salvadori
     File: index.html
     Date: November 29 2025
-    Assignment 4 PT5 - Feedback Form -->
+    Assignment 4 PT5 - Structuring Content -->
     <link href="./css/style.css" rel="stylesheet">
     <script defer src="./javascript/script.js"></script>
   </head>
   <body>
-    <p><h1>We want your feedback!</h1>
+    <h1>We want your feedback!</h1>
 
-    We're very excited that you visited the little house in the woods,
+    <p>
+    We're very excited that you visited the <a href="#" title="" target="_blank">little house in the woods,</a>
     and we want to hear what you thought of it! Please fill in the below
     sections. You don't need to provide your name or contact details, but
-    if you do, we'll enter you into a prize draw where you'll have a chance
+    if you do, we'll enter you into a <a href="#" title="" target="_blank">prize draw</a> where you'll have a chance
     to win prizes.
+    </p>
+    
+    <div class="seperator"><img src="https://mdn.github.io/shared-assets/images/examples/learn/woodland-strip.jpg" alt=""></div>
 
-    --
-    </p><br>
     <form>
       <div class="form-section">
           <h2>Facilities</h2>
@@ -63,15 +65,18 @@
 
       <div class="form-section">
         <h2>About your hosts</h2>
-        <fieldset>
+
+        <div class="seperator">
           <label for="favbear">Who's your favorite bear?</label>
           <select id="favorite bear" name="favorite bear">
             <option value="papa bear">Papa bear</option>
             <option value="mama bear">Mama bear</option>
             <option value="junior">Junior</option>
             <option value="dozer">Dozer</option>
-          </select><br>
+          </select>
+        </div>
 
+        <div class="seperator">
           <label for="greeting">Which greeting did you prefer?</label>
           <select id="greeting" name="greeting">
             <option value="wave">Wave</option>
@@ -79,21 +84,37 @@
             <option value="growl">Growl</option>
             <option value="claw marks in the door">Claw marks in the door</option>
           </select>
-        </fieldset>
+        </div>
+      </div>
 
+      <div class="form-section">
         <h2>Any other feedback?</h2>
         <label for="feedback">Give us your comments</label><br>
-        <textarea name="feedback" rows="10" cols="30"></textarea>
+        <textarea id="feedback" name="feedback" rows="10" cols="30"></textarea>
+      </div>
 
-        <label for="contact">Your Details</label><br>
+      <div class="form-section">
+        <h2>Your Details</h2>
 
-        <input type="text" id="name" name="name" placeholder="John Doe" required>
-          <label for="name"> Name </label><br>
-        <input type="email" id="email" name="email" placeholder="John.doe@gmail.com" required>
-          <label for="email"> Email  </label><br>
-        <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="123-456-7890" required>
-          <label for="phone"> Phone </label><br>
-        <input type="submit" value="Submit">
+        <div class="seperator">
+          <input type="text" id="name" name="name" placeholder="John Doe" required>
+            <label for="name"> Name </label>
+        </div>
+
+        <div class="seperator">
+          <input type="email" id="email" name="email" placeholder="John.doe@gmail.com" required>
+            <label for="email"> Email  </label>
+        </div>
+
+        <div class="seperator">
+          <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="123-456-7890" required>
+            <label for="phone"> Phone </label>
+        </div>
+      </div>
+
+        <div class="form-section">
+          <input type="submit" value="Submit">
+        </div>
         
       </form>
   </body>
