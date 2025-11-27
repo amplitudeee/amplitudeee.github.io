@@ -12,7 +12,7 @@
     <script defer src="./javascript/script.js"></script>
   </head>
   <body>
-    <p>We want your feedback!
+    <p><h1>We want your feedback!</h1>
 
     We're very excited that you visited the little house in the woods,
     and we want to hear what you thought of it! Please fill in the below
@@ -21,64 +21,80 @@
     to win prizes.
 
     --
-    </p>
-<form>
-  <fieldset>
-    <label for="facilities">Facilities</label>
+    </p><br>
+    <form>
+      <div class="form-section">
+          <h2>Facilities</h2>
+          
+          <fieldset>
+            <legend>Was the porridge</legend>
+              <input type="radio" id="hot" name="porridge" value="too hot" checked>
+                <label for="hot">Too Hot?</label>
+              <input type="radio" id="cold" name="porridge" value="too cold">
+                <label for="cold">Too Cold?</label>
+              <input type="radio" id="just right" name="porridge" value="just right">
+                <label for="just right">Just Right</label>
+          </fieldset>
 
-    <legend>Was the porridge<legend>
-    <option>Too Hot?</option>
-    <option>Too Cold?</option>
-    <option>Just Right</option>
+          <fieldset>
+            <legend>Were the beds</legend>
+              <input type="radio" id="hard" name="beds" value="too hard" checked>
+                <label for="hard">Too Hard?</label>
+              <input type="radio" id="soft" name="beds" value="too soft">
+                <label for="soft">Too Soft?</label>
+              <input type="radio" id="just right" name="beds" value="just right">
+                <label for="just right">Just Right</label>
+          </fieldset>
 
-    Were the beds
-    Too hard?
-    Too soft?
-    Just right?
-  </fieldset>
+          <fieldset>
+            <legend>Describe the chairs (select all you agree with)</legend>
+              <input type="checkbox" id="comfy" name="comfy" value="comfy">
+                <label for="comfy">Comfy</label>
+              <input type="checkbox" id="luxurious" name="luxurious" value="luxurious">
+                <label for="luxurious">Luxurious</label>
+              <input type="checkbox" id="hi tec" name="hi tec" value="hi tec">
+                <label for="hi tec">Hi tec</label>
+              <input type="checkbox" id="pretty" name="pretty" value="pretty">
+                <label for="pretty">Pretty</label>
+              <input type="checkbox" id="majestic" name="majestic" value="majestic">
+                <label for="majestic">Majestic</label>
+          </fieldset>
+      </div>
 
-    Describe the chairs (select all you agree with)
-    Comfy
-    Luxurious
-    Hi tec
-    Pretty
-    Majestic
+      <div class="form-section">
+        <h2>About your hosts</h2>
+        <fieldset>
+          <label for="favbear">Who's your favorite bear?</label>
+          <select id="favorite bear" name="favorite bear">
+            <option value="papa bear">Papa bear</option>
+            <option value="mama bear">Mama bear</option>
+            <option value="junior">Junior</option>
+            <option value="dozer">Dozer</option>
+          </select><br>
 
-    --
+          <label for="greeting">Which greeting did you prefer?</label>
+          <select id="greeting" name="greeting">
+            <option value="wave">Wave</option>
+            <option value="friendly greeting">Friendly greeting</option>
+            <option value="growl">Growl</option>
+            <option value="claw marks in the door">Claw marks in the door</option>
+          </select>
+        </fieldset>
 
-    About your hosts
+        <h2>Any other feedback?</h2>
+        <label for="feedback">Give us your comments</label><br>
+        <textarea name="feedback" rows="10" cols="30"></textarea>
 
-    Who's your favorite bear?
-    Papa bear
-    Mama bear
-    Junior
-    Dozer
+        <label for="contact">Your Details</label><br>
 
-    Which greeting did you prefer?
-    Wave
-    Friendly greeting
-    Growl
-    Claw marks in the door
-
-    --
-
-    Any other feedback?
-
-    Give us your comments
-
-    --
-
-    Your details
-
-    Name
-    Email
-    Phone
-
-    --
-
-    Submit
-
-    --
-</form>
+        <input type="text" id="name" name="name" placeholder="John Doe" required>
+          <label for="name"> Name </label><br>
+        <input type="email" id="email" name="email" placeholder="John.doe@gmail.com" required>
+          <label for="email"> Email  </label><br>
+        <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="123-456-7890" required>
+          <label for="phone"> Phone </label><br>
+        <input type="submit" value="Submit">
+        
+      </form>
   </body>
 </html>
