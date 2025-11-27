@@ -69,6 +69,59 @@ client-server database
 <bdo dir="rtl">used to override the current text direction</bdo>"
 <select id="theme"><option value="white">White</option><option value="black">Black</option></select>
 
+<!--FORMS-->
+<form action="/action_page.php" target="_blank" method="get">
+<input type="text" id="fname" name="fname">	Displays a single-line text input field
+<input type="radio" id="css" name="fav_language" value="CSS" checked>	Displays a radio button (for selecting one of many choices)
+<label for="css">CSS</label><br>
+<input type="checkbox" id="vehicle1" name="vehicle2" value="Car">	Displays a checkbox (for selecting zero or more of many choices)
+<label for="vehicle2"> I have a car</label><br>
+<input type="submit">	Displays a submit button (for submitting the form)
+  Validation
+  required
+  minlength=""
+  maxlength=""
+<input type="button" value="OK">	Displays a clickable button
+</form>
+
+Target Attribute
+target="_blank"	    displayed in a new window or tab
+target=_"self"	    displayed in the current window
+target=_"parent"	  displayed in the parent frame
+target=_"top"	      displayed in the full body of the window
+target="framename"	displayed in a named iframe
+
+method="get"      uses the GET method when submitting the form data:
+method="post"     uses the POST method when submitting the form data:
+
+autocomplete="on"   sets autocomplete on or off
+novalidate        specifies that the form-data should not be validated when submitted
+
+<input> 
+<label>       The <label> element is useful for screen-reader users, because the screen-reader will read out loud the label when the user focus on the input element.
+<select>      drop-down list
+  <select id="cars" name="cars" size="1">
+  <optgroup label="german">       Used to make groups in select lists
+  <option value="volvo">Volvo</option></optgroup></select>
+  size=""     specify the number of visible values
+  multiple    attribute to allow the user to select more than one value
+<textarea>    defines a multi-line input field (a text area):
+  <textarea name="message" rows="10" cols="30"></textarea>
+  <textarea name="message" style="width:200px; height:600px;"></textarea>
+<button>
+  <button type="button" onclick="alert('Hello World!')">Click Me!</button>
+<fieldset>    used to group related data in a form.
+<legend>      defines a caption for the <fieldset> element.
+    <fieldset>
+    <legend>Personalia:</legend>
+    <label for="fname">First name:</label><br>
+    <input type="text" id="fname" name="fname" value="John"><br>
+    <input type="submit" value="Submit">
+  </fieldset>
+<datalist>
+<output>
+<option>
+
 <!--LINKS-->
 <a href="https://www.w3schools.com/html" title="Go to W3Schools section=" target="_blank">Visit our HTML Tutorial</a> 
   _self - Default. Opens the document in the same window/tab as it was clicked
