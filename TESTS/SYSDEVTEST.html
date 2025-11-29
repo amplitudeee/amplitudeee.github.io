@@ -104,14 +104,51 @@
       margin-top: 10px;
       font-weight: 800;
       color: #fff;
-      padding: 8px 10px;
+      padding: 12px 14px;
       border-radius: 10px;
       display:inline-block;
       box-shadow: 0 6px 18px rgba(0,0,0,0.5);
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      border-left: 4px solid #f093fb;
     }
 
-    .correct { background: linear-gradient(90deg,#2ecc71,#27ae60); color:#041a08; }
-    .incorrect { background: linear-gradient(90deg,#ff9a9e,#ff6b6b); color:#2b0606; }
+    .show-answer-btn {
+      margin-top: 8px;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 6px 12px;
+      border: none;
+      border-radius: 8px;
+      background: linear-gradient(90deg, #3498db, #2980b9);
+      color: #fff;
+      font-weight: 600;
+      font-size: 12px;
+      cursor: pointer;
+      transition: transform .18s ease, box-shadow .18s ease;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      display: block;
+      width: 50%;
+    }
+
+    .show-answer-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.4);
+    }
+
+    .show-answer-btn:active {
+      transform: translateY(0);
+    }
+
+    .correct { 
+      background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%);
+      color: #041a08;
+      border-left: 4px solid #1abc9c;
+    }
+    .incorrect { 
+      background: linear-gradient(135deg, #ff9a9e 0%, #ff6b6b 100%);
+      color: #2b0606;
+      border-left: 4px solid #e74c3c;
+    }
 
     .hidden { display:none !important; }
 
@@ -248,6 +285,7 @@
   <label><input type="radio" name="q1" value="True"> True</label>
   <label><input type="radio" name="q1" value="False"> False</label>
   <div class="answer hidden" id="ans-q1"></div>
+  <button type="button" class="show-answer-btn" data-question="q1">Show Answer</button>
 </div>
 
 <div class="question">
@@ -255,6 +293,7 @@
   <label><input type="radio" name="q2" value="True"> True</label>
   <label><input type="radio" name="q2" value="False"> False</label>
   <div class="answer hidden" id="ans-q2"></div>
+  <button type="button" class="show-answer-btn" data-question="q2">Show Answer</button>
 </div>
 
 <div class="question">
@@ -262,6 +301,7 @@
   <label><input type="radio" name="q3" value="True"> True</label>
   <label><input type="radio" name="q3" value="False"> False</label>
   <div class="answer hidden" id="ans-q3"></div>
+  <button type="button" class="show-answer-btn" data-question="q3">Show Answer</button>
 </div>
 
 <div class="question">
@@ -269,6 +309,7 @@
   <label><input type="radio" name="q4" value="True"> True</label>
   <label><input type="radio" name="q4" value="False"> False</label>
   <div class="answer hidden" id="ans-q4"></div>
+  <button type="button" class="show-answer-btn" data-question="q4">Show Answer</button>
 </div>
 
 <div class="question">
@@ -276,6 +317,7 @@
   <label><input type="radio" name="q5" value="True"> True</label>
   <label><input type="radio" name="q5" value="False"> False</label>
   <div class="answer hidden" id="ans-q5"></div>
+  <button type="button" class="show-answer-btn" data-question="q5">Show Answer</button>
 </div>
 
 <div class="question">
@@ -283,6 +325,7 @@
   <label><input type="radio" name="q6" value="True"> True</label>
   <label><input type="radio" name="q6" value="False"> False</label>
   <div class="answer hidden" id="ans-q6"></div>
+  <button type="button" class="show-answer-btn" data-question="q6">Show Answer</button>
 </div>
 
 <div class="question">
@@ -290,6 +333,7 @@
   <label><input type="radio" name="q7" value="True"> True</label>
   <label><input type="radio" name="q7" value="False"> False</label>
   <div class="answer hidden" id="ans-q7"></div>
+  <button type="button" class="show-answer-btn" data-question="q7">Show Answer</button>
 </div>
 
 <div class="question">
@@ -297,6 +341,7 @@
   <label><input type="radio" name="q8" value="True"> True</label>
   <label><input type="radio" name="q8" value="False"> False</label>
   <div class="answer hidden" id="ans-q8"></div>
+  <button type="button" class="show-answer-btn" data-question="q8">Show Answer</button>
 </div>
 
 <div class="question">
@@ -304,6 +349,7 @@
   <label><input type="radio" name="q9" value="True"> True</label>
   <label><input type="radio" name="q9" value="False"> False</label>
   <div class="answer hidden" id="ans-q9"></div>
+  <button type="button" class="show-answer-btn" data-question="q9">Show Answer</button>
 </div>
 
 <div class="question">
@@ -311,6 +357,7 @@
   <label><input type="radio" name="q10" value="True"> True</label>
   <label><input type="radio" name="q10" value="False"> False</label>
   <div class="answer hidden" id="ans-q10"></div>
+  <button type="button" class="show-answer-btn" data-question="q10">Show Answer</button>
 </div>
 
 <div class="question">
@@ -318,6 +365,7 @@
   <label><input type="radio" name="q11" value="True"> True</label>
   <label><input type="radio" name="q11" value="False"> False</label>
   <div class="answer hidden" id="ans-q11"></div>
+  <button type="button" class="show-answer-btn" data-question="q11">Show Answer</button>
 </div>
 
 <div class="question">
@@ -325,6 +373,7 @@
   <label><input type="radio" name="q12" value="True"> True</label>
   <label><input type="radio" name="q12" value="False"> False</label>
   <div class="answer hidden" id="ans-q12"></div>
+  <button type="button" class="show-answer-btn" data-question="q12">Show Answer</button>
 </div>
 
 <div class="question">
@@ -332,6 +381,7 @@
   <label><input type="radio" name="q13" value="True"> True</label>
   <label><input type="radio" name="q13" value="False"> False</label>
   <div class="answer hidden" id="ans-q13"></div>
+  <button type="button" class="show-answer-btn" data-question="q13">Show Answer</button>
 </div>
 
 <div class="question">
@@ -339,6 +389,7 @@
   <label><input type="radio" name="q14" value="True"> True</label>
   <label><input type="radio" name="q14" value="False"> False</label>
   <div class="answer hidden" id="ans-q14"></div>
+  <button type="button" class="show-answer-btn" data-question="q14">Show Answer</button>
 </div>
 
 <div class="question">
@@ -346,6 +397,7 @@
   <label><input type="radio" name="q15" value="True"> True</label>
   <label><input type="radio" name="q15" value="False"> False</label>
   <div class="answer hidden" id="ans-q15"></div>
+  <button type="button" class="show-answer-btn" data-question="q15">Show Answer</button>
 </div>
 
 <div class="question">
@@ -353,6 +405,7 @@
   <label><input type="radio" name="q16" value="True"> True</label>
   <label><input type="radio" name="q16" value="False"> False</label>
   <div class="answer hidden" id="ans-q16"></div>
+  <button type="button" class="show-answer-btn" data-question="q16">Show Answer</button>
 </div>
 
 <div class="question">
@@ -360,6 +413,7 @@
   <label><input type="radio" name="q17" value="True"> True</label>
   <label><input type="radio" name="q17" value="False"> False</label>
   <div class="answer hidden" id="ans-q17"></div>
+  <button type="button" class="show-answer-btn" data-question="q17">Show Answer</button>
 </div>
 
 <div class="question">
@@ -367,6 +421,7 @@
   <label><input type="radio" name="q18" value="True"> True</label>
   <label><input type="radio" name="q18" value="False"> False</label>
   <div class="answer hidden" id="ans-q18"></div>
+  <button type="button" class="show-answer-btn" data-question="q18">Show Answer</button>
 </div>
 
 <div class="question">
@@ -374,6 +429,7 @@
   <label><input type="radio" name="q19" value="True"> True</label>
   <label><input type="radio" name="q19" value="False"> False</label>
   <div class="answer hidden" id="ans-q19"></div>
+  <button type="button" class="show-answer-btn" data-question="q19">Show Answer</button>
 </div>
 
 <div class="question">
@@ -381,6 +437,7 @@
   <label><input type="radio" name="q20" value="True"> True</label>
   <label><input type="radio" name="q20" value="False"> False</label>
   <div class="answer hidden" id="ans-q20"></div>
+  <button type="button" class="show-answer-btn" data-question="q20">Show Answer</button>
 </div>
 
 <div class="question">
@@ -390,6 +447,7 @@
   <label><input type="radio" name="q21" value="Scope Creep"> Scope Creep</label><br>
   <label><input type="radio" name="q21" value="Kanban"> Kanban</label>
   <div class="answer hidden" id="ans-q21"></div>
+  <button type="button" class="show-answer-btn" data-question="q21">Show Answer</button>
 </div>
 
 <div class="question">
@@ -399,6 +457,7 @@
   <label><input type="radio" name="q22" value="Security"> Security</label><br>
   <label><input type="radio" name="q22" value="Cultural & Political"> Cultural & Political</label>
   <div class="answer hidden" id="ans-q22"></div>
+  <button type="button" class="show-answer-btn" data-question="q22">Show Answer</button>
 </div>
 
 <div class="question">
@@ -408,6 +467,7 @@
   <label><input type="radio" name="q23" value="Duration Analysis"> Duration Analysis</label><br>
   <label><input type="radio" name="q23" value="Outcome Analysis"> Outcome Analysis</label>
   <div class="answer hidden" id="ans-q23"></div>
+  <button type="button" class="show-answer-btn" data-question="q23">Show Answer</button>
 </div>
 
 <div class="question">
@@ -417,6 +477,7 @@
   <label><input type="radio" name="q24" value="Questionnaire"> Questionnaire</label><br>
   <label><input type="radio" name="q24" value="Document Analysis"> Document Analysis</label>
   <div class="answer hidden" id="ans-q24"></div>
+  <button type="button" class="show-answer-btn" data-question="q24">Show Answer</button>
 </div>
 
 <div class="question">
@@ -426,6 +487,7 @@
   <label><input type="radio" name="q25" value="Business Analysts and Stakeholders"> Business Analysts and Stakeholders</label><br>
   <label><input type="radio" name="q25" value="Customers only"> Customers only</label>
   <div class="answer hidden" id="ans-q25"></div>
+  <button type="button" class="show-answer-btn" data-question="q25">Show Answer</button>
 </div>
 
 <div class="question">
@@ -435,6 +497,7 @@
   <label><input type="radio" name="q26" value="Work Balance Sheet"> Work Balance Sheet</label><br>
   <label><input type="radio" name="q26" value="Work Budget Strategy"> Work Budget Strategy</label>
   <div class="answer hidden" id="ans-q26"></div>
+  <button type="button" class="show-answer-btn" data-question="q26">Show Answer</button>
 </div>
 
 <div class="question">
@@ -444,6 +507,7 @@
   <label><input type="radio" name="q27" value="Skills, Morale, Rewards"> Skills, Morale, Rewards</label><br>
   <label><input type="radio" name="q27" value="Availability, Portability, Maintainability"> Availability, Portability, Maintainability</label>
   <div class="answer hidden" id="ans-q27"></div>
+  <button type="button" class="show-answer-btn" data-question="q27">Show Answer</button>
 </div>
 
 <div class="question">
@@ -453,6 +517,7 @@
   <label><input type="radio" name="q28" value="Visualizing workflow"> Visualizing workflow</label><br>
   <label><input type="radio" name="q28" value="Estimating costs"> Estimating costs</label>
   <div class="answer hidden" id="ans-q28"></div>
+  <button type="button" class="show-answer-btn" data-question="q28">Show Answer</button>
 </div>
 
 <div class="question">
@@ -462,6 +527,7 @@
   <label><input type="radio" name="q29" value="Benchmarking"> Benchmarking</label><br>
   <label><input type="radio" name="q29" value="Shadowing"> Shadowing</label>
   <div class="answer hidden" id="ans-q29"></div>
+  <button type="button" class="show-answer-btn" data-question="q29">Show Answer</button>
 </div>
 
 <div class="question">
@@ -471,6 +537,7 @@
   <label><input type="radio" name="q30" value="Poor communication"> Poor communication</label><br>
   <label><input type="radio" name="q30" value="Cost control"> Cost control</label>
   <div class="answer hidden" id="ans-q30"></div>
+  <button type="button" class="show-answer-btn" data-question="q30">Show Answer</button>
 </div>
 
 <div class="question">
@@ -480,6 +547,7 @@
   <label><input type="radio" name="q31" value="Questionnaire"> Questionnaire</label><br>
   <label><input type="radio" name="q31" value="Document Analysis"> Document Analysis</label>
   <div class="answer hidden" id="ans-q31"></div>
+  <button type="button" class="show-answer-btn" data-question="q31">Show Answer</button>
 </div>
 
 <div class="question">
@@ -489,6 +557,7 @@
   <label><input type="radio" name="q32" value="Activity Elimination"> Activity Elimination</label><br>
   <label><input type="radio" name="q32" value="Informal Benchmarking"> Informal Benchmarking</label>
   <div class="answer hidden" id="ans-q32"></div>
+  <button type="button" class="show-answer-btn" data-question="q32">Show Answer</button>
 </div>
 
 <div class="question">
@@ -498,6 +567,7 @@
   <label><input type="radio" name="q33" value="Security"> Security</label><br>
   <label><input type="radio" name="q33" value="Cultural & Political"> Cultural & Political</label>
   <div class="answer hidden" id="ans-q33"></div>
+  <button type="button" class="show-answer-btn" data-question="q33">Show Answer</button>
 </div>
 
 <div class="question">
@@ -507,6 +577,7 @@
   <label><input type="radio" name="q34" value="Duration Analysis"> Duration Analysis</label><br>
   <label><input type="radio" name="q34" value="Activity-Based Costing"> Activity-Based Costing</label>
   <div class="answer hidden" id="ans-q34"></div>
+  <button type="button" class="show-answer-btn" data-question="q34">Show Answer</button>
 </div>
 
 <div class="question">
@@ -516,6 +587,7 @@
   <label><input type="radio" name="q35" value="Questionnaire"> Questionnaire</label><br>
   <label><input type="radio" name="q35" value="Shadowing"> Shadowing</label>
   <div class="answer hidden" id="ans-q35"></div>
+  <button type="button" class="show-answer-btn" data-question="q35">Show Answer</button>
 </div>
 
 <div class="question">
@@ -525,6 +597,7 @@
   <label><input type="radio" name="q36" value="Outcome Analysis"> Outcome Analysis</label><br>
   <label><input type="radio" name="q36" value="Duration Analysis"> Duration Analysis</label>
   <div class="answer hidden" id="ans-q36"></div>
+  <button type="button" class="show-answer-btn" data-question="q36">Show Answer</button>
 </div>
 
 <div class="question">
@@ -534,6 +607,7 @@
   <label><input type="radio" name="q37" value="Security"> Security</label><br>
   <label><input type="radio" name="q37" value="Cultural & Political"> Cultural & Political</label>
   <div class="answer hidden" id="ans-q37"></div>
+  <button type="button" class="show-answer-btn" data-question="q37">Show Answer</button>
 </div>
 
 <div class="question">
@@ -543,6 +617,7 @@
   <label><input type="radio" name="q38" value="Activity Elimination"> Activity Elimination</label><br>
   <label><input type="radio" name="q38" value="Problem Analysis"> Problem Analysis</label>
   <div class="answer hidden" id="ans-q38"></div>
+  <button type="button" class="show-answer-btn" data-question="q38">Show Answer</button>
 </div>
 
 <div class="question">
@@ -552,6 +627,7 @@
   <label><input type="radio" name="q39" value="Questionnaire"> Questionnaire</label><br>
   <label><input type="radio" name="q39" value="Document Analysis"> Document Analysis</label>
   <div class="answer hidden" id="ans-q39"></div>
+  <button type="button" class="show-answer-btn" data-question="q39">Show Answer</button>
 </div>
 
 <div class="question">
@@ -561,6 +637,7 @@
   <label><input type="radio" name="q40" value="Kanban"> Kanban</label><br>
   <label><input type="radio" name="q40" value="High morale"> High morale</label>
   <div class="answer hidden" id="ans-q40"></div>
+  <button type="button" class="show-answer-btn" data-question="q40">Show Answer</button>
 </div>
 
     <div class="form-actions">
@@ -576,240 +653,280 @@
   <p>1. Define functional requirements and explain their purpose.</p>
   <input type="text" name="q1" style="width:100%">
   <div class="answer hidden" id="ans-q1"></div>
+  <button type="button" class="show-answer-btn" data-question="q1">Show Answer</button>
 </div>
 
 <div class="question">
   <p>2. Define non-functional requirements and explain their focus.</p>
   <input type="text" name="q2" style="width:100%">
   <div class="answer hidden" id="ans-q2"></div>
+  <button type="button" class="show-answer-btn" data-question="q2">Show Answer</button>
 </div>
 
 <div class="question">
   <p>3. How are functional requirements adjusted in scope during a project?</p>
   <input type="text" name="q3" style="width:100%">
   <div class="answer hidden" id="ans-q3"></div>
+  <button type="button" class="show-answer-btn" data-question="q3">Show Answer</button>
 </div>
 
 <div class="question">
   <p>4. Name two structured processes used to adjust functional requirements.</p>
   <input type="text" name="q4" style="width:100%">
   <div class="answer hidden" id="ans-q4"></div>
+  <button type="button" class="show-answer-btn" data-question="q4">Show Answer</button>
 </div>
 
 <div class="question">
   <p>5. List four aspects covered by non-functional requirements.</p>
   <input type="text" name="q5" style="width:100%">
   <div class="answer hidden" id="ans-q5"></div>
+  <button type="button" class="show-answer-btn" data-question="q5">Show Answer</button>
 </div>
 
 <div class="question">
   <p>6. Which non-functional category includes Portability and Maintainability?</p>
   <input type="text" name="q6" style="width:100%">
   <div class="answer hidden" id="ans-q6"></div>
+  <button type="button" class="show-answer-btn" data-question="q6">Show Answer</button>
 </div>
 
 <div class="question">
   <p>7. Which non-functional category includes Speed and Capacity?</p>
   <input type="text" name="q7" style="width:100%">
   <div class="answer hidden" id="ans-q7"></div>
+  <button type="button" class="show-answer-btn" data-question="q7">Show Answer</button>
 </div>
 
 <div class="question">
   <p>8. Which non-functional category includes Access Control and Encryption?</p>
   <input type="text" name="q8" style="width:100%">
   <div class="answer hidden" id="ans-q8"></div>
+  <button type="button" class="show-answer-btn" data-question="q8">Show Answer</button>
 </div>
 
 <div class="question">
   <p>9. Which non-functional category includes Laws and Government Regulations?</p>
   <input type="text" name="q9" style="width:100%">
   <div class="answer hidden" id="ans-q9"></div>
+  <button type="button" class="show-answer-btn" data-question="q9">Show Answer</button>
 </div>
 
 <div class="question">
   <p>10. What is the goal of Problem Analysis in requirements analysis?</p>
   <input type="text" name="q10" style="width:100%">
   <div class="answer hidden" id="ans-q10"></div>
+  <button type="button" class="show-answer-btn" data-question="q10">Show Answer</button>
 </div>
 
 <div class="question">
   <p>11. What is the goal of Root Cause Analysis?</p>
   <input type="text" name="q11" style="width:100%">
   <div class="answer hidden" id="ans-q11"></div>
+  <button type="button" class="show-answer-btn" data-question="q11">Show Answer</button>
 </div>
 
 <div class="question">
   <p>12. What does Duration Analysis examine?</p>
   <input type="text" name="q12" style="width:100%">
   <div class="answer hidden" id="ans-q12"></div>
+  <button type="button" class="show-answer-btn" data-question="q12">Show Answer</button>
 </div>
 
 <div class="question">
   <p>13. What does Activity-Based Costing include beyond direct costs?</p>
   <input type="text" name="q13" style="width:100%">
   <div class="answer hidden" id="ans-q13"></div>
+  <button type="button" class="show-answer-btn" data-question="q13">Show Answer</button>
 </div>
 
 <div class="question">
   <p>14. What is Informal Benchmarking used for?</p>
   <input type="text" name="q14" style="width:100%">
   <div class="answer hidden" id="ans-q14"></div>
+  <button type="button" class="show-answer-btn" data-question="q14">Show Answer</button>
 </div>
 
 <div class="question">
   <p>15. What is Outcome Analysis used for?</p>
   <input type="text" name="q15" style="width:100%">
   <div class="answer hidden" id="ans-q15"></div>
+  <button type="button" class="show-answer-btn" data-question="q15">Show Answer</button>
 </div>
 
 <div class="question">
   <p>16. What is Technology Analysis used for?</p>
   <input type="text" name="q16" style="width:100%">
   <div class="answer hidden" id="ans-q16"></div>
+  <button type="button" class="show-answer-btn" data-question="q16">Show Answer</button>
 </div>
 
 <div class="question">
   <p>17. What is Activity Elimination used for?</p>
   <input type="text" name="q17" style="width:100%">
   <div class="answer hidden" id="ans-q17"></div>
+  <button type="button" class="show-answer-btn" data-question="q17">Show Answer</button>
 </div>
 
 <div class="question">
   <p>18. What is the main benefit of Interviewing as a requirements gathering technique?</p>
   <input type="text" name="q18" style="width:100%">
   <div class="answer hidden" id="ans-q18"></div>
+  <button type="button" class="show-answer-btn" data-question="q18">Show Answer</button>
 </div>
 
 <div class="question">
   <p>19. What is the main benefit of Observation as a requirements gathering technique?</p>
   <input type="text" name="q19" style="width:100%">
   <div class="answer hidden" id="ans-q19"></div>
+  <button type="button" class="show-answer-btn" data-question="q19">Show Answer</button>
 </div>
 
 <div class="question">
   <p>20. What is the main benefit of Questionnaires as a requirements gathering technique?</p>
   <input type="text" name="q20" style="width:100%">
   <div class="answer hidden" id="ans-q20"></div>
+  <button type="button" class="show-answer-btn" data-question="q20">Show Answer</button>
 </div>
 
 <div class="question">
   <p>21. What is the main benefit of Document Analysis as a requirements gathering technique?</p>
   <input type="text" name="q21" style="width:100%">
   <div class="answer hidden" id="ans-q21"></div>
+  <button type="button" class="show-answer-btn" data-question="q21">Show Answer</button>
 </div>
 
 <div class="question">
   <p>22. What is Shadowing used for in requirements gathering?</p>
   <input type="text" name="q22" style="width:100%">
   <div class="answer hidden" id="ans-q22"></div>
+  <button type="button" class="show-answer-btn" data-question="q22">Show Answer</button>
 </div>
 
 <div class="question">
   <p>23. Who defines requirements in a project?</p>
   <input type="text" name="q23" style="width:100%">
   <div class="answer hidden" id="ans-q23"></div>
+  <button type="button" class="show-answer-btn" data-question="q23">Show Answer</button>
 </div>
 
 <div class="question">
   <p>24. Who does the work after requirements are defined?</p>
   <input type="text" name="q24" style="width:100%">
   <div class="answer hidden" id="ans-q24"></div>
+  <button type="button" class="show-answer-btn" data-question="q24">Show Answer</button>
 </div>
 
 <div class="question">
   <p>25. What does WBS stand for and what is its purpose?</p>
   <input type="text" name="q25" style="width:100%">
   <div class="answer hidden" id="ans-q25"></div>
+  <button type="button" class="show-answer-btn" data-question="q25">Show Answer</button>
 </div>
 
 <div class="question">
   <p>26. What are the three trade-offs of effort estimation?</p>
   <input type="text" name="q26" style="width:100%">
   <div class="answer hidden" id="ans-q26"></div>
+  <button type="button" class="show-answer-btn" data-question="q26">Show Answer</button>
 </div>
 
 <div class="question">
   <p>27. What is scope creep?</p>
   <input type="text" name="q27" style="width:100%">
   <div class="answer hidden" id="ans-q27"></div>
+  <button type="button" class="show-answer-btn" data-question="q27">Show Answer</button>
 </div>
 
 <div class="question">
   <p>28. Why is open communication important in project teams?</p>
   <input type="text" name="q28" style="width:100%">
   <div class="answer hidden" id="ans-q28"></div>
+  <button type="button" class="show-answer-btn" data-question="q28">Show Answer</button>
 </div>
 
 <div class="question">
   <p>29. Why are skill sets important when staffing a project team?</p>
   <input type="text" name="q29" style="width:100%">
   <div class="answer hidden" id="ans-q29"></div>
+  <button type="button" class="show-answer-btn" data-question="q29">Show Answer</button>
 </div>
 
 <div class="question">
   <p>30. What does high morale indicate in a project team?</p>
   <input type="text" name="q30" style="width:100%">
   <div class="answer hidden" id="ans-q30"></div>
+  <button type="button" class="show-answer-btn" data-question="q30">Show Answer</button>
 </div>
 
 <div class="question">
   <p>31. What is a possible team motivation strategy?</p>
   <input type="text" name="q31" style="width:100%">
   <div class="answer hidden" id="ans-q31"></div>
+  <button type="button" class="show-answer-btn" data-question="q31">Show Answer</button>
 </div>
 
 <div class="question">
   <p>32. What does Kanban visualize?</p>
   <input type="text" name="q32" style="width:100%">
   <div class="answer hidden" id="ans-q32"></div>
+  <button type="button" class="show-answer-btn" data-question="q32">Show Answer</button>
 </div>
 
 <div class="question">
   <p>33. Why is effort estimation critical for cost control?</p>
   <input type="text" name="q33" style="width:100%">
   <div class="answer hidden" id="ans-q33"></div>
+  <button type="button" class="show-answer-btn" data-question="q33">Show Answer</button>
 </div>
 
 <div class="question">
   <p>34. What is an important consideration when forming a group project?</p>
   <input type ="text" name="q34" style="width:100%">
   <div class="answer hidden" id="ans-q34"></div>
+  <button type="button" class="show-answer-btn" data-question="q34">Show Answer</button>
 </div>
 
 <div class="question">
   <p>35. Why is rewards and recognition important for team motivation?</p>
   <input type="text" name="q35" style="width:100%">
   <div class="answer hidden" id="ans-q35"></div>
+  <button type="button" class="show-answer-btn" data-question="q35">Show Answer</button>
 </div>
 
 <div class="question">
   <p>36. What does Kanban help visualize in project management?</p>
   <input type="text" name="q36" style="width:100%">
   <div class="answer hidden" id="ans-q36"></div>
+  <button type="button" class="show-answer-btn" data-question="q36">Show Answer</button>
 </div>
 
 <div class="question">
   <p>37. Why is effort estimation critical for managing project costs?</p>
   <input type="text" name="q37" style="width:100%">
   <div class="answer hidden" id="ans-q37"></div>
+  <button type="button" class="show-answer-btn" data-question="q37">Show Answer</button>
 </div>
 
 <div class="question">
   <p>38. What are two important considerations when forming a group project team?</p>
   <input type="text" name="q38" style="width:100%">
   <div class="answer hidden" id="ans-q38"></div>
+  <button type="button" class="show-answer-btn" data-question="q38">Show Answer</button>
 </div>
 
 <div class="question">
   <p>39. Give an example of how Outcome Analysis might influence future software releases.</p>
   <input type="text" name="q39" style="width:100%">
   <div class="answer hidden" id="ans-q39"></div>
+  <button type="button" class="show-answer-btn" data-question="q39">Show Answer</button>
 </div>
 
 <div class="question">
   <p>40. Explain how Activity Elimination can improve efficiency in a business process.</p>
   <input type="text" name="q40" style="width:100%">
   <div class="answer hidden" id="ans-q40"></div>
+  <button type="button" class="show-answer-btn" data-question="q40">Show Answer</button>
 </div>
 
     <div class="form-actions">
@@ -982,6 +1099,51 @@ const shortAnswerKey = {
       if (btnResetB) btnResetB.addEventListener('click', function() { resetForm('B'); });
       // Top-level toggles for submit/reset
       // initialize states for resets/submits (submit/reset buttons remain enabled)
+      // Show/Hide Answer buttons - use same pattern as submitTest
+      document.addEventListener('click', function(e) {
+        if (e.target.matches('.show-answer-btn') || e.target.closest('.show-answer-btn')) {
+          const btn = e.target.matches('.show-answer-btn') ? e.target : e.target.closest('.show-answer-btn');
+          
+          // Get the parent question container
+          const question = btn.closest('.question');
+          if (!question) return;
+          
+          // Find answer div and input within the same question
+          const ansDiv = question.querySelector('.answer');
+          const firstInput = question.querySelector('input');
+          
+          if (!ansDiv || !firstInput) return;
+          
+          // Determine test type by checking parent form
+          const form = question.closest('.test');
+          const testType = form.id === 'testB' ? 'B' : 'A';
+          const inputName = firstInput.name;
+          
+          // Get the correct answer from the appropriate key
+          const correctAnswer = testType === 'B' ? shortAnswerKey[inputName] : answers[inputName];
+          
+          if (ansDiv.classList.contains('hidden')) {
+            ansDiv.classList.remove('hidden');
+            ansDiv.style.display = 'block';
+            
+            // Populate answer if empty
+            if (!ansDiv.textContent.trim()) {
+              if (testType === 'B') {
+                ansDiv.textContent = "Suggested Answer: " + (correctAnswer || "");
+                ansDiv.className = "answer";
+              } else {
+                ansDiv.textContent = "Answer: " + (correctAnswer || "");
+                ansDiv.className = "answer";
+              }
+            }
+            btn.textContent = 'Hide Answer';
+          } else {
+            ansDiv.classList.add('hidden');
+            ansDiv.style.display = 'none';
+            btn.textContent = 'Show Answer';
+          }
+        }
+      });
       // Ensure the translucent backdrop covers the full page height (not just the viewport)
       const backdrop = document.querySelector('.card-backdrop');
       const page = document.querySelector('.page');
