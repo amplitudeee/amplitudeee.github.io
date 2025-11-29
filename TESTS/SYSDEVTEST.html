@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>System Development Practice Test</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: white;
+      color: black;
+      margin: 20px;
+    }
+    .dark-mode {
+      background-color: #121212;
+      color: #f0f0f0;
+    }
+    .toggle-bar {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    .question {
+      margin-bottom: 15px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .answer {
+      margin-top: 5px;
+      font-weight: bold;
+    }
+    .correct {
+      color: green;
+    }
+    .incorrect {
+      color: red;
+    }
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="toggle-bar">
+    <button id="btnShowA">Show Test A</button>
+    <button id="btnShowB">Show Test B</button>
+    <button id="btnToggleMode">Toggle Light/Dark Mode</button>
+  </div>
+
+ <!-- Test A -->
+  <form id="testA" class="test">
+    <h2>Test A</h2>
+    <!-- 20 True/False -->
+<div class="question">
+  <p>1. Functional requirements define how a system should perform. (True/False)</p>
+  <label><input type="radio" name="q1" value="True"> True</label>
+  <label><input type="radio" name="q1" value="False"> False</label>
+  <div class="answer hidden" id="ans-q1"></div>
+</div>
+
+<div class="question">
+  <p>2. Non-functional requirements focus on how a system should perform. (True/False)</p>
+  <label><input type="radio" name="q2" value="True"> True</label>
+  <label><input type="radio" name="q2" value="False"> False</label>
+  <div class="answer hidden" id="ans-q2"></div>
+</div>
+
+<div class="question">
+  <p>3. Functional requirements are not static and can be adjusted via structured processes. (True/False)</p>
+  <label><input type="radio" name="q3" value="True"> True</label>
+  <label><input type="radio" name="q3" value="False"> False</label>
+  <div class="answer hidden" id="ans-q3"></div>
+</div>
+
+<div class="question">
+  <p>4. Change control is used in Agile to adjust the scope of functional requirements. (True/False)</p>
+  <label><input type="radio" name="q4" value="True"> True</label>
+  <label><input type="radio" name="q4" value="False"> False</label>
+  <div class="answer hidden" id="ans-q4"></div>
+</div>
+
+<div class="question">
+  <p>5. Backlog refinement is used in Agile to adjust functional requirements. (True/False)</p>
+  <label><input type="radio" name="q5" value="True"> True</label>
+  <label><input type="radio" name="q5" value="False"> False</label>
+  <div class="answer hidden" id="ans-q5"></div>
+</div>
+
+<div class="question">
+  <p>6. Performance, reliability, and security are examples of non-functional requirement aspects. (True/False)</p>
+  <label><input type="radio" name="q6" value="True"> True</label>
+  <label><input type="radio" name="q6" value="False"> False</label>
+  <div class="answer hidden" id="ans-q6"></div>
+</div>
+
+<div class="question">
+  <p>7. Portability and maintainability belong to Operational non-functional requirements. (True/False)</p>
+  <label><input type="radio" name="q7" value="True"> True</label>
+  <label><input type="radio" name="q7" value="False"> False</label>
+  <div class="answer hidden" id="ans-q7"></div>
+</div>
+
+<div class="question">
+  <p>8. Availability and reliability are part of Performance non-functional requirements. (True/False)</p>
+  <label><input type="radio" name="q8" value="True"> True</label>
+  <label><input type="radio" name="q8" value="False"> False</label>
+  <div class="answer hidden" id="ans-q8"></div>
+</div>
+
+<div class="question">
+  <p>9. Access control and encryption are examples of Security non-functional requirements. (True/False)</p>
+  <label><input type="radio" name="q9" value="True"> True</label>
+  <label><input type="radio" name="q9" value="False"> False</label>
+  <div class="answer hidden" id="ans-q9"></div>
+</div>
+
+<div class="question">
+  <p>10. Laws and government regulations are part of Cultural & Political requirements. (True/False)</p>
+  <label><input type="radio" name="q10" value="True"> True</label>
+  <label><input type="radio" name="q10" value="False"> False</label>
+  <div class="answer hidden" id="ans-q10"></div>
+</div>
+
+<div class="question">
+  <p>11. Problem Analysis focuses on understanding ‘why’ before ‘what’. (True/False)</p>
+  <label><input type="radio" name="q11" value="True"> True</label>
+  <label><input type="radio" name="q11" value="False"> False</label>
+  <div class="answer hidden" id="ans-q11"></div>
+</div>
+
+<div class="question">
+  <p>12. Root Cause Analysis focuses on symptoms rather than underlying issues. (True/False)</p>
+  <label><input type="radio" name="q12" value="True"> True</label>
+  <label><input type="radio" name="q12" value="False"> False</label>
+  <div class="answer hidden" id="ans-q12"></div>
+</div>
+
+<div class="question">
+  <p>13. Duration Analysis looks at time taken for process activities to find efficiency opportunities. (True/False)</p>
+  <label><input type="radio" name="q13" value="True"> True</label>
+  <label><input type="radio" name="q13" value="False"> False</label>
+  <div class="answer hidden" id="ans-q13"></div>
+</div>
+
+<div class="question">
+  <p>14. Activity-Based Costing includes indirect costs as well as direct costs. (True/False)</p>
+  <label><input type="radio" name="q14" value="True"> True</label>
+  <label><input type="radio" name="q14" value="False"> False</label>
+  <div class="answer hidden" id="ans-q14"></div>
+</div>
+
+<div class="question">
+  <p>15. Informal Benchmarking involves comparing processes with other businesses to improve. (True/False)</p>
+  <label><input type="radio" name="q15" value="True"> True</label>
+  <label><input type="radio" name="q15" value="False"> False</label>
+  <div class="answer hidden" id="ans-q15"></div>
+</div>
+
+<div class="question">
+  <p>16. Outcome Analysis ignores past results to avoid bias. (True/False)</p>
+  <label><input type="radio" name="q16" value="True"> True</label>
+  <label><input type="radio" name="q16" value="False"> False</label>
+  <div class="answer hidden" id="ans-q16"></div>
+</div>
+
+<div class="question">
+  <p>17. Technology Analysis examines current environment and trends to inform investments. (True/False)</p>
+  <label><input type="radio" name="q17" value="True"> True</label>
+  <label><input type="radio" name="q17" value="False"> False</label>
+  <div class="answer hidden" id="ans-q17"></div>
+</div>
+
+<div class="question">
+  <p>18. Activity Elimination targets non–value-adding activities to free resources. (True/False)</p>
+  <label><input type="radio" name="q18" value="True"> True</label>
+  <label><input type="radio" name="q18" value="False"> False</label>
+  <div class="answer hidden" id="ans-q18"></div>
+</div>
+
+<div class="question">
+  <p>19. Open communication helps prevent team conflict. (True/False)</p>
+  <label><input type="radio" name="q19" value="True"> True</label>
+  <label><input type="radio" name="q19" value="False"> False</label>
+  <div class="answer hidden" id="ans-q19"></div>
+</div>
+
+<div class="question">
+  <p>20. Effort estimation is not important for cost control. (True/False)</p>
+  <label><input type="radio" name="q20" value="True"> True</label>
+  <label><input type="radio" name="q20" value="False"> False</label>
+  <div class="answer hidden" id="ans-q20"></div>
+</div>
+
+<div class="question">
+  <p>21. Which process adjusts functional requirements in Waterfall?</p>
+  <label><input type="radio" name="q21" value="Change Control"> Change Control</label><br>
+  <label><input type="radio" name="q21" value="Backlog Refinement"> Backlog Refinement</label><br>
+  <label><input type="radio" name="q21" value="Scope Creep"> Scope Creep</label><br>
+  <label><input type="radio" name="q21" value="Kanban"> Kanban</label>
+  <div class="answer hidden" id="ans-q21"></div>
+</div>
+
+<div class="question">
+  <p>22. Which non-functional category includes Availability?</p>
+  <label><input type="radio" name="q22" value="Operational"> Operational</label><br>
+  <label><input type="radio" name="q22" value="Performance"> Performance</label><br>
+  <label><input type="radio" name="q22" value="Security"> Security</label><br>
+  <label><input type="radio" name="q22" value="Cultural & Political"> Cultural & Political</label>
+  <div class="answer hidden" id="ans-q22"></div>
+</div>
+
+<div class="question">
+  <p>23. Which analysis strategy identifies inefficient code as the cause of performance issues?</p>
+  <label><input type="radio" name="q23" value="Problem Analysis"> Problem Analysis</label><br>
+  <label><input type="radio" name="q23" value="Root Cause Analysis"> Root Cause Analysis</label><br>
+  <label><input type="radio" name="q23" value="Duration Analysis"> Duration Analysis</label><br>
+  <label><input type="radio" name="q23" value="Outcome Analysis"> Outcome Analysis</label>
+  <div class="answer hidden" id="ans-q23"></div>
+</div>
+
+<div class="question">
+  <p>24. Which requirements gathering technique builds relationships with stakeholders?</p>
+  <label><input type="radio" name="q24" value="Interviewing"> Interviewing</label><br>
+  <label><input type="radio" name="q24" value="Observation"> Observation</label><br>
+  <label><input type="radio" name="q24" value="Questionnaire"> Questionnaire</label><br>
+  <label><input type="radio" name="q24" value="Document Analysis"> Document Analysis</label>
+  <div class="answer hidden" id="ans-q24"></div>
+</div>
+
+<div class="question">
+  <p>25. Who defines requirements?</p>
+  <label><input type="radio" name="q25" value="Project Manager"> Project Manager</label><br>
+  <label><input type="radio" name="q25" value="Developers"> Developers</label><br>
+  <label><input type="radio" name="q25" value="Business Analysts and Stakeholders"> Business Analysts and Stakeholders</label><br>
+  <label><input type="radio" name="q25" value="Customers only"> Customers only</label>
+  <div class="answer hidden" id="ans-q25"></div>
+</div>
+
+<div class="question">
+  <p>26. What does WBS stand for?</p>
+  <label><input type="radio" name="q26" value="Work Breakdown Structure"> Work Breakdown Structure</label><br>
+  <label><input type="radio" name="q26" value="Workflow Business System"> Workflow Business System</label><br>
+  <label><input type="radio" name="q26" value="Work Balance Sheet"> Work Balance Sheet</label><br>
+  <label><input type="radio" name="q26" value="Work Budget Strategy"> Work Budget Strategy</label>
+  <div class="answer hidden" id="ans-q26"></div>
+</div>
+
+<div class="question">
+  <p>27. Which are the three trade-offs of effort estimation?</p>
+  <label><input type="radio" name="q27" value="Scope, Time, Cost"> Scope, Time, Cost</label><br>
+  <label><input type="radio" name="q27" value="Speed, Reliability, Security"> Speed, Reliability, Security</label><br>
+  <label><input type="radio" name="q27" value="Skills, Morale, Rewards"> Skills, Morale, Rewards</label><br>
+  <label><input type="radio" name="q27" value="Availability, Portability, Maintainability"> Availability, Portability, Maintainability</label>
+  <div class="answer hidden" id="ans-q27"></div>
+</div>
+
+<div class="question">
+  <p>28. What is scope creep?</p>
+  <label><input type="radio" name="q28" value="Adding new requirements after project starts"> Adding new requirements after project starts</label><br>
+  <label><input type="radio" name="q28" value="Breaking down project tasks"> Breaking down project tasks</label><br>
+  <label><input type="radio" name="q28" value="Visualizing workflow"> Visualizing workflow</label><br>
+  <label><input type="radio" name="q28" value="Estimating costs"> Estimating costs</label>
+  <div class="answer hidden" id="ans-q28"></div>
+</div>
+
+<div class="question">
+  <p>29. Which method visualizes work process and flow?</p>
+  <label><input type="radio" name="q29" value="Kanban"> Kanban</label><br>
+  <label><input type="radio" name="q29" value="WBS"> WBS</label><br>
+  <label><input type="radio" name="q29" value="Benchmarking"> Benchmarking</label><br>
+  <label><input type="radio" name="q29" value="Shadowing"> Shadowing</label>
+  <div class="answer hidden" id="ans-q29"></div>
+</div>
+
+<div class="question">
+  <p>30. High morale indicates what?</p>
+  <label><input type="radio" name="q30" value="Team has jelled"> Team has jelled</label><br>
+  <label><input type="radio" name="q30" value="Scope creep"> Scope creep</label><br>
+  <label><input type="radio" name="q30" value="Poor communication"> Poor communication</label><br>
+  <label><input type="radio" name="q30" value="Cost control"> Cost control</label>
+  <div class="answer hidden" id="ans-q30"></div>
+</div>
+
+<div class="question">
+  <p>31. Which requirements gathering technique provides a comprehensive understanding of system functionalities and business processes?</p>
+  <label><input type="radio" name="q31" value="Interviewing"> Interviewing</label><br>
+  <label><input type="radio" name="q31" value="Observation"> Observation</label><br>
+  <label><input type="radio" name="q31" value="Questionnaire"> Questionnaire</label><br>
+  <label><input type="radio" name="q31" value="Document Analysis"> Document Analysis</label>
+  <div class="answer hidden" id="ans-q31"></div>
+</div>
+
+<div class="question">
+  <p>32. Which requirements analysis strategy involves looking at past results to guide future actions?</p>
+  <label><input type="radio" name="q32" value="Outcome Analysis"> Outcome Analysis</label><br>
+  <label><input type="radio" name="q32" value="Technology Analysis"> Technology Analysis</label><br>
+  <label><input type="radio" name="q32" value="Activity Elimination"> Activity Elimination</label><br>
+  <label><input type="radio" name="q32" value="Informal Benchmarking"> Informal Benchmarking</label>
+  <div class="answer hidden" id="ans-q32"></div>
+</div>
+
+<div class="question">
+  <p>33. Which non-functional category includes Portability?</p>
+  <label><input type="radio" name="q33" value="Operational"> Operational</label><br>
+  <label><input type="radio" name="q33" value="Performance"> Performance</label><br>
+  <label><input type="radio" name="q33" value="Security"> Security</label><br>
+  <label><input type="radio" name="q33" value="Cultural & Political"> Cultural & Political</label>
+  <div class="answer hidden" id="ans-q33"></div>
+</div>
+
+<div class="question">
+  <p>34. Which strategy involves analyzing the current technology environment and trends?</p>
+  <label><input type="radio" name="q34" value="Problem Analysis"> Problem Analysis</label><br>
+  <label><input type="radio" name="q34" value="Technology Analysis"> Technology Analysis</label><br>
+  <label><input type="radio" name="q34" value="Duration Analysis"> Duration Analysis</label><br>
+  <label><input type="radio" name="q34" value="Activity-Based Costing"> Activity-Based Costing</label>
+  <div class="answer hidden" id="ans-q34"></div>
+</div>
+
+<div class="question">
+  <p>35. Which requirements gathering technique can scale to a large number of respondents?</p>
+  <label><input type="radio" name="q35" value="Interviewing"> Interviewing</label><br>
+  <label><input type="radio" name="q35" value="Observation"> Observation</label><br>
+  <label><input type="radio" name="q35" value="Questionnaire"> Questionnaire</label><br>
+  <label><input type="radio" name="q35" value="Shadowing"> Shadowing</label>
+  <div class="answer hidden" id="ans-q35"></div>
+</div>
+
+<div class="question">
+  <p>36. Which strategy involves identifying all costs associated with a business activity?</p>
+  <label><input type="radio" name="q36" value="Activity-Based Costing"> Activity-Based Costing</label><br>
+  <label><input type="radio" name="q36" value="Root Cause Analysis"> Root Cause Analysis</label><br>
+  <label><input type="radio" name="q36" value="Outcome Analysis"> Outcome Analysis</label><br>
+  <label><input type="radio" name="q36" value="Duration Analysis"> Duration Analysis</label>
+  <div class="answer hidden" id="ans-q36"></div>
+</div>
+
+<div class="question">
+  <p>37. Which non-functional category includes Virus Control?</p>
+  <label><input type="radio" name="q37" value="Operational"> Operational</label><br>
+  <label><input type="radio" name="q37" value="Performance"> Performance</label><br>
+  <label><input type="radio" name="q37" value="Security"> Security</label><br>
+  <label><input type="radio" name="q37" value="Cultural & Political"> Cultural & Political</label>
+  <div class="answer hidden" id="ans-q37"></div>
+</div>
+
+<div class="question">
+  <p>38. Which strategy involves comparing processes informally with other businesses?</p>
+  <label><input type="radio" name="q38" value="Informal Benchmarking"> Informal Benchmarking</label><br>
+  <label><input type="radio" name="q38" value="Technology Analysis"> Technology Analysis</label><br>
+  <label><input type="radio" name="q38" value="Activity Elimination"> Activity Elimination</label><br>
+  <label><input type="radio" name="q38" value="Problem Analysis"> Problem Analysis</label>
+  <div class="answer hidden" id="ans-q38"></div>
+</div>
+
+<div class="question">
+  <p>39. Which requirements gathering technique ensures design is centered around user needs?</p>
+  <label><input type="radio" name="q39" value="Interviewing"> Interviewing</label><br>
+  <label><input type="radio" name="q39" value="Observation"> Observation</label><br>
+  <label><input type="radio" name="q39" value="Questionnaire"> Questionnaire</label><br>
+  <label><input type="radio" name="q39" value="Document Analysis"> Document Analysis</label>
+  <div class="answer hidden" id="ans-q39"></div>
+</div>
+
+<div class="question">
+  <p>40. Which factor is important when forming a project team?</p>
+  <label><input type="radio" name="q40" value="Member availability and skills"> Member availability and skills</label><br>
+  <label><input type="radio" name="q40" value="Scope creep"> Scope creep</label><br>
+  <label><input type="radio" name="q40" value="Kanban"> Kanban</label><br>
+  <label><input type="radio" name="q40" value="High morale"> High morale</label>
+  <div class="answer hidden" id="ans-q40"></div>
+</div>
+
+    <button type="button" id="btnSubmitA">Submit Test A</button>
+    <button type="button" id="btnResetA">Reset Test A</button>
+  </form>
+
+<!-- Test B -->
+  <form id="testB" class="test hidden">
+    <h2>Test B</h2>
+<div class="question">
+  <p>1. Define functional requirements and explain their purpose.</p>
+  <input type="text" name="q1" style="width:100%">
+  <div class="answer hidden" id="ans-q1"></div>
+</div>
+
+<div class="question">
+  <p>2. Define non-functional requirements and explain their focus.</p>
+  <input type="text" name="q2" style="width:100%">
+  <div class="answer hidden" id="ans-q2"></div>
+</div>
+
+<div class="question">
+  <p>3. How are functional requirements adjusted in scope during a project?</p>
+  <input type="text" name="q3" style="width:100%">
+  <div class="answer hidden" id="ans-q3"></div>
+</div>
+
+<div class="question">
+  <p>4. Name two structured processes used to adjust functional requirements.</p>
+  <input type="text" name="q4" style="width:100%">
+  <div class="answer hidden" id="ans-q4"></div>
+</div>
+
+<div class="question">
+  <p>5. List four aspects covered by non-functional requirements.</p>
+  <input type="text" name="q5" style="width:100%">
+  <div class="answer hidden" id="ans-q5"></div>
+</div>
+
+<div class="question">
+  <p>6. Which non-functional category includes Portability and Maintainability?</p>
+  <input type="text" name="q6" style="width:100%">
+  <div class="answer hidden" id="ans-q6"></div>
+</div>
+
+<div class="question">
+  <p>7. Which non-functional category includes Speed and Capacity?</p>
+  <input type="text" name="q7" style="width:100%">
+  <div class="answer hidden" id="ans-q7"></div>
+</div>
+
+<div class="question">
+  <p>8. Which non-functional category includes Access Control and Encryption?</p>
+  <input type="text" name="q8" style="width:100%">
+  <div class="answer hidden" id="ans-q8"></div>
+</div>
+
+<div class="question">
+  <p>9. Which non-functional category includes Laws and Government Regulations?</p>
+  <input type="text" name="q9" style="width:100%">
+  <div class="answer hidden" id="ans-q9"></div>
+</div>
+
+<div class="question">
+  <p>10. What is the goal of Problem Analysis in requirements analysis?</p>
+  <input type="text" name="q10" style="width:100%">
+  <div class="answer hidden" id="ans-q10"></div>
+</div>
+
+<div class="question">
+  <p>11. What is the goal of Root Cause Analysis?</p>
+  <input type="text" name="q11" style="width:100%">
+  <div class="answer hidden" id="ans-q11"></div>
+</div>
+
+<div class="question">
+  <p>12. What does Duration Analysis examine?</p>
+  <input type="text" name="q12" style="width:100%">
+  <div class="answer hidden" id="ans-q12"></div>
+</div>
+
+<div class="question">
+  <p>13. What does Activity-Based Costing include beyond direct costs?</p>
+  <input type="text" name="q13" style="width:100%">
+  <div class="answer hidden" id="ans-q13"></div>
+</div>
+
+<div class="question">
+  <p>14. What is Informal Benchmarking used for?</p>
+  <input type="text" name="q14" style="width:100%">
+  <div class="answer hidden" id="ans-q14"></div>
+</div>
+
+<div class="question">
+  <p>15. What is Outcome Analysis used for?</p>
+  <input type="text" name="q15" style="width:100%">
+  <div class="answer hidden" id="ans-q15"></div>
+</div>
+
+<div class="question">
+  <p>16. What is Technology Analysis used for?</p>
+  <input type="text" name="q16" style="width:100%">
+  <div class="answer hidden" id="ans-q16"></div>
+</div>
+
+<div class="question">
+  <p>17. What is Activity Elimination used for?</p>
+  <input type="text" name="q17" style="width:100%">
+  <div class="answer hidden" id="ans-q17"></div>
+</div>
+
+<div class="question">
+  <p>18. What is the main benefit of Interviewing as a requirements gathering technique?</p>
+  <input type="text" name="q18" style="width:100%">
+  <div class="answer hidden" id="ans-q18"></div>
+</div>
+
+<div class="question">
+  <p>19. What is the main benefit of Observation as a requirements gathering technique?</p>
+  <input type="text" name="q19" style="width:100%">
+  <div class="answer hidden" id="ans-q19"></div>
+</div>
+
+<div class="question">
+  <p>20. What is the main benefit of Questionnaires as a requirements gathering technique?</p>
+  <input type="text" name="q20" style="width:100%">
+  <div class="answer hidden" id="ans-q20"></div>
+</div>
+
+<div class="question">
+  <p>21. What is the main benefit of Document Analysis as a requirements gathering technique?</p>
+  <input type="text" name="q21" style="width:100%">
+  <div class="answer hidden" id="ans-q21"></div>
+</div>
+
+<div class="question">
+  <p>22. What is Shadowing used for in requirements gathering?</p>
+  <input type="text" name="q22" style="width:100%">
+  <div class="answer hidden" id="ans-q22"></div>
+</div>
+
+<div class="question">
+  <p>23. Who defines requirements in a project?</p>
+  <input type="text" name="q23" style="width:100%">
+  <div class="answer hidden" id="ans-q23"></div>
+</div>
+
+<div class="question">
+  <p>24. Who does the work after requirements are defined?</p>
+  <input type="text" name="q24" style="width:100%">
+  <div class="answer hidden" id="ans-q24"></div>
+</div>
+
+<div class="question">
+  <p>25. What does WBS stand for and what is its purpose?</p>
+  <input type="text" name="q25" style="width:100%">
+  <div class="answer hidden" id="ans-q25"></div>
+</div>
+
+<div class="question">
+  <p>26. What are the three trade-offs of effort estimation?</p>
+  <input type="text" name="q26" style="width:100%">
+  <div class="answer hidden" id="ans-q26"></div>
+</div>
+
+<div class="question">
+  <p>27. What is scope creep?</p>
+  <input type="text" name="q27" style="width:100%">
+  <div class="answer hidden" id="ans-q27"></div>
+</div>
+
+<div class="question">
+  <p>28. Why is open communication important in project teams?</p>
+  <input type="text" name="q28" style="width:100%">
+  <div class="answer hidden" id="ans-q28"></div>
+</div>
+
+<div class="question">
+  <p>29. Why are skill sets important when staffing a project team?</p>
+  <input type="text" name="q29" style="width:100%">
+  <div class="answer hidden" id="ans-q29"></div>
+</div>
+
+<div class="question">
+  <p>30. What does high morale indicate in a project team?</p>
+  <input type="text" name="q30" style="width:100%">
+  <div class="answer hidden" id="ans-q30"></div>
+</div>
+
+<div class="question">
+  <p>31. What is a possible team motivation strategy?</p>
+  <input type="text" name="q31" style="width:100%">
+  <div class="answer hidden" id="ans-q31"></div>
+</div>
+
+<div class="question">
+  <p>32. What does Kanban visualize?</p>
+  <input type="text" name="q32" style="width:100%">
+  <div class="answer hidden" id="ans-q32"></div>
+</div>
+
+<div class="question">
+  <p>33. Why is effort estimation critical for cost control?</p>
+  <input type="text" name="q33" style="width:100%">
+  <div class="answer hidden" id="ans-q33"></div>
+</div>
+
+<div class="question">
+  <p>34. What is an important consideration when forming a group project?</p>
+  <input type ="text" name="q34" style="width:100%">
+  <div class="answer hidden" id="ans-q34"></div>
+</div>
+
+<div class="question">
+  <p>35. Why is rewards and recognition important for team motivation?</p>
+  <input type="text" name="q35" style="width:100%">
+  <div class="answer hidden" id="ans-q35"></div>
+</div>
+
+<div class="question">
+  <p>36. What does Kanban help visualize in project management?</p>
+  <input type="text" name="q36" style="width:100%">
+  <div class="answer hidden" id="ans-q36"></div>
+</div>
+
+<div class="question">
+  <p>37. Why is effort estimation critical for managing project costs?</p>
+  <input type="text" name="q37" style="width:100%">
+  <div class="answer hidden" id="ans-q37"></div>
+</div>
+
+<div class="question">
+  <p>38. What are two important considerations when forming a group project team?</p>
+  <input type="text" name="q38" style="width:100%">
+  <div class="answer hidden" id="ans-q38"></div>
+</div>
+
+<div class="question">
+  <p>39. Give an example of how Outcome Analysis might influence future software releases.</p>
+  <input type="text" name="q39" style="width:100%">
+  <div class="answer hidden" id="ans-q39"></div>
+</div>
+
+<div class="question">
+  <p>40. Explain how Activity Elimination can improve efficiency in a business process.</p>
+  <input type="text" name="q40" style="width:100%">
+  <div class="answer hidden" id="ans-q40"></div>
+</div>
+
+    <button type="button" id="btnSubmitB">Submit Test B</button>
+    <button type="button" id="btnResetB">Reset Test B</button>
+  </form>
+  <script>
+const answers = {
+  q1: "False", // Functional = what the system must do; the "how it performs" is non-functional.
+  q2: "True",  // Non-functional requirements define performance/quality attributes (how it should perform).
+  q3: "True",  // They change via structured processes to balance value, feasibility, constraints.
+  q4: "False", // Change control is Waterfall; Agile uses backlog refinement for adjusting scope.
+  q5: "True",  // Backlog refinement adjusts functional requirements in Agile.
+  q6: "True",  // Non-functional examples: performance, usability, reliability, security, maintainability.
+  q7: "True",  // Operational includes portability, maintainability (plus tech environment, integration).
+  q8: "True",  // Performance category includes availability and reliability (along with speed, capacity).
+  q9: "True",  // Security includes access control, encryption & authentication, virus control.
+  q10: "True", // Cultural & Political includes laws and government regulations.
+  q11: "True", // Problem Analysis: understand 'why' before 'what'.
+  q12: "False",// Root Cause Analysis seeks underlying causes, not just symptoms.
+  q13: "True", // Duration Analysis looks at time per activity to spot inefficiencies.
+  q14: "True", // ABC includes indirect costs (utilities, rent, salaries, marketing) + direct.
+  q15: "True", // Informal Benchmarking compares with other businesses to improve processes.
+  q16: "False",// Outcome Analysis uses past results to inform future actions (not ignore).
+  q17: "True", // Technology Analysis examines environment and trends to guide investments.
+  q18: "True", // Activity Elimination removes non–value-adding activities to free resources.
+  q19: "True", // Open communication is good to prevent team conflict.
+  q20: "False", // Effort estimation is critical for managing cost control.
+  q21: "Change Control", // In Waterfall, scope adjustments are handled through formal change control processes.
+  q22: "Performance", // Availability is part of the Performance category (speed, capacity, reliability).
+  q23: "Root Cause Analysis", // Identifies underlying causes like inefficient code, not just symptoms.
+  q24: "Interviewing", // Builds relationships with stakeholders while gathering requirements.
+  q25: "Business Analysts and Stakeholders", // They define requirements; PMs and developers implement them.
+  q26: "Work Breakdown Structure", // WBS decomposes a project into smaller, manageable components.
+  q27: "Scope, Time, Cost", // The three trade-offs of effort estimation.
+  q28: "Adding new requirements after project starts", // Scope creep is introducing new requirements mid-project.
+  q29: "Kanban", // Kanban visualizes workflow and process.
+  q30: "Team has jelled", // High morale indicates the team is working well together.
+  q31: "Document Analysis", // Provides comprehensive understanding of system and processes.
+  q32: "Outcome Analysis", // Uses past results to guide future actions.
+  q33: "Operational", // Portability is part of Operational requirements.
+  q34: "Technology Analysis", // Examines current environment and trends.
+  q35: "Questionnaire", // Scales to large respondent groups.
+  q36: "Activity-Based Costing", // Identifies direct and indirect costs of activities.
+  q37: "Security", // Virus control is part of Security requirements.
+  q38: "Informal Benchmarking", // Compares processes informally with other businesses.
+  q39: "Observation", // Ensures design is centered around user needs.
+  q40: "Member availability and skills", // Important factors when forming a project team.
+    };
+const shortAnswerKey = {
+  q1: "Functional requirements define what a system must do, describing its core features and tasks.",
+  q2: "Non-functional requirements focus on how the system performs, covering quality attributes like speed, security, and usability.",
+  q3: "They are adjusted through structured processes such as change control (Waterfall) or backlog refinement (Agile).",
+  q4: "Change control in Waterfall and backlog refinement in Agile.",
+  q5: "Performance, usability, reliability, security, maintainability.",
+  q6: "Operational — includes portability, maintainability, technical environment, and system integration.",
+  q7: "Performance — includes speed, capacity, availability, reliability.",
+  q8: "Security — includes system value, access control, encryption & authentication, virus control.",
+  q9: "Cultural & Political — includes laws, government regulations, language differences, centralized vs local control.",
+  q10: "Problem Analysis identifies and articulates the business problem, focusing on 'why' before 'what'.",
+  q11: "Root Cause Analysis identifies underlying causes of problems rather than just symptoms.",
+  q12: "Duration Analysis examines the time taken for activities to find efficiency opportunities.",
+  q13: "Activity-Based Costing includes indirect costs like rent, utilities, salaries, and marketing in addition to direct costs.",
+  q14: "Informal Benchmarking compares processes with other businesses to identify areas for improvement.",
+  q15: "Outcome Analysis uses past results to guide future actions.",
+  q16: "Technology Analysis examines current technology environment and trends to inform investment decisions.",
+  q17: "Activity Elimination removes non–value-adding activities to free resources.",
+  q18: "Interviewing provides in-depth understanding and builds relationships with stakeholders.",
+  q19: "Observation provides real-world understanding of user behavior and reduces miscommunication.",
+  q20: "Questionnaires scale to large groups, provide quantitative data, and allow anonymity.",
+  q21: "Document Analysis provides comprehensive understanding of systems and identifies gaps efficiently.",
+  q22: "Shadowing involves following users to observe their work and uncover implicit requirements.",
+  q23: "Business analysts and stakeholders define requirements.",
+  q24: "Project managers and developers do the work after requirements are defined.",
+  q25: "Work Breakdown Structure — decomposes a project into smaller components for clarity and scope management.",
+  q26: "Scope, Time, Cost — the three trade-offs of effort estimation.",
+  q27: "Scope creep is adding new requirements after a project has started.",
+  q28: "Open communication prevents team conflict and supports collaboration.",
+  q29: "Skill sets ensure the team has the right expertise for tasks.",
+  q30: "High morale indicates the team has 'jelled' and is working well together.",
+  q31: "Rewards and recognition motivate teams and improve performance.",
+  q32: "Kanban visualizes work processes and flow.",
+  q33: "Effort estimation is critical for cost control because it predicts resource needs and expenses.",
+  q34: "Member availability and skills are important considerations when forming a group project.",
+  q35: "Rewards and recognition encourage motivation, engagement, and sustained performance.",
+  q36: "Kanban helps visualize workflow, bottlenecks, and task progress.",
+  q37: "Effort estimation ensures accurate budgeting and prevents overspending.",
+  q38: "Member availability and skills — ensures tasks are covered and team balance is maintained.",
+  q39: "Outcome Analysis might lead to more thorough testing if past releases caused support issues.",
+  q40: "Activity Elimination improves efficiency by removing tasks that add no value, freeing resources for useful work."
+};
+
+    function toggleTest(test) {
+      document.getElementById('testA').classList.add('hidden');
+      document.getElementById('testB').classList.add('hidden');
+      document.getElementById('test' + test).classList.remove('hidden');
+    }
+
+    function toggleMode() {
+      document.body.classList.toggle('dark-mode');
+    }
+
+    function submitTest(test) {
+      const form = document.getElementById('test' + test);
+      if (!form) return;
+      const questions = form.querySelectorAll('.question');
+      questions.forEach(q => {
+        const firstInput = q.querySelector('input');
+        const inputName = firstInput ? firstInput.name : null;
+        const ansDiv = q.querySelector('.answer');
+        // Use the appropriate answer key depending on test type
+        const correctAnswer = inputName ? (test === 'B' ? shortAnswerKey[inputName] : answers[inputName]) : null;
+        let userAnswer = "";
+
+        if (q.querySelector('input[type="radio"]')) {
+          const selected = q.querySelector('input[type="radio"]:checked');
+          if (selected) userAnswer = selected.value;
+          if (ansDiv) {
+            if (userAnswer === correctAnswer) {
+              ansDiv.textContent = "Correct! Answer: " + correctAnswer;
+              ansDiv.className = "answer correct";
+            } else {
+              ansDiv.textContent = "Incorrect. Correct Answer: " + (correctAnswer || "");
+              ansDiv.className = "answer incorrect";
+            }
+            ansDiv.classList.remove('hidden');
+            ansDiv.style.display = '';
+          }
+        } else {
+          const textInput = q.querySelector('input[type="text"]');
+          userAnswer = textInput ? textInput.value : "";
+          if (ansDiv) {
+            // For short-answer questions show the shortAnswerKey suggestion
+            ansDiv.textContent = "Suggested Answer: " + (correctAnswer || "");
+            ansDiv.className = "answer";
+            ansDiv.classList.remove('hidden');
+            ansDiv.style.display = '';
+          }
+        }
+      });
+    }
+
+    function resetForm(test) {
+      const form = document.getElementById('test' + test);
+      if (!form) return;
+      form.reset();
+      // hide and clear answer boxes
+      const answersEls = form.querySelectorAll('.answer');
+      answersEls.forEach(a => {
+        a.classList.add('hidden');
+        a.textContent = '';
+        a.style.display = 'none';
+      });
+    }
+
+    // Attach event listeners to buttons (replace inline onclicks)
+    document.addEventListener('DOMContentLoaded', function() {
+      const btnShowA = document.getElementById('btnShowA');
+      if (btnShowA) btnShowA.addEventListener('click', function() { toggleTest('A'); });
+      const btnShowB = document.getElementById('btnShowB');
+      if (btnShowB) btnShowB.addEventListener('click', function() { toggleTest('B'); });
+      const btnToggleMode = document.getElementById('btnToggleMode');
+      if (btnToggleMode) btnToggleMode.addEventListener('click', toggleMode);
+      const btnSubmitA = document.getElementById('btnSubmitA');
+      if (btnSubmitA) btnSubmitA.addEventListener('click', function() { submitTest('A'); });
+      const btnSubmitB = document.getElementById('btnSubmitB');
+      if (btnSubmitB) btnSubmitB.addEventListener('click', function() { submitTest('B'); });
+      // Reset buttons
+      const btnResetA = document.getElementById('btnResetA');
+      if (btnResetA) btnResetA.addEventListener('click', function() { resetForm('A'); });
+      const btnResetB = document.getElementById('btnResetB');
+      if (btnResetB) btnResetB.addEventListener('click', function() { resetForm('B'); });
+      // Top-level toggles for submit/reset
+      // initialize states for resets/submits (submit/reset buttons remain enabled)
+    });
+  </script>
+</body>
+</html>
