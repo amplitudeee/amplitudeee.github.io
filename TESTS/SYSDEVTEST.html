@@ -101,7 +101,6 @@
     .question p{ overflow-wrap: anywhere; word-break: break-word; }
     .question input.blank { padding: 12px 14px; border-radius: 8px; max-width: 100%; min-height: 44px; }
     .blank-wrap { display:inline-flex; align-items:center; gap:6px; }
-    .btnClearBlank { padding:6px 10px; border-radius:8px; font-size:12px; }
 
     input[type="radio"], input[type="checkbox"]{ accent-color: var(--accent3); transform: scale(1.08); margin-right:6px; }
 
@@ -368,7 +367,7 @@
     }
     .result-num {
       font-weight: 700;
-      color: #aaa;
+      color: #ddd;
     }
     .result-question {
       color: #f6f7fb;
@@ -418,6 +417,28 @@
 
     /* Results actions (top area with Try Again) */
     .results-actions { display: flex; justify-content: flex-end; gap: 10px; margin: 8px 0 12px; }
+
+    /* Shortcut toast (accessible, brief, respects reduced motion) */
+    .shortcut-toast {
+      position: fixed;
+      left: 50%;
+      bottom: 18px;
+      transform: translateX(-50%);
+      background: rgba(0,0,0,0.8);
+      color: #fff;
+      padding: 10px 14px;
+      border-radius: 10px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.45);
+      font-weight: 700;
+      z-index: 1000;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity .25s ease;
+    }
+    .shortcut-toast.show { opacity: 1; }
+    @media (prefers-reduced-motion: reduce){
+      .shortcut-toast { transition: none; }
+    }
   </style>
 </head>
 <body>
@@ -851,11 +872,11 @@ A40: Activity Elimination improves efficiency by removing tasks that add no valu
 
     <div class="form-actions">
       <button type="button" id="btnPrevA" class="nav-btn">Prev</button>
-      <button type="button" id="btnCheckA" class="nav-btn">Check</button>
+      <button type="button" id="btnCheckA" class="nav-btn">Show Answer</button>
       <button type="button" id="btnNextA" class="nav-btn">Next</button>
       <button type="button" id="btnSubmitA">Submit Easy Test</button>
       <button type="button" class="help-shortcuts" id="helpA" aria-haspopup="true" aria-expanded="false" aria-label="Keyboard shortcuts help">?
-        <span class="popover" role="tooltip">Keyboard Shortcuts:<br>Next = Right Arrow<br>Prev = Left Arrow<br>C = Check<br>S = Submit</span>
+        <span class="popover" role="tooltip">Keyboard Shortcuts:<br>Next = Right Arrow<br>Prev = Left Arrow<br>Show Answer = Up Arrow<br>Hide Answer = Down Arrow</span>
       </button>
     </div>
   </form>
@@ -871,11 +892,12 @@ A40: Activity Elimination improves efficiency by removing tasks that add no valu
 
     <div class="form-actions">
       <button type="button" id="btnPrevB" class="nav-btn">Prev</button>
-      <button type="button" id="btnCheckB" class="nav-btn">Check</button>
+      <button type="button" id="btnCheckB" class="nav-btn">Show Answer</button>
+      <button type="button" id="btnResetB" class="nav-btn">Clear Question</button>
       <button type="button" id="btnNextB" class="nav-btn">Next</button>
       <button type="button" id="btnSubmitB">Submit Hard Test</button>
       <button type="button" class="help-shortcuts" id="helpB" aria-haspopup="true" aria-expanded="false" aria-label="Keyboard shortcuts help">?
-        <span class="popover" role="tooltip">Keyboard Shortcuts:<br>Next = Right Arrow<br>Prev = Left Arrow<br>C = Check<br>S = Submit</span>
+        <span class="popover" role="tooltip">Keyboard Shortcuts:<br>Next = Right Arrow<br>Prev = Left Arrow<br>Show Answer = Up Arrow<br>Hide Answer = Down Arrow</span>
       </button>
     </div>
   </form>
@@ -891,11 +913,12 @@ A40: Activity Elimination improves efficiency by removing tasks that add no valu
 
     <div class="form-actions">
       <button type="button" id="btnPrevC" class="nav-btn">Prev</button>
-      <button type="button" id="btnCheckC" class="nav-btn">Check</button>
+      <button type="button" id="btnCheckC" class="nav-btn">Show Answer</button>
+      <button type="button" id="btnResetC" class="nav-btn">Clear Question</button>
       <button type="button" id="btnNextC" class="nav-btn">Next</button>
       <button type="button" id="btnSubmitC">Submit Medium Test</button>
       <button type="button" class="help-shortcuts" id="helpC" aria-haspopup="true" aria-expanded="false" aria-label="Keyboard shortcuts help">?
-        <span class="popover" role="tooltip">Keyboard Shortcuts:<br>Next = Right Arrow<br>Prev = Left Arrow<br>C = Check<br>S = Submit</span>
+        <span class="popover" role="tooltip">Keyboard Shortcuts:<br>Next = Right Arrow<br>Prev = Left Arrow<br>Show Answer = Up Arrow<br>Hide Answer = Down Arrow</span>
       </button>
     </div>
   </form>
@@ -915,6 +938,8 @@ A40: Activity Elimination improves efficiency by removing tasks that add no valu
     </div>
     <div class="results-details" id="resultsDetails"></div>
   </div>
+  <!-- Shortcut toast for keyboard feedback -->
+  <div id="shortcutToast" class="shortcut-toast" role="status" aria-live="polite" aria-atomic="true"></div>
   <script>
 // Answers object - populated dynamically by renderFromPlainText from sourceA
 const answers = {};
@@ -1174,7 +1199,7 @@ function isEquivalentAnswer(user, expected){
         const replaced = text.replace(/_{3,}/g, () => {
           const name = `${qId}-b${idx}`;
           const inId = `${qId}-b${idx}-id`;
-          const html = `<span class="blank-wrap"><input id="${inId}" type="text" class="blank" name="${name}" style="min-width:120px" aria-describedby="ans-${qId}"><button type="button" class="btnClearBlank" data-target="${inId}" aria-label="Clear blank ${idx}">Clear</button></span>`;
+          const html = `<span class="blank-wrap"><input id="${inId}" type="text" class="blank" name="${name}" style="min-width:120px" aria-describedby="ans-${qId}"></span>`;
           idx += 1;
           return html;
         });
@@ -1346,6 +1371,23 @@ function isEquivalentAnswer(user, expected){
           submitTest('C');
           return false;
         }
+        // Clear current question buttons
+        function clearCurrentQuestion(formId){
+          const form = document.getElementById(formId);
+          if (!form) return;
+          const idx = window.currentIndex ? window.currentIndex[formId] : 0;
+          const questions = Array.from(form.querySelectorAll('.question'));
+          const q = questions[idx];
+          if (!q) return;
+          // Clear radios and text inputs
+          q.querySelectorAll('input[type="radio"]').forEach(r => { r.checked = false; });
+          q.querySelectorAll('input[type="text"]').forEach(t => { t.value = ''; });
+          // Hide any answer feedback
+          const ansDiv = q.querySelector('.answer');
+          if (ansDiv){ ansDiv.classList.add('hidden'); ansDiv.style.display='none'; ansDiv.textContent=''; }
+        }
+        if (target.id === 'btnResetB' || target.closest('#btnResetB')) { e.preventDefault(); clearCurrentQuestion('testB'); return false; }
+        if (target.id === 'btnResetC' || target.closest('#btnResetC')) { e.preventDefault(); clearCurrentQuestion('testC'); return false; }
       }, true); // Use capture phase
       
       // Removed toggle bar start buttons
@@ -1361,6 +1403,17 @@ function isEquivalentAnswer(user, expected){
       if (btnTryAgain) btnTryAgain.addEventListener('click', function() {
         location.reload();
       });
+
+      // Disable Esc behavior on results page
+      const resultsPage = document.getElementById('resultsPage');
+      if (resultsPage) {
+        resultsPage.addEventListener('keydown', function(ev){
+          if (ev.key === 'Escape') {
+            ev.preventDefault();
+            ev.stopPropagation();
+          }
+        });
+      }
 
       // Paging: show one question at a time per form
       const currentIndex = { testA: 0, testB: 0, testC: 0 };
@@ -1386,7 +1439,23 @@ function isEquivalentAnswer(user, expected){
           next.onclick = function(){ nextQuestion(formId); };
           next.disabled = isLast;
         }
-        if (check) { check.style.display = isLast ? 'none' : ''; check.onclick = function(){ checkQuestion(formId); }; }
+          if (check) {
+              check.style.display = isLast ? 'none' : '';
+              // Set initial label based on current question's answer visibility
+              const current = questions[index];
+              const ansDiv = current ? current.querySelector('.answer') : null;
+              const isShown = ansDiv && !ansDiv.classList.contains('hidden') && ansDiv.style.display !== 'none' && ansDiv.textContent.trim() !== '';
+              check.textContent = isShown ? 'Hide Answer' : 'Show Answer';
+              check.onclick = function(){
+                // Recompute current visibility at click time
+                const currentQ = questions[currentIndex[formId]];
+                const aDiv = currentQ ? currentQ.querySelector('.answer') : null;
+                const visible = aDiv && !aDiv.classList.contains('hidden') && aDiv.style.display !== 'none' && aDiv.textContent.trim() !== '';
+                const nowShown = toggleAnswer(formId, !visible);
+                // Update button label after action
+                check.textContent = nowShown ? 'Hide Answer' : 'Show Answer';
+              };
+            }
         const submitBtn = document.getElementById(formId === 'testA' ? 'btnSubmitA' : (formId === 'testB' ? 'btnSubmitB' : 'btnSubmitC'));
         if (submitBtn) {
           submitBtn.style.display = isLast ? '' : 'none';
@@ -1428,7 +1497,12 @@ function isEquivalentAnswer(user, expected){
       }
 
       function checkQuestion(formId) {
-        // Validate the current question and show feedback without changing question
+        // Legacy: kept for Enter key mapping; now delegates to show suggested answer
+        toggleAnswer(formId, true);
+      }
+
+      function toggleAnswer(formId, show){
+        // Show or hide the suggested/correct answer for the current question
         const form = document.getElementById(formId);
         const idx = currentIndex[formId];
         const questions = Array.from(form.querySelectorAll('.question'));
@@ -1457,57 +1531,23 @@ function isEquivalentAnswer(user, expected){
             explanation = parts.length > 1 ? parts.slice(1).join('|').trim() : (formId === 'testB' ? String(rawAnswer).trim() : '');
           }
         }
-
-        if (q.querySelector('input[type="radio"]')) {
-          const selected = q.querySelector('input[type="radio"]:checked');
-          const userAnswer = selected ? selected.value : '';
-          if (userAnswer === correctAnswer) {
-            if (ansDiv) {
-              ansDiv.textContent = "Correct! Answer: " + correctAnswer + (explanation ? " — " + explanation : "");
-              ansDiv.className = "answer correct";
-              ansDiv.classList.remove('hidden'); ansDiv.style.display = 'block';
-            }
+        if (!ansDiv) return false;
+        if (show) {
+          const isChoice = !!q.querySelector('input[type="radio"]');
+          const isText = !isChoice && !isBlanks;
+          if (isBlanks) {
+            ansDiv.textContent = "Suggested Answers: " + (expected.length ? expected.join(', ') : (correctAnswer || '')) + (explanation ? " — " + explanation : "");
+          } else if (isText) {
+            ansDiv.textContent = "Suggested Answer: " + (correctAnswer || "") + (explanation ? " — " + explanation : "");
           } else {
-            if (ansDiv) {
-              ansDiv.textContent = "Incorrect. Correct Answer: " + (correctAnswer || "") + (explanation ? " — " + explanation : "");
-              ansDiv.className = "answer incorrect";
-              ansDiv.classList.remove('hidden'); ansDiv.style.display = 'block';
-            }
+            ansDiv.textContent = "Correct Answer: " + (correctAnswer || "") + (explanation ? " — " + explanation : "");
           }
-        } else if (!isBlanks) {
-          const textInput = q.querySelector('input[type="text"]');
-          const userText = textInput ? textInput.value.trim() : '';
-          if (userText && userText.toLowerCase() === (correctAnswer || '').toLowerCase()) {
-            if (ansDiv) {
-              ansDiv.textContent = "Correct!";
-              ansDiv.className = "answer correct";
-              ansDiv.classList.remove('hidden'); ansDiv.style.display = 'block';
-            }
-          } else {
-            if (ansDiv) {
-              ansDiv.textContent = "Suggested Answer: " + (correctAnswer || "") + (explanation ? " — " + explanation : "");
-              ansDiv.className = "answer incorrect";
-              ansDiv.classList.remove('hidden'); ansDiv.style.display = 'block';
-            }
-          }
+          ansDiv.className = "answer";
+          ansDiv.classList.remove('hidden'); ansDiv.style.display = 'block';
+          return true;
         } else {
-          // blanks type
-          const blanks = Array.from(q.querySelectorAll('input[type="text"].blank'));
-          const answersGiven = blanks.map(inp => (inp.value || '').trim());
-          const allCorrect = expected.length === answersGiven.length && answersGiven.every((ans, i) => isEquivalentAnswer(ans, expected[i] || ''));
-          if (allCorrect) {
-            if (ansDiv) {
-              ansDiv.textContent = "Correct!" + (explanation ? " — " + explanation : "");
-              ansDiv.className = "answer correct";
-              ansDiv.classList.remove('hidden'); ansDiv.style.display = 'block';
-            }
-          } else {
-            if (ansDiv) {
-              ansDiv.textContent = "Suggested Answers: " + expected.join(', ') + (explanation ? " — " + explanation : "");
-              ansDiv.className = "answer incorrect";
-              ansDiv.classList.remove('hidden'); ansDiv.style.display = 'block';
-            }
-          }
+          ansDiv.classList.add('hidden'); ansDiv.style.display='none'; ansDiv.textContent='';
+          return false;
         }
       }
 
@@ -1548,20 +1588,60 @@ function isEquivalentAnswer(user, expected){
         // show first
         showQuestion(id, 0);
         // Keyboard shortcuts: N for Next, C for Check, Enter -> Check
+        // Toast utility
+        const toastEl = document.getElementById('shortcutToast');
+        let toastTimer = null;
+        function showToast(msg){
+          if (!toastEl) return;
+          toastEl.textContent = msg;
+          toastEl.classList.add('show');
+          clearTimeout(toastTimer);
+          toastTimer = setTimeout(() => { toastEl.classList.remove('show'); }, 1200);
+        }
+
         form.addEventListener('keydown', function(ev){
           const key = ev.key.toLowerCase();
-          if (key === 'n') { ev.preventDefault(); nextQuestion(id); }
-          if (key === 'p') { ev.preventDefault(); prevQuestion(id); }
-          if (key === 'c') { ev.preventDefault(); checkQuestion(id); }
-          if (key === 's') { ev.preventDefault(); const sBtn = document.getElementById(id === 'testA' ? 'btnSubmitA' : (id === 'testB' ? 'btnSubmitB' : 'btnSubmitC')); if (sBtn) sBtn.click(); }
-          if (ev.key === 'ArrowRight') { ev.preventDefault(); nextQuestion(id); }
-          if (ev.key === 'ArrowLeft') { ev.preventDefault(); prevQuestion(id); }
+          if (key === 'n') { ev.preventDefault(); nextQuestion(id); showToast('Next'); }
+          if (key === 'p') { ev.preventDefault(); prevQuestion(id); showToast('Prev'); }
+          if (ev.key === 'ArrowRight') { ev.preventDefault(); nextQuestion(id); showToast('Next'); }
+          if (ev.key === 'ArrowLeft') { ev.preventDefault(); prevQuestion(id); showToast('Prev'); }
+          if (ev.key === 'ArrowUp') { ev.preventDefault();
+            const shown = toggleAnswer(id, true);
+            // Sync button label
+            const btn = document.getElementById(id === 'testA' ? 'btnCheckA' : (id === 'testB' ? 'btnCheckB' : 'btnCheckC'));
+            if (btn) btn.textContent = shown ? 'Hide Answer' : 'Show Answer';
+            showToast('Show Answer');
+          }
+          // Remove Right Control shortcut per request
+          if (ev.key === 'ArrowDown') { ev.preventDefault();
+            const shown = toggleAnswer(id, false);
+            const btn = document.getElementById(id === 'testA' ? 'btnCheckA' : (id === 'testB' ? 'btnCheckB' : 'btnCheckC'));
+            if (btn) btn.textContent = shown ? 'Hide Answer' : 'Show Answer';
+            showToast('Hide Answer');
+          }
+          if (ev.key === 'Escape') { ev.preventDefault();
+            // Scope Esc clear to Hard/Medium only
+            if (id !== 'testA') {
+              const idx = window.currentIndex ? window.currentIndex[id] : 0;
+              const q = form.querySelectorAll('.question')[idx];
+              if (q) {
+                q.querySelectorAll('input[type="radio"]').forEach(r => { r.checked = false; });
+                q.querySelectorAll('input[type="text"]').forEach(t => { t.value = ''; });
+                const ansDiv = q.querySelector('.answer');
+                if (ansDiv){ ansDiv.classList.add('hidden'); ansDiv.style.display='none'; ansDiv.textContent=''; }
+              }
+              showToast('Cleared');
+            }
+          }
           if (key === 'enter'){
             const active = document.activeElement;
             if (active && (active.tagName === 'INPUT' || active.tagName === 'TEXTAREA')){
               ev.preventDefault();
-              // keep Enter mapped to Check for quick validation
-              checkQuestion(id);
+              // Enter shows answer for quick reference
+              const shown = toggleAnswer(id, true);
+              const btn = document.getElementById(id === 'testA' ? 'btnCheckA' : (id === 'testB' ? 'btnCheckB' : 'btnCheckC'));
+              if (btn) btn.textContent = shown ? 'Hide Answer' : 'Show Answer';
+              showToast('Show Answer');
             }
           }
         });
