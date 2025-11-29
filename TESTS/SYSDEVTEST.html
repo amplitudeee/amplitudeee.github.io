@@ -36,7 +36,7 @@
 
     /* Page card */
     .page {
-      position: relative;
+      position: absolute;
       z-index: 2;
       width: min(1100px, 96%);
       background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
@@ -46,20 +46,11 @@
       backdrop-filter: blur(var(--glass-blur));
       border: 1px solid rgba(255,255,255,0.04);
       overflow: visible;
+      left: 50%;
+      transform: translateX(-50%);
     }
 
-    /* Extend the translucent card background so it doesn't stop abruptly */
-    .page::before{
-      content: '';
-      position: absolute;
-      left: 0; right: 0; top: 0; bottom: -2000px; /* extend well past content */
-      background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
-      border-radius: 18px;
-      z-index: 1;
-      pointer-events: none;
-    }
-
-    /* Ensure page children sit above the ::before background */
+    /* Ensure page children sit above backdrop */
     .page > * { position: relative; z-index: 2; }
 
     h1, h2 { color: #fff; text-shadow: 0 2px 12px rgba(0,0,0,0.6); }
@@ -173,6 +164,17 @@
       mix-blend-mode: overlay; pointer-events:none;
     }
     @keyframes shimmer{ 0%{ left:-60%; } 100%{ left:120%; } }
+
+    /* Full-height translucent backdrop behind the page card (positioned by JS) */
+    .card-backdrop{
+      border-radius:18px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+      box-shadow: 0 10px 30px rgba(2,6,23,0.45);
+      z-index:1; 
+      pointer-events:none;
+      backdrop-filter: blur(var(--glass-blur));
+      border: 1px solid rgba(255,255,255,0.03);
+    }
   </style>
 </head>
 <body>
@@ -181,6 +183,7 @@
     <span class="blob b2"></span>
     <span class="blob b3"></span>
   </div>
+  <div class="card-backdrop" aria-hidden="true"></div>
   <div class="page">
   <div class="toggle-bar">
     <button id="btnShowA">Show Test A</button>
@@ -930,6 +933,28 @@ const shortAnswerKey = {
       if (btnResetB) btnResetB.addEventListener('click', function() { resetForm('B'); });
       // Top-level toggles for submit/reset
       // initialize states for resets/submits (submit/reset buttons remain enabled)
+      // Ensure the translucent backdrop covers the full page height (not just the viewport)
+      const backdrop = document.querySelector('.card-backdrop');
+      const page = document.querySelector('.page');
+      function updateBackdrop(){
+        if (!backdrop || !page) return;
+        const rect = page.getBoundingClientRect();
+        // page offset relative to document
+        const pageTop = page.offsetTop;
+        backdrop.style.position = 'absolute';
+        backdrop.style.left = (rect.left + window.pageXOffset) + 'px';
+        backdrop.style.top = pageTop + 'px';
+        backdrop.style.width = rect.width + 'px';
+        backdrop.style.height = page.offsetHeight + 'px';
+        backdrop.style.transform = 'none';
+      }
+      updateBackdrop();
+      window.addEventListener('resize', updateBackdrop);
+      // also update after a short delay in case fonts/images change layout
+      setTimeout(updateBackdrop, 500);
+      // Watch for layout changes (content added/removed) and update backdrop
+      const observer = new MutationObserver(updateBackdrop);
+      observer.observe(page, { childList: true, subtree: true });
     });
   </script>
   </div>
