@@ -70,7 +70,7 @@
       padding: 10px 14px;
       border-radius: 12px;
       cursor: pointer;
-      color: #0b0b0b;
+      color: #ffffff;
       font-weight: 700;
       letter-spacing: .3px;
       transition: transform .18s ease, box-shadow .18s ease;
@@ -99,19 +99,21 @@
 
     .question p{ margin:0 0 10px; color:#f6f7fb; font-weight:600; }
     .question p{ overflow-wrap: anywhere; word-break: break-word; }
-    .question input.blank { padding: 8px 10px; border-radius: 8px; max-width: 100%; }
+    .question input.blank { padding: 12px 14px; border-radius: 8px; max-width: 100%; min-height: 44px; }
+    .blank-wrap { display:inline-flex; align-items:center; gap:6px; }
+    .btnClearBlank { padding:6px 10px; border-radius:8px; font-size:12px; }
 
     input[type="radio"], input[type="checkbox"]{ accent-color: var(--accent3); transform: scale(1.08); margin-right:6px; }
 
     .answer {
       margin-top: 10px;
       font-weight: 800;
-      color: #fff;
+      color: #ffffff;
       padding: 12px 14px;
       border-radius: 10px;
       display:inline-block;
       box-shadow: 0 6px 18px rgba(0,0,0,0.5);
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      background: linear-gradient(135deg, #4b5bd6 0%, #5b3f95 100%);
       border-left: 4px solid #f093fb;
     }
 
@@ -143,13 +145,13 @@
     }
 
     .correct { 
-      background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%);
-      color: #041a08;
+      background: linear-gradient(135deg, #1f9e4d 0%, #1a7f3e 100%);
+      color: #ffffff;
       border-left: 4px solid #1abc9c;
     }
     .incorrect { 
-      background: linear-gradient(135deg, #ff9a9e 0%, #ff6b6b 100%);
-      color: #2b0606;
+      background: linear-gradient(135deg, #d64545 0%, #b83636 100%);
+      color: #ffffff;
       border-left: 4px solid #e74c3c;
     }
 
@@ -201,7 +203,12 @@
         margin-top: 8px;
       }
       .form-actions {
-        flex-direction: column;
+        position: sticky;
+        bottom: 10px;
+        background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.04));
+        backdrop-filter: blur(6px);
+        border-radius: 12px;
+        padding: 10px;
         gap: 8px;
         margin-top: 16px;
       }
@@ -215,6 +222,11 @@
       .question input.blank { display:block; width:100%; min-width:0 !important; margin:6px 0; }
     }
 
+    /* Respect reduced motion */
+    @media (prefers-reduced-motion: reduce){
+      * { animation: none !important; transition: none !important; }
+    }
+
     /* Form actions (submit/reset) match top toggle spacing */
     .form-actions {
       display:flex;
@@ -225,6 +237,10 @@
       position: relative;
       z-index: 10;
     }
+    .help-shortcuts { margin-left: auto; font-size: 12px; color: #ffffff; opacity: .9; cursor: help; }
+    .help-shortcuts .popover { display:none; position:absolute; right:10px; top:110%; background: rgba(0,0,0,0.85); color:#fff; padding:12px 14px; border-radius:8px; box-shadow: 0 6px 18px rgba(0,0,0,0.35); white-space: pre-line; line-height: 1.5; max-width: min(90vw, 480px); min-width: 280px; }
+    .help-shortcuts.open .popover { display:block; }
+    .help-shortcuts:focus .popover, .help-shortcuts:hover .popover { display:block; }
     .form-actions button {
       position: relative;
       z-index: 11;
@@ -234,7 +250,7 @@
     .progress { display:flex; align-items:center; gap:10px; margin: 8px 0 18px; }
     .progress-track { flex:1; height:10px; border-radius:999px; background: rgba(255,255,255,0.12); box-shadow: inset 0 1px 2px rgba(0,0,0,0.3); overflow:hidden; }
     .progress-fill { height:100%; width:0%; background: linear-gradient(90deg,#6a11cb,#2575fc); border-radius:999px; box-shadow: 0 0 12px rgba(37,117,252,0.6); transition: width .3s ease; }
-    .progress-text { min-width:60px; font-weight:700; color:#eaf2ff; text-shadow: 0 1px 6px rgba(0,0,0,0.4); }
+    .progress-text { min-width:60px; font-weight:700; color:#ffffff; text-shadow: 0 1px 6px rgba(0,0,0,0.6); }
 
     /* Animated accents */
     .accents{ position:fixed; inset:0; pointer-events:none; overflow:visible; z-index:0; }
@@ -304,8 +320,8 @@
     .score-percentage {
       font-size: 36px;
       font-weight: 700;
-      color: #6a11cb;
-      text-shadow: 0 2px 8px rgba(106,17,203,0.4);
+      color: #ffffff;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.6);
     }
     .results-message {
       font-size: 24px;
@@ -796,7 +812,7 @@ A30: High morale indicates the team has 'jelled' and is working well together.
 Q31: What is a possible team motivation strategy?
 A31: Rewards and recognition motivate teams and improve performance.
 
-Q32: What does Kanban visualize?
+Q32: What does Kanban do?
 A32: Kanban visualizes work processes and flow.
 
 Q33: Why is effort estimation critical for cost control?
@@ -838,6 +854,9 @@ A40: Activity Elimination improves efficiency by removing tasks that add no valu
       <button type="button" id="btnCheckA" class="nav-btn">Check</button>
       <button type="button" id="btnNextA" class="nav-btn">Next</button>
       <button type="button" id="btnSubmitA">Submit Easy Test</button>
+      <button type="button" class="help-shortcuts" id="helpA" aria-haspopup="true" aria-expanded="false" aria-label="Keyboard shortcuts help">?
+        <span class="popover" role="tooltip">Keyboard Shortcuts:<br>Next = Right Arrow<br>Prev = Left Arrow<br>C = Check<br>S = Submit</span>
+      </button>
     </div>
   </form>
 
@@ -855,6 +874,9 @@ A40: Activity Elimination improves efficiency by removing tasks that add no valu
       <button type="button" id="btnCheckB" class="nav-btn">Check</button>
       <button type="button" id="btnNextB" class="nav-btn">Next</button>
       <button type="button" id="btnSubmitB">Submit Hard Test</button>
+      <button type="button" class="help-shortcuts" id="helpB" aria-haspopup="true" aria-expanded="false" aria-label="Keyboard shortcuts help">?
+        <span class="popover" role="tooltip">Keyboard Shortcuts:<br>Next = Right Arrow<br>Prev = Left Arrow<br>C = Check<br>S = Submit</span>
+      </button>
     </div>
   </form>
 
@@ -872,16 +894,19 @@ A40: Activity Elimination improves efficiency by removing tasks that add no valu
       <button type="button" id="btnCheckC" class="nav-btn">Check</button>
       <button type="button" id="btnNextC" class="nav-btn">Next</button>
       <button type="button" id="btnSubmitC">Submit Medium Test</button>
+      <button type="button" class="help-shortcuts" id="helpC" aria-haspopup="true" aria-expanded="false" aria-label="Keyboard shortcuts help">?
+        <span class="popover" role="tooltip">Keyboard Shortcuts:<br>Next = Right Arrow<br>Prev = Left Arrow<br>C = Check<br>S = Submit</span>
+      </button>
     </div>
   </form>
 
   <!-- Results Page -->
   <div id="resultsPage" class="test hidden">
-    <h2 id="resultsTitle">Test Results</h2>
+    <h2 id="resultsTitle" tabindex="-1">Test Results</h2>
     <div class="results-actions">
       <button type="button" id="btnTryAgain">Try Again</button>
     </div>
-    <div class="results-summary">
+    <div class="results-summary" aria-live="polite">
       <div class="score-display">
         <div class="score-number" id="scoreNumber">0/10</div>
         <div class="score-percentage" id="scorePercentage">0%</div>
@@ -1125,25 +1150,36 @@ function isEquivalentAnswer(user, expected){
     document.addEventListener('DOMContentLoaded', function() {
       // Factory functions to build question HTML
       function createTFQuestion(qId, text){
-        return `\n<div class="question">\n  <p>${text}</p>\n  <label><input type="radio" name="${qId}" value="True"> True</label>\n  <label><input type="radio" name="${qId}" value="False"> False</label>\n  <div class="answer hidden" id="ans-${qId}"></div>\n</div>`;
+        const qNum = qId.replace(/^q/, '');
+        const idTrue = `${qId}-t`;
+        const idFalse = `${qId}-f`;
+        return `\n<div class="question" role="group" aria-labelledby="lbl-${qId}">\n  <p id="lbl-${qId}"><span class="qnum">Q${qNum}.</span> ${text}</p>\n  <label for="${idTrue}"><input id="${idTrue}" type="radio" name="${qId}" value="True"> True</label>\n  <label for="${idFalse}"><input id="${idFalse}" type="radio" name="${qId}" value="False"> False</label>\n  <div class="answer hidden" id="ans-${qId}" aria-live="polite"></div>\n</div>`;
       }
       function createMCQuestion(qId, text, options){
-        const optionsHtml = options.map(val => `  <label><input type="radio" name="${qId}" value="${val}"> ${val}</label>`).join('\n');
-        return `\n<div class="question">\n  <p>${text}</p>\n${optionsHtml}\n  <div class="answer hidden" id="ans-${qId}"></div>\n</div>`;
+        const qNum = qId.replace(/^q/, '');
+        const optionsHtml = options.map((val, i) => {
+          const oid = `${qId}-o${i+1}`;
+          return `  <label for="${oid}"><input id="${oid}" type="radio" name="${qId}" value="${val}"> ${val}</label>`;
+        }).join('\n');
+        return `\n<div class="question" role="group" aria-labelledby="lbl-${qId}">\n  <p id="lbl-${qId}"><span class="qnum">Q${qNum}.</span> ${text}</p>\n${optionsHtml}\n  <div class="answer hidden" id="ans-${qId}" aria-live="polite"></div>\n</div>`;
       }
       function createShortQuestion(qId, text){
-        return `\n<div class="question">\n  <p>${text}</p>\n  <input type="text" name="${qId}" style="width:100%">\n  <div class="answer hidden" id="ans-${qId}"></div>\n</div>`;
+        const qNum = qId.replace(/^q/, '');
+        const inId = `${qId}-txt`;
+        return `\n<div class="question" role="group" aria-labelledby="lbl-${qId}">\n  <p id="lbl-${qId}"><span class="qnum">Q${qNum}.</span> ${text}</p>\n  <input id="${inId}" type="text" name="${qId}" style="width:100%" aria-describedby="ans-${qId}">\n  <div class="answer hidden" id="ans-${qId}" aria-live="polite"></div>\n</div>`;
       }
       function createBlanksQuestion(qId, text){
         // Replace each occurrence of ___ with a text input
         let idx = 1;
         const replaced = text.replace(/_{3,}/g, () => {
           const name = `${qId}-b${idx}`;
-          const html = `<input type="text" class="blank" name="${name}" style="min-width:120px">`;
+          const inId = `${qId}-b${idx}-id`;
+          const html = `<span class="blank-wrap"><input id="${inId}" type="text" class="blank" name="${name}" style="min-width:120px" aria-describedby="ans-${qId}"><button type="button" class="btnClearBlank" data-target="${inId}" aria-label="Clear blank ${idx}">Clear</button></span>`;
           idx += 1;
           return html;
         });
-        return `\n<div class="question">\n  <p>${replaced}</p>\n  <div class="answer hidden" id="ans-${qId}"></div>\n</div>`;
+        const qNum = qId.replace(/^q/, '');
+        return `\n<div class="question" role="group" aria-labelledby="lbl-${qId}">\n  <p id="lbl-${qId}"><span class="qnum">Q${qNum}.</span> ${replaced}</p>\n  <div class="answer hidden" id="ans-${qId}" aria-live="polite"></div>\n</div>`;
       }
             // If plain-text sources exist, render questions from them for easy editing
             function renderFromPlainText(formId, sourceId, type){
@@ -1363,14 +1399,14 @@ function isEquivalentAnswer(user, expected){
         const pct = total > 0 ? Math.round(((index+1)/total) * 100) : 0;
         if (progressFill) progressFill.style.width = pct + '%';
         if (progressText) progressText.textContent = `${index+1} / ${total}`;
-
-        // Auto-focus first blank input for Medium test
-        if (formId === 'testC') {
-          const current = questions[index];
-          const firstBlank = current ? current.querySelector('input.blank') : null;
-          if (firstBlank) {
-            setTimeout(() => { try { firstBlank.focus({ preventScroll: false }); } catch(_) { firstBlank.focus(); } }, 0);
-          }
+        // Auto-focus first control for current question (debounced, prevent scroll)
+        const current = questions[index];
+        const firstControl = current ? (current.querySelector('input.blank, input[type="radio"], input[type="text"]')) : null;
+        if (firstControl) {
+          clearTimeout(showQuestion._ft || 0);
+          showQuestion._ft = setTimeout(() => {
+            try { firstControl.focus({ preventScroll: true }); } catch(_) { firstControl.focus(); }
+          }, 0);
         }
       }
       // Expose paging helpers for global calls (e.g., from toggleTest)
@@ -1515,7 +1551,11 @@ function isEquivalentAnswer(user, expected){
         form.addEventListener('keydown', function(ev){
           const key = ev.key.toLowerCase();
           if (key === 'n') { ev.preventDefault(); nextQuestion(id); }
+          if (key === 'p') { ev.preventDefault(); prevQuestion(id); }
           if (key === 'c') { ev.preventDefault(); checkQuestion(id); }
+          if (key === 's') { ev.preventDefault(); const sBtn = document.getElementById(id === 'testA' ? 'btnSubmitA' : (id === 'testB' ? 'btnSubmitB' : 'btnSubmitC')); if (sBtn) sBtn.click(); }
+          if (ev.key === 'ArrowRight') { ev.preventDefault(); nextQuestion(id); }
+          if (ev.key === 'ArrowLeft') { ev.preventDefault(); prevQuestion(id); }
           if (key === 'enter'){
             const active = document.activeElement;
             if (active && (active.tagName === 'INPUT' || active.tagName === 'TEXTAREA')){
@@ -1525,6 +1565,19 @@ function isEquivalentAnswer(user, expected){
             }
           }
         });
+        // Clickable progress text to open quick navigator (simple prompt)
+        const suffix = id === 'testA' ? 'A' : (id === 'testB' ? 'B' : 'C');
+        const pText = document.getElementById('progressText' + suffix);
+        if (pText) {
+          pText.style.cursor = 'pointer';
+          pText.title = 'Jump to question';
+          pText.onclick = function(){
+            const total = form.querySelectorAll('.question').length;
+            const ans = prompt(`Enter question number (1-${total})`);
+            const num = parseInt(ans||'', 10);
+            if (!isNaN(num) && num >= 1 && num <= total) showQuestion(id, num-1);
+          };
+        }
       }
 
       function initPaging() {
@@ -1537,6 +1590,49 @@ function isEquivalentAnswer(user, expected){
       document.querySelectorAll('.show-answer-btn').forEach(b => b.remove());
 
       initPaging();
+
+      // Responsive, edge-aware tooltip for keyboard shortcuts; click-to-toggle on mobile
+      (function(){
+        const helps = document.querySelectorAll('.help-shortcuts');
+        function positionPopover(btn){
+          const pop = btn.querySelector('.popover');
+          if (!pop) return;
+          // responsive width
+          pop.style.maxWidth = 'min(90vw, 480px)';
+          const rect = btn.getBoundingClientRect();
+          const popW = Math.min(480, Math.floor(window.innerWidth * 0.9));
+          const spaceRight = window.innerWidth - rect.right;
+          if (spaceRight < popW + 16) {
+            pop.style.right = 'auto';
+            pop.style.left = '0';
+          } else {
+            pop.style.left = 'auto';
+            pop.style.right = '10px';
+          }
+        }
+        helps.forEach(btn => {
+          const pop = btn.querySelector('.popover');
+          if (!pop) return;
+          ['mouseenter','focus'].forEach(ev => btn.addEventListener(ev, () => positionPopover(btn)));
+          btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            const open = btn.classList.toggle('open');
+            btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+            positionPopover(btn);
+          });
+        });
+        document.addEventListener('click', (e) => {
+          document.querySelectorAll('.help-shortcuts.open').forEach(btn => {
+            if (!btn.contains(e.target)) {
+              btn.classList.remove('open');
+              btn.setAttribute('aria-expanded', 'false');
+            }
+          });
+        });
+        window.addEventListener('resize', () => {
+          document.querySelectorAll('.help-shortcuts').forEach(positionPopover);
+        });
+      })();
 
       // Ensure the translucent backdrop covers the full page height (not just the viewport)
       const backdrop = document.querySelector('.card-backdrop');
@@ -1588,6 +1684,16 @@ function isEquivalentAnswer(user, expected){
         // Render from sources and reinit paging
         renderFromPlainText(formId, sourceId, type);
         initPagingFor(formId);
+        // Focus first question on start
+        const questions = form.querySelectorAll('.question');
+        if (questions.length) {
+          setTimeout(() => {
+            try {
+              const firstControl = questions[0].querySelector('input.blank, input[type="radio"], input[type="text"]');
+              if (firstControl) firstControl.focus({ preventScroll: true });
+            } catch(_) {}
+          }, 0);
+        }
       };
     });
   </script>
