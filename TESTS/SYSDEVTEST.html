@@ -33,6 +33,7 @@
       display:flex;
       justify-content:center;
       padding:40px 24px;
+      overflow-x: hidden;
     }
 
     /* Page card */
@@ -97,6 +98,7 @@
     .question:hover{ transform: translateY(-6px); box-shadow: 0 18px 40px rgba(12,20,30,0.55); }
 
     .question p{ margin:0 0 10px; color:#f6f7fb; font-weight:600; }
+    .question p{ overflow-wrap: anywhere; word-break: break-word; }
 
     input[type="radio"], input[type="checkbox"]{ accent-color: var(--accent3); transform: scale(1.08); margin-right:6px; }
 
@@ -158,7 +160,7 @@
     /* Responsive tweaks */
     @media (max-width:700px){
       html, body { height: auto; }
-      body { padding: 20px 12px; }
+      body { padding: 20px 12px; overflow-x: hidden; }
       .page { 
         position: absolute;
         width: 100%;
@@ -167,6 +169,7 @@
         left: 0;
         transform: none;
       }
+      .test-options { grid-template-columns: 1fr; gap: 12px; }
       .card-backdrop {
         position: absolute;
         left: 0;
@@ -373,6 +376,7 @@
     }
 
     /* Intro page styles */
+    *, *::before, *::after { box-sizing: border-box; }
     .intro-page { margin-bottom: 24px; }
     .test-options {
       display: grid;
@@ -386,6 +390,7 @@
       border: 1px solid rgba(255,255,255,0.04);
       box-shadow: 0 8px 20px rgba(12,20,30,0.45);
       transition: transform .18s ease, box-shadow .18s ease;
+      min-width: 0;
     }
     .test-option-card:hover { transform: translateY(-4px); box-shadow: 0 16px 32px rgba(12,20,30,0.55); }
     .test-type { color:#eaeaff; opacity: .9; margin-top: 4px; }
