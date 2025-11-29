@@ -371,6 +371,27 @@
       font-size: 13px;
       font-style: italic;
     }
+
+    /* Intro page styles */
+    .intro-page { margin-bottom: 24px; }
+    .test-options {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+    }
+    .test-option-card {
+      padding: 18px;
+      border-radius: 14px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+      border: 1px solid rgba(255,255,255,0.04);
+      box-shadow: 0 8px 20px rgba(12,20,30,0.45);
+      transition: transform .18s ease, box-shadow .18s ease;
+    }
+    .test-option-card:hover { transform: translateY(-4px); box-shadow: 0 16px 32px rgba(12,20,30,0.55); }
+    .test-type { color:#eaeaff; opacity: .9; margin-top: 4px; }
+    .test-features { list-style: none; padding: 0; margin: 10px 0 16px; color:#ddd; }
+    .test-features li { margin: 6px 0; }
+    .start-test-btn { width: 100%; }
   </style>
 </head>
 <body>
@@ -381,99 +402,289 @@
   </div>
   <div class="card-backdrop" aria-hidden="true"></div>
   <div class="page">
-  <div class="toggle-bar">
-    <button id="btnShowA">Show Test A</button>
-    <button id="btnShowB">Show Test B</button>
+  <!-- Intro Page -->
+  <div id="introPage" class="intro-page">
+    <h1 class="shimmer">System Development Practice Test</h1>
+    <p style="text-align: center; margin-bottom: 24px; font-size: 18px; color: #ddd;">Choose your test format</p>
+    <div class="test-options">
+      <div class="test-option-card" id="optionA">
+        <h2>Test A</h2>
+        <p class="test-type">Multiple Choice & True/False</p>
+        <ul class="test-features">
+          <li>✓ 20 randomized questions</li>
+          <li>✓ Multiple choice options</li>
+          <li>✓ True/False questions</li>
+          <li>✓ Instant feedback on each answer</li>
+          <li>✓ Detailed explanations provided</li>
+        </ul>
+        <button class="start-test-btn" data-test="A" id="startTestA">Start Test A</button>
+      </div>
+      <div class="test-option-card" id="optionB">
+        <h2>Test B</h2>
+        <p class="test-type">Short Answer</p>
+        <ul class="test-features">
+          <li>✓ 20 randomized questions</li>
+          <li>✓ Open-ended responses</li>
+          <li>✓ Test your recall ability</li>
+          <li>✓ Suggested answers provided</li>
+          <li>✓ Comprehensive feedback</li>
+        </ul>
+        <button class="start-test-btn" data-test="B" id="startTestB">Start Test B</button>
+      </div>
+    </div>
+  </div>
+  
+  <div class="toggle-bar" id="toggleBar" style="display:none;">
+    <button id="btnShowA">Start Test A</button>
+    <button id="btnShowB">Start Test B</button>
   </div>
 
   <!-- Optional: Plain-text question sources (easy to replace). One question per line. -->
   <script type="text/plain" id="sourceA">
-Functional requirements define how a system should perform. | True | False
-Non-functional requirements focus on how a system should perform. | True | False
-Functional requirements are not static and can be adjusted via structured processes. | True | False
-Change control is used in Agile to adjust the scope of functional requirements. | True | False
-Backlog refinement is used in Agile to adjust functional requirements. | True | False
-Performance, reliability, and security are examples of non-functional requirement aspects. | True | False
-Portability and maintainability belong to Operational non-functional requirements. | True | False
-Availability and reliability are part of Performance non-functional requirements. | True | False
-Access control and encryption are examples of Security non-functional requirements. | True | False
-Laws and government regulations are part of Cultural & Political requirements. | True | False
-Problem Analysis focuses on understanding ‘why’ before ‘what’. | True | False
-Root Cause Analysis focuses on symptoms rather than underlying issues. | True | False
-Duration Analysis looks at time taken for process activities to find efficiency opportunities. | True | False
-Activity-Based Costing includes indirect costs as well as direct costs. | True | False
-Informal Benchmarking involves comparing processes with other businesses to improve. | True | False
-Outcome Analysis ignores past results to avoid bias. | True | False
-Technology Analysis examines current environment and trends to inform investments. | True | False
-Activity Elimination targets non–value-adding activities to free resources. | True | False
-Open communication helps prevent team conflict. | True | False
-Effort estimation is not important for cost control. | True | False
-Which process adjusts functional requirements in Waterfall? | Change Control | Backlog Refinement | Scope Creep | Kanban
-Which non-functional category includes Availability? | Operational | Performance | Security | Cultural & Political
-Which analysis strategy identifies inefficient code as the cause of performance issues? | Problem Analysis | Root Cause Analysis | Duration Analysis | Outcome Analysis
-Which requirements gathering technique builds relationships with stakeholders? | Interviewing | Observation | Questionnaire | Document Analysis
-Who defines requirements? | Project Manager | Developers | Business Analysts and Stakeholders | Customers only
-What does WBS stand for? | Work Breakdown Structure | Workflow Business System | Work Balance Sheet | Work Budget Strategy
-Which are the three trade-offs of effort estimation? | Scope, Time, Cost | Speed, Reliability, Security | Skills, Morale, Rewards | Availability, Portability, Maintainability
-What is scope creep? | Adding new requirements after project starts | Breaking down project tasks | Visualizing workflow | Estimating costs
-Which method visualizes work process and flow? | Kanban | WBS | Benchmarking | Shadowing
-High morale indicates what? | Team has jelled | Scope creep | Poor communication | Cost control
-Which requirements gathering technique provides a comprehensive understanding of system functionalities and business processes? | Interviewing | Observation | Questionnaire | Document Analysis
-Which requirements analysis strategy involves looking at past results to guide future actions? | Outcome Analysis | Technology Analysis | Activity Elimination | Informal Benchmarking
-Which non-functional category includes Portability? | Operational | Performance | Security | Cultural & Political
-Which strategy involves analyzing the current technology environment and trends? | Problem Analysis | Technology Analysis | Duration Analysis | Activity-Based Costing
-Which requirements gathering technique can scale to a large number of respondents? | Interviewing | Observation | Questionnaire | Shadowing
-Which strategy involves identifying all costs associated with a business activity? | Activity-Based Costing | Root Cause Analysis | Outcome Analysis | Duration Analysis
-Which non-functional category includes Virus Control? | Operational | Performance | Security | Cultural & Political
-Which strategy involves comparing processes informally with other businesses? | Informal Benchmarking | Technology Analysis | Activity Elimination | Problem Analysis
-Which requirements gathering technique ensures design is centered around user needs? | Interviewing | Observation | Questionnaire | Document Analysis
-Which factor is important when forming a project team? | Member availability and skills | Scope creep | Kanban | High morale
+Q1: Functional requirements define how a system should perform. | True | False
+A1: False | Functional = what the system must do; the how is non-functional.
+
+Q2: Non-functional requirements focus on how a system should perform. | True | False
+A2: True | Non-functional defines how the system performs (quality attributes).
+
+Q3: Functional requirements are not static and can be adjusted via structured processes. | True | False
+A3: True | Functional requirements can be adjusted through change control or backlog refinement.
+
+Q4: Change control is used in Agile to adjust the scope of functional requirements. | True | False
+A4: False | Change Control is used in Waterfall; Agile uses Backlog Refinement.
+
+Q5: Backlog refinement is used in Agile to adjust functional requirements. | True | False
+A5: True | In Agile, backlog refinement adjusts the scope of functional requirements.
+
+Q6: Performance, reliability, and security are examples of non-functional requirement aspects. | True | False
+A6: True | These are all non-functional requirement aspects.
+
+Q7: Portability and maintainability belong to Operational non-functional requirements. | True | False
+A7: True | Portability and Maintainability are part of Operational non-functional requirements.
+
+Q8: Availability and reliability are part of Performance non-functional requirements. | True | False
+A8: False | Availability and Reliability are part of Operational requirements.
+
+Q9: Access control and encryption are examples of Security non-functional requirements. | True | False
+A9: True | Access Control and Encryption are Security non-functional requirements.
+
+Q10: Laws and government regulations are part of Cultural & Political requirements. | True | False
+A10: True | Laws and government regulations are Cultural & Political requirements.
+
+Q11: Problem Analysis focuses on understanding ‘why’ before ‘what’. | True | False
+A11: True | Problem Analysis identifies the business problem, focusing on 'why' first.
+
+Q12: Root Cause Analysis focuses on symptoms rather than underlying issues. | True | False
+A12: False | Root Cause Analysis digs into underlying causes, not just symptoms.
+
+Q13: Duration Analysis looks at time taken for process activities to find efficiency opportunities. | True | False
+A13: True | Duration Analysis examines time taken to identify efficiency opportunities.
+
+Q14: Activity-Based Costing includes indirect costs as well as direct costs. | True | False
+A14: True | Activity-Based Costing includes both direct and indirect costs.
+
+Q15: Informal Benchmarking involves comparing processes with other businesses to improve. | True | False
+A15: True | Informal Benchmarking compares processes with other businesses for improvement ideas.
+
+Q16: Outcome Analysis ignores past results to avoid bias. | True | False
+A16: False | Outcome Analysis uses past results to guide future actions.
+
+Q17: Technology Analysis examines current environment and trends to inform investments. | True | False
+A17: True | Technology Analysis looks at current tech environment and trends for investment decisions.
+
+Q18: Activity Elimination targets non–value-adding activities to free resources. | True | False
+A18: True | Activity Elimination removes non–value-adding activities to free up resources.
+
+Q19: Open communication helps prevent team conflict. | True | False
+A19: True | Open communication is key to preventing team conflict.
+
+Q20: Effort estimation is not important for cost control. | True | False
+A20: False | Effort estimation is crucial for cost control.
+
+Q21: Which process adjusts functional requirements in Waterfall? | Change Control | Backlog Refinement | Scope Creep | Kanban
+A21: Change Control | Change Control is the formal process in Waterfall for adjusting requirements.
+
+Q22: Which non-functional category includes Availability? | Operational | Performance | Security | Cultural & Political
+A22: Operational | Availability is part of Operational non-functional requirements.
+
+Q23: Which analysis strategy identifies inefficient code as the cause of performance issues? | Problem Analysis | Root Cause Analysis | Duration Analysis | Outcome Analysis
+A23: Root Cause Analysis | Root Cause Analysis digs deep to find the underlying cause of issues.
+
+Q24: Which requirements gathering technique builds relationships with stakeholders? | Interviewing | Observation | Questionnaire | Document Analysis
+A24: Interviewing | Interviewing builds relationships and gathers detailed information.
+
+Q25: Who defines requirements? | Project Manager | Developers | Business Analysts and Stakeholders | Customers only
+A25: Business Analysts and Stakeholders | Business Analysts work with Stakeholders to define requirements.
+
+Q26: What does WBS stand for? | Work Breakdown Structure | Workflow Business System | Work Balance Sheet | Work Budget Strategy
+A26: Work Breakdown Structure | WBS breaks down a project into smaller, manageable tasks.
+
+Q27: Which are the three trade-offs of effort estimation? | Scope, Time, Cost | Speed, Reliability, Security | Skills, Morale, Rewards | Availability, Portability, Maintainability
+A27: Scope, Time, Cost | The project triangle balances Scope, Time, and Cost.
+
+Q28: What is scope creep? | Adding new requirements after project starts | Breaking down project tasks | Visualizing workflow | Estimating costs
+A28: Adding new requirements after project starts | Scope creep is uncontrolled expansion of project requirements.
+
+Q29: Which method visualizes work process and flow? | Kanban | WBS | Benchmarking | Shadowing
+A29: Kanban | Kanban boards visualize workflow and help manage tasks.
+
+Q30: High morale indicates what? | Team has jelled | Scope creep | Poor communication | Cost control
+A30: Team has jelled | High morale means the team has bonded and works well together.
+
+Q31: Which requirements gathering technique provides a comprehensive understanding of system functionalities and business processes? | Interviewing | Observation | Questionnaire | Document Analysis
+A31: Document Analysis | Document Analysis provides comprehensive system and process understanding.
+
+Q32: Which requirements analysis strategy involves looking at past results to guide future actions? | Outcome Analysis | Technology Analysis | Activity Elimination | Informal Benchmarking
+A32: Outcome Analysis | Outcome Analysis examines past results to inform future decisions.
+
+Q33: Which non-functional category includes Portability? | Operational | Performance | Security | Cultural & Political
+A33: Operational | Portability is part of Operational non-functional requirements.
+
+Q34: Which strategy involves analyzing the current technology environment and trends? | Problem Analysis | Technology Analysis | Duration Analysis | Activity-Based Costing
+A34: Technology Analysis | Technology Analysis examines current tech environment and trends.
+
+Q35: Which requirements gathering technique can scale to a large number of respondents? | Interviewing | Observation | Questionnaire | Shadowing
+A35: Questionnaire | Questionnaires can efficiently gather input from many respondents.
+
+Q36: Which strategy involves identifying all costs associated with a business activity? | Activity-Based Costing | Root Cause Analysis | Outcome Analysis | Duration Analysis
+A36: Activity-Based Costing | Activity-Based Costing identifies all direct and indirect costs.
+
+Q37: Which non-functional category includes Virus Control? | Operational | Performance | Security | Cultural & Political
+A37: Security | Virus Control is part of Security non-functional requirements.
+
+Q38: Which strategy involves comparing processes informally with other businesses? | Informal Benchmarking | Technology Analysis | Activity Elimination | Problem Analysis
+A38: Informal Benchmarking | Informal Benchmarking compares processes with other organizations.
+
+Q39: Which requirements gathering technique ensures design is centered around user needs? | Interviewing | Observation | Questionnaire | Document Analysis
+A39: Observation | Observation ensures design is based on actual user behavior and needs.
+
+Q40: Which factor is important when forming a project team? | Member availability and skills | Scope creep | Kanban | High morale
+A40: Member availability and skills | Team formation requires matching member availability and skills to project needs.
   </script>
   <script type="text/plain" id="sourceB">
-Define functional requirements and explain their purpose.
-Define non-functional requirements and explain their focus.
-How are functional requirements adjusted in scope during a project?
-Name two structured processes used to adjust functional requirements.
-List four aspects covered by non-functional requirements.
-Which non-functional category includes Portability and Maintainability?
-Which non-functional category includes Speed and Capacity?
-Which non-functional category includes Access Control and Encryption?
-Which non-functional category includes Laws and Government Regulations?
-What is the goal of Problem Analysis in requirements analysis?
-What is the goal of Root Cause Analysis?
-What does Duration Analysis examine?
-What does Activity-Based Costing include beyond direct costs?
-What is Informal Benchmarking used for?
-What is Outcome Analysis used for?
-What is Technology Analysis used for?
-What is Activity Elimination used for?
-What is the main benefit of Interviewing as a requirements gathering technique?
-What is the main benefit of Observation as a requirements gathering technique?
-What is the main benefit of Questionnaires as a requirements gathering technique?
-What is the main benefit of Document Analysis as a requirements gathering technique?
-What is Shadowing used for in requirements gathering?
-Who defines requirements in a project?
-Who does the work after requirements are defined?
-What does WBS stand for and what is its purpose?
-What are the three trade-offs of effort estimation?
-What is scope creep?
-Why is open communication important in project teams?
-Why are skill sets important when staffing a project team?
-What does high morale indicate in a project team?
-What is a possible team motivation strategy?
-What does Kanban visualize?
-Why is effort estimation critical for cost control?
-What is an important consideration when forming a group project?
-Why is rewards and recognition important for team motivation?
-What does Kanban help visualize in project management?
-Why is effort estimation critical for managing project costs?
-What are two important considerations when forming a group project team?
-Give an example of how Outcome Analysis might influence future software releases.
-Explain how Activity Elimination can improve efficiency in a business process.
+Q1: Define functional requirements and explain their purpose.
+A1: Functional requirements define what a system must do, describing its core features and tasks.
+
+Q2: Define non-functional requirements and explain their focus.
+A2: Non-functional requirements focus on how the system performs, covering quality attributes like speed, security, and usability.
+
+Q3: How are functional requirements adjusted in scope during a project?
+A3: They are adjusted through structured processes such as change control (Waterfall) or backlog refinement (Agile).
+
+Q4: Name two structured processes used to adjust functional requirements.
+A4: Change control in Waterfall and backlog refinement in Agile.
+
+Q5: List four aspects covered by non-functional requirements.
+A5: Performance, usability, reliability, security, maintainability.
+
+Q6: Which non-functional category includes Portability and Maintainability?
+A6: Operational — includes portability, maintainability, technical environment, and system integration.
+
+Q7: Which non-functional category includes Speed and Capacity?
+A7: Performance — includes speed, capacity, availability, reliability.
+
+Q8: Which non-functional category includes Access Control and Encryption?
+A8: Security — includes system value, access control, encryption & authentication, virus control.
+
+Q9: Which non-functional category includes Laws and Government Regulations?
+A9: Cultural & Political — includes laws, government regulations, language differences, centralized vs local control.
+
+Q10: What is the goal of Problem Analysis in requirements analysis?
+A10: Problem Analysis identifies and articulates the business problem, focusing on 'why' before 'what'.
+
+Q11: What is the goal of Root Cause Analysis?
+A11: Root Cause Analysis identifies underlying causes of problems rather than just symptoms.
+
+Q12: What does Duration Analysis examine?
+A12: Duration Analysis examines the time taken for activities to find efficiency opportunities.
+
+Q13: What does Activity-Based Costing include beyond direct costs?
+A13: Activity-Based Costing includes indirect costs like rent, utilities, salaries, and marketing in addition to direct costs.
+
+Q14: What is Informal Benchmarking used for?
+A14: Informal Benchmarking compares processes with other businesses to identify areas for improvement.
+
+Q15: What is Outcome Analysis used for?
+A15: Outcome Analysis uses past results to guide future actions.
+
+Q16: What is Technology Analysis used for?
+A16: Technology Analysis examines current technology environment and trends to inform investment decisions.
+
+Q17: What is Activity Elimination used for?
+A17: Activity Elimination removes non–value-adding activities to free resources.
+
+Q18: What is the main benefit of Interviewing as a requirements gathering technique?
+A18: Interviewing provides in-depth understanding and builds relationships with stakeholders.
+
+Q19: What is the main benefit of Observation as a requirements gathering technique?
+A19: Observation provides real-world understanding of user behavior and reduces miscommunication.
+
+Q20: What is the main benefit of Questionnaires as a requirements gathering technique?
+A20: Questionnaires scale to large groups, provide quantitative data, and allow anonymity.
+
+Q21: What is the main benefit of Document Analysis as a requirements gathering technique?
+A21: Document Analysis provides comprehensive understanding of systems and identifies gaps efficiently.
+
+Q22: What is Shadowing used for in requirements gathering?
+A22: Shadowing involves following users to observe their work and uncover implicit requirements.
+
+Q23: Who defines requirements in a project?
+A23: Business analysts and stakeholders define requirements.
+
+Q24: Who does the work after requirements are defined?
+A24: Project managers and developers do the work after requirements are defined.
+
+Q25: What does WBS stand for and what is its purpose?
+A25: Work Breakdown Structure — decomposes a project into smaller components for clarity and scope management.
+
+Q26: What are the three trade-offs of effort estimation?
+A26: Scope, Time, Cost — the three trade-offs of effort estimation.
+
+Q27: What is scope creep?
+A27: Scope creep is adding new requirements after a project has started.
+
+Q28: Why is open communication important in project teams?
+A28: Open communication prevents team conflict and supports collaboration.
+
+Q29: Why are skill sets important when staffing a project team?
+A29: Skill sets ensure the team has the right expertise for tasks.
+
+Q30: What does high morale indicate in a project team?
+A30: High morale indicates the team has 'jelled' and is working well together.
+
+Q31: What is a possible team motivation strategy?
+A31: Rewards and recognition motivate teams and improve performance.
+
+Q32: What does Kanban visualize?
+A32: Kanban visualizes work processes and flow.
+
+Q33: Why is effort estimation critical for cost control?
+A33: Effort estimation is critical for cost control because it predicts resource needs and expenses.
+
+Q34: What is an important consideration when forming a group project?
+A34: Member availability and skills are important considerations when forming a group project.
+
+Q35: Why is rewards and recognition important for team motivation?
+A35: Rewards and recognition encourage motivation, engagement, and sustained performance.
+
+Q36: What does Kanban help visualize in project management?
+A36: Kanban helps visualize workflow, bottlenecks, and task progress.
+
+Q37: Why is effort estimation critical for managing project costs?
+A37: Effort estimation ensures accurate budgeting and prevents overspending.
+
+Q38: What are two important considerations when forming a group project team?
+A38: Member availability and skills — ensures tasks are covered and team balance is maintained.
+
+Q39: Give an example of how Outcome Analysis might influence future software releases.
+A39: Outcome Analysis might lead to more thorough testing if past releases caused support issues.
+
+Q40: Explain how Activity Elimination can improve efficiency in a business process.
+A40: Activity Elimination improves efficiency by removing tasks that add no value, freeing resources for useful work.
   </script>
 
  <!-- Test A -->
-  <form id="testA" class="test">
+  <form id="testA" class="test hidden">
     <h2>Test A</h2>
     <div class="progress" id="progressA" aria-live="polite">
       <div class="progress-track"><div class="progress-fill" id="progressFillA"></div></div>
@@ -486,7 +697,6 @@ Explain how Activity Elimination can improve efficiency in a business process.
       <button type="button" id="btnCheckA" class="nav-btn">Check</button>
       <button type="button" id="btnNextA" class="nav-btn">Next</button>
       <button type="button" id="btnSubmitA">Submit Test A</button>
-      <button type="button" id="btnResetA">Reset Test A</button>
     </div>
   </form>
 
@@ -504,7 +714,6 @@ Explain how Activity Elimination can improve efficiency in a business process.
       <button type="button" id="btnCheckB" class="nav-btn">Check</button>
       <button type="button" id="btnNextB" class="nav-btn">Next</button>
       <button type="button" id="btnSubmitB">Submit Test B</button>
-      <button type="button" id="btnResetB">Reset Test B</button>
     </div>
   </form>
 
@@ -520,100 +729,41 @@ Explain how Activity Elimination can improve efficiency in a business process.
     </div>
     <div class="results-details" id="resultsDetails"></div>
     <div class="form-actions">
-      <button type="button" id="btnBackToTests">Back to Tests</button>
-      <button type="button" id="btnRetakeTest">Retake Test</button>
+      <button type="button" id="btnTryAgain">Try Again</button>
     </div>
   </div>
   <script>
-const answers = {
-  q1: "False | Functional = what the system must do; the how is non-functional.",
-  q2: "True | Non-functional covers performance/quality attributes (how it performs).",
-  q3: "True | Adjusted via structured processes balancing value, feasibility, constraints.",
-  q4: "False | Waterfall uses change control; Agile uses backlog refinement.",
-  q5: "True | Backlog refinement adjusts functional requirements in Agile.",
-  q6: "True | Examples: performance, usability, reliability, security, maintainability.",
-  q7: "True | Operational includes portability, maintainability, tech environment, integration.",
-  q8: "True | Performance includes availability and reliability alongside speed, capacity.",
-  q9: "True | Security includes access control, encryption/authentication, virus control.",
-  q10: "True | Cultural & Political includes laws and government regulations.",
-  q11: "True | Problem Analysis focuses on understanding why before what.",
-  q12: "False | Root Cause Analysis seeks underlying causes, not just symptoms.",
-  q13: "True | Duration Analysis examines time per activity to spot inefficiencies.",
-  q14: "True | ABC includes indirect costs (utilities, rent, salaries, marketing).",
-  q15: "True | Informal Benchmarking compares with other businesses to improve.",
-  q16: "False | Outcome Analysis uses past results to inform future actions.",
-  q17: "True | Technology Analysis examines environment and trends to guide investments.",
-  q18: "True | Activity Elimination removes non–value-adding activities to free resources.",
-  q19: "True | Open communication helps prevent team conflict.",
-  q20: "False | Effort estimation is critical for controlling costs.",
-  q21: "Change Control | Waterfall handles scope via formal change control.",
-  q22: "Performance | Availability belongs to Performance (speed, capacity, reliability).",
-  q23: "Root Cause Analysis | Identifies underlying causes like inefficient code.",
-  q24: "Interviewing | Builds relationships while gathering requirements.",
-  q25: "Business Analysts and Stakeholders | They define requirements; PMs/devs implement.",
-  q26: "Work Breakdown Structure | Decomposes project into manageable components.",
-  q27: "Scope, Time, Cost | The three trade-offs of estimation.",
-  q28: "Adding new requirements after project starts | Definition of scope creep.",
-  q29: "Kanban | Visualizes workflow and process.",
-  q30: "Team has jelled | Indicates the team works well together.",
-  q31: "Document Analysis | Provides comprehensive understanding of systems/processes.",
-  q32: "Outcome Analysis | Uses past results to guide future actions.",
-  q33: "Operational | Portability is part of Operational requirements.",
-  q34: "Technology Analysis | Examines current environment and trends.",
-  q35: "Questionnaire | Scales to large respondent groups.",
-  q36: "Activity-Based Costing | Identifies direct and indirect costs.",
-  q37: "Security | Virus control is part of Security.",
-  q38: "Informal Benchmarking | Compares processes informally with other businesses.",
-  q39: "Observation | Ensures design is centered around user needs.",
-  q40: "Member availability and skills | Key factor when forming a project team.",
-};
-const shortAnswerKey = {
-  q1: "Functional requirements define what a system must do, describing its core features and tasks.",
-  q2: "Non-functional requirements focus on how the system performs, covering quality attributes like speed, security, and usability.",
-  q3: "They are adjusted through structured processes such as change control (Waterfall) or backlog refinement (Agile).",
-  q4: "Change control in Waterfall and backlog refinement in Agile.",
-  q5: "Performance, usability, reliability, security, maintainability.",
-  q6: "Operational — includes portability, maintainability, technical environment, and system integration.",
-  q7: "Performance — includes speed, capacity, availability, reliability.",
-  q8: "Security — includes system value, access control, encryption & authentication, virus control.",
-  q9: "Cultural & Political — includes laws, government regulations, language differences, centralized vs local control.",
-  q10: "Problem Analysis identifies and articulates the business problem, focusing on 'why' before 'what'.",
-  q11: "Root Cause Analysis identifies underlying causes of problems rather than just symptoms.",
-  q12: "Duration Analysis examines the time taken for activities to find efficiency opportunities.",
-  q13: "Activity-Based Costing includes indirect costs like rent, utilities, salaries, and marketing in addition to direct costs.",
-  q14: "Informal Benchmarking compares processes with other businesses to identify areas for improvement.",
-  q15: "Outcome Analysis uses past results to guide future actions.",
-  q16: "Technology Analysis examines current technology environment and trends to inform investment decisions.",
-  q17: "Activity Elimination removes non–value-adding activities to free resources.",
-  q18: "Interviewing provides in-depth understanding and builds relationships with stakeholders.",
-  q19: "Observation provides real-world understanding of user behavior and reduces miscommunication.",
-  q20: "Questionnaires scale to large groups, provide quantitative data, and allow anonymity.",
-  q21: "Document Analysis provides comprehensive understanding of systems and identifies gaps efficiently.",
-  q22: "Shadowing involves following users to observe their work and uncover implicit requirements.",
-  q23: "Business analysts and stakeholders define requirements.",
-  q24: "Project managers and developers do the work after requirements are defined.",
-  q25: "Work Breakdown Structure — decomposes a project into smaller components for clarity and scope management.",
-  q26: "Scope, Time, Cost — the three trade-offs of effort estimation.",
-  q27: "Scope creep is adding new requirements after a project has started.",
-  q28: "Open communication prevents team conflict and supports collaboration.",
-  q29: "Skill sets ensure the team has the right expertise for tasks.",
-  q30: "High morale indicates the team has 'jelled' and is working well together.",
-  q31: "Rewards and recognition motivate teams and improve performance.",
-  q32: "Kanban visualizes work processes and flow.",
-  q33: "Effort estimation is critical for cost control because it predicts resource needs and expenses.",
-  q34: "Member availability and skills are important considerations when forming a group project.",
-  q35: "Rewards and recognition encourage motivation, engagement, and sustained performance.",
-  q36: "Kanban helps visualize workflow, bottlenecks, and task progress.",
-  q37: "Effort estimation ensures accurate budgeting and prevents overspending.",
-  q38: "Member availability and skills — ensures tasks are covered and team balance is maintained.",
-  q39: "Outcome Analysis might lead to more thorough testing if past releases caused support issues.",
-  q40: "Activity Elimination improves efficiency by removing tasks that add no value, freeing resources for useful work."
-};
+// Answers object - populated dynamically by renderFromPlainText from sourceA
+const answers = {};
+// Short answer key - populated dynamically by renderFromPlainText from sourceB
+const shortAnswerKey = {};
 
     function toggleTest(test) {
+      // Hide all forms including results page
       document.getElementById('testA').classList.add('hidden');
       document.getElementById('testB').classList.add('hidden');
-      document.getElementById('test' + test).classList.remove('hidden');
+      document.getElementById('resultsPage').classList.add('hidden');
+      // Hide intro page once a test is selected
+      const intro = document.getElementById('introPage');
+      if (intro) intro.style.display = 'none';
+      // Ensure toggle bar is visible while testing (for switching after completion)
+      const tb = document.getElementById('toggleBar');
+      if (tb) tb.style.display = 'flex';
+      
+      // Hide the start buttons once a test is started
+      const btnShowA = document.getElementById('btnShowA');
+      const btnShowB = document.getElementById('btnShowB');
+      if (btnShowA) btnShowA.style.display = 'none';
+      if (btnShowB) btnShowB.style.display = 'none';
+      
+      // Reset the selected test
+      const formId = 'test' + test;
+      resetForm(test);
+      
+      // Show the selected test and reset to first question
+      document.getElementById(formId).classList.remove('hidden');
+      currentIndex[formId] = 0;
+      showQuestion(formId, 0);
     }
 
     function submitTest(test) {
@@ -682,6 +832,15 @@ const shortAnswerKey = {
       document.getElementById('testA').classList.add('hidden');
       document.getElementById('testB').classList.add('hidden');
       document.getElementById('resultsPage').classList.remove('hidden');
+      
+      // Show the start buttons again after test completion
+      const btnShowA = document.getElementById('btnShowA');
+      const btnShowB = document.getElementById('btnShowB');
+      if (btnShowA) btnShowA.style.display = '';
+      if (btnShowB) btnShowB.style.display = '';
+      // Keep toggle bar visible; allow user to start another test
+      const tb = document.getElementById('toggleBar');
+      if (tb) tb.style.display = 'flex';
 
       // Update title
       document.getElementById('resultsTitle').textContent = `Test ${test} Results`;
@@ -752,50 +911,82 @@ const shortAnswerKey = {
               const sourceEl = document.getElementById(sourceId);
               const form = document.getElementById(formId);
               if (!sourceEl || !form) return false;
+              // Prevent double rendering of the same form
+              if (form.dataset.rendered === '1') return true;
               const raw = (sourceEl.textContent || '').trim();
               if (!raw) return false;
               const lines = raw.split(/\r?\n/).map(s => s.trim()).filter(Boolean);
-              if (!lines.length) return false;
+              // Strip Q#: and A#: prefixes from lines
+              const cleanedLines = lines.map(line => line.replace(/^[QA]\d+:\s*/, ''));
+              if (!cleanedLines.length) return false;
               // Preserve header, progress, actions
               const headerHtml = form.querySelector('h2')?.outerHTML || '';
               const progressHtml = form.querySelector('.progress')?.outerHTML || '';
               const actionsEl = form.querySelector('.form-actions');
               let html = `${headerHtml}\n${progressHtml}`;
-              lines.forEach((text, i) => {
-                const qId = `q${i+1}`;
-                if (type === 'choice'){
-                  const parts = text.split('|').map(s => s.trim()).filter(Boolean);
-                  const questionText = parts[0] || text;
-                  // Support explicit correct answer via suffix like "Correct=Option" or "Answer=Option"
-                  let explicitCorrect = null;
-                  const last = parts[parts.length - 1] || '';
-                  const match = last.match(/^(Correct|Answer)\s*[:=]\s*(.+)$/i);
-                  if (match) {
-                    explicitCorrect = match[2].trim();
-                  }
-                  const optsRaw = parts.slice(1, match ? parts.length - 1 : parts.length);
-                  const opts = optsRaw.length ? optsRaw : ['True','False'];
-                  html += opts.length === 2 && opts[0]==='True' && opts[1]==='False'
-                    ? createTFQuestion(qId, questionText)
-                    : createMCQuestion(qId, questionText, opts);
-                  // If we have an explicit correct answer, set it in the global answers map
-                  if (explicitCorrect) {
-                    answers[qId] = explicitCorrect;
-                  }
-                } else {
-                  // Support explicit short answer via suffix "Correct=..." or "Answer=..."
-                  let questionText = text;
-                  const m = text.match(/^(.*?)(?:\s+(Correct|Answer)\s*[:=]\s*(.+))$/i);
-                  if (m) {
-                    questionText = m[1].trim();
-                    const ans = (m[3] || '').trim();
-                    if (ans) shortAnswerKey[qId] = ans;
-                  }
-                  html += createShortQuestion(qId, questionText);
+              
+              let qNum = 0;
+              let skipNext = false;
+              for (let i = 0; i < cleanedLines.length; i++) {
+                if (skipNext) {
+                  skipNext = false;
+                  continue;
                 }
-              });
+                const text = cleanedLines[i];
+                // Check if this line contains question options (has multiple | separators)
+                const pipeCount = (text.match(/\|/g) || []).length;
+                
+                // For choice questions, look for pipes. For text questions, any non-empty line is a question
+                const isQuestion = (type === 'choice' && pipeCount >= 1) || (type === 'text' && pipeCount === 0 && text.length > 0);
+                
+                if (isQuestion) {
+                  // This is a question line
+                  qNum++;
+                  const qId = `q${qNum}`;
+                  
+                  if (type === 'choice'){
+                    const parts = text.split('|').map(s => s.trim()).filter(Boolean);
+                    const questionText = parts[0] || text;
+                    const optsRaw = parts.slice(1);
+                    const opts = optsRaw.length ? optsRaw : ['True','False'];
+                    
+                    html += opts.length === 2 && opts[0]==='True' && opts[1]==='False'
+                      ? createTFQuestion(qId, questionText)
+                      : createMCQuestion(qId, questionText, opts);
+                    
+                    // Check next line for answer
+                    if (i + 1 < cleanedLines.length) {
+                      const nextLine = cleanedLines[i + 1];
+                      const nextPipeCount = (nextLine.match(/\|/g) || []).length;
+                      // If next line has 1 pipe, it's the answer line
+                      if (nextPipeCount === 1) {
+                        const answerParts = nextLine.split('|').map(s => s.trim());
+                        if (answerParts.length === 2) {
+                          answers[qId] = answerParts[0] + ' | ' + answerParts[1];
+                          skipNext = true; // Skip the answer line in next iteration
+                        }
+                      }
+                    }
+                  } else {
+                    // Short answer question
+                    html += createShortQuestion(qId, text);
+                    // Check next line for answer
+                    if (i + 1 < cleanedLines.length) {
+                      const nextLine = cleanedLines[i + 1];
+                      // Next line with content is the answer
+                      if (nextLine.trim().length > 0) {
+                        shortAnswerKey[qId] = nextLine;
+                        skipNext = true; // Skip the answer line
+                      }
+                    }
+                  }
+                }
+              }
+              
               html += `\n${actionsEl ? actionsEl.outerHTML : ''}`;
               form.innerHTML = html;
+              // Mark as rendered to avoid duplicates on subsequent calls
+              form.dataset.rendered = '1';
               return true;
             }
 
@@ -855,53 +1046,27 @@ const shortAnswerKey = {
           submitTest('B');
           return false;
         }
-        
-        if (target.id === 'btnResetA' || target.closest('#btnResetA')) {
-          e.preventDefault();
-          resetForm('A');
-          return false;
-        }
-        
-        if (target.id === 'btnResetB' || target.closest('#btnResetB')) {
-          e.preventDefault();
-          resetForm('B');
-          return false;
-        }
       }, true); // Use capture phase
       
       const btnShowA = document.getElementById('btnShowA');
       if (btnShowA) btnShowA.addEventListener('click', function() { toggleTest('A'); });
       const btnShowB = document.getElementById('btnShowB');
       if (btnShowB) btnShowB.addEventListener('click', function() { toggleTest('B'); });
-      // Results page buttons
-      const btnBackToTests = document.getElementById('btnBackToTests');
-      if (btnBackToTests) btnBackToTests.addEventListener('click', function() {
-        document.getElementById('resultsPage').classList.add('hidden');
-        toggleTest(lastTest);
-      });
-      const btnRetakeTest = document.getElementById('btnRetakeTest');
-      if (btnRetakeTest) btnRetakeTest.addEventListener('click', function() {
-        resetForm(lastTest);
-        document.getElementById('resultsPage').classList.add('hidden');
-        toggleTest(lastTest);
-        const formId = 'test' + lastTest;
-        currentIndex[formId] = 0;
-        showQuestion(formId, 0);
+      // Intro page start buttons
+      const startA = document.getElementById('startTestA');
+      if (startA) startA.addEventListener('click', function(){ toggleTest('A'); });
+      const startB = document.getElementById('startTestB');
+      if (startB) startB.addEventListener('click', function(){ toggleTest('B'); });
+      // Results page button
+      const btnTryAgain = document.getElementById('btnTryAgain');
+      if (btnTryAgain) btnTryAgain.addEventListener('click', function() {
+        location.reload();
       });
 
       // (Removed) JSON import/export helpers and buttons
       // (Removed) Regenerate buttons and functions
 
-      // After rendering from sources, remove any leftover original question markup to reduce DOM size
-      function stripOriginalQuestions(formId){
-        const form = document.getElementById(formId);
-        if (!form) return;
-        Array.from(form.querySelectorAll('.question')).forEach(q => q.remove());
-        // Re-render from source again to ensure questions exist
-        if (formId === 'testA') renderFromPlainText('testA','sourceA','choice');
-        if (formId === 'testB') renderFromPlainText('testB','sourceB','text');
-      }
-      stripOriginalQuestions('testA');
+      // Note: avoid redundant re-rendering to prevent duplicate question cards
 
       // Paging: show one question at a time per form
       const currentIndex = { testA: 0, testB: 0 };
@@ -929,12 +1094,10 @@ const shortAnswerKey = {
         }
         if (check) { check.style.display = isLast ? 'none' : ''; check.onclick = function(){ checkQuestion(formId); }; }
         const submitBtn = document.getElementById(formId === 'testA' ? 'btnSubmitA' : 'btnSubmitB');
-        const resetBtn = document.getElementById(formId === 'testA' ? 'btnResetA' : 'btnResetB');
         if (submitBtn) {
           submitBtn.style.display = isLast ? '' : 'none';
           submitBtn.disabled = false;
         }
-        if (resetBtn) resetBtn.style.display = isLast ? '' : 'none';
         // progress bar
         const isA = formId === 'testA';
         const progressFill = isA ? document.getElementById('progressFillA') : document.getElementById('progressFillB');
@@ -1016,6 +1179,15 @@ const shortAnswerKey = {
           const form = document.getElementById(id);
           if (!form) return;
           let questions = Array.from(form.querySelectorAll('.question'));
+          // Dedupe any accidental duplicate question cards (same text)
+          const seen = new Set();
+          questions.forEach(q => {
+            const t = (q.querySelector('p')?.textContent || '').trim();
+            if (t && seen.has(t)) { q.remove(); }
+            else if (t) { seen.add(t); }
+          });
+          // Refresh questions list after possible removals
+          questions = Array.from(form.querySelectorAll('.question'));
           // 1) Strip leading numbers from question text (e.g., "1. ")
           questions.forEach(q => {
             const p = q.querySelector('p');
