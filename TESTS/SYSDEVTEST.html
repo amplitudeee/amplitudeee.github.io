@@ -392,6 +392,9 @@
     .test-features { list-style: none; padding: 0; margin: 10px 0 16px; color:#ddd; }
     .test-features li { margin: 6px 0; }
     .start-test-btn { width: 100%; }
+
+    /* Results actions (top area with Try Again) */
+    .results-actions { display: flex; justify-content: flex-end; gap: 10px; margin: 8px 0 12px; }
   </style>
 </head>
 <body>
@@ -404,40 +407,48 @@
   <div class="page">
   <!-- Intro Page -->
   <div id="introPage" class="intro-page">
-    <h1 class="shimmer">System Development Practice Test</h1>
+    <h1 class="shimmer">System Development Practice Tests</h1>
     <p style="text-align: center; margin-bottom: 24px; font-size: 18px; color: #ddd;">Choose your test format</p>
     <div class="test-options">
       <div class="test-option-card" id="optionA">
-        <h2>Test A</h2>
+        <h2>Easy Test</h2>
         <p class="test-type">Multiple Choice & True/False</p>
         <ul class="test-features">
-          <li>✓ 20 randomized questions</li>
+          <li>✓ 10 randomized questions</li>
           <li>✓ Multiple choice options</li>
           <li>✓ True/False questions</li>
           <li>✓ Instant feedback on each answer</li>
           <li>✓ Detailed explanations provided</li>
         </ul>
-        <button class="start-test-btn" data-test="A" id="startTestA">Start Test A</button>
+        <button class="start-test-btn" data-test="A" id="startTestA">Start Easy Test</button>
+      </div>
+      <div class="test-option-card" id="optionC">
+        <h2>Medium Test</h2>
+        <p class="test-type">Fill in the Blanks</p>
+        <ul class="test-features">
+          <li>✓ 10 randomized questions</li>
+          <li>✓ Fill in missing words</li>
+          <li>✓ Case-insensitive matching</li>
+          <li>✓ Suggested answers provided</li>
+          <li>✓ Detailed explanations optional</li>
+        </ul>
+        <button class="start-test-btn" data-test="C" id="startTestC">Start Medium Test</button>
       </div>
       <div class="test-option-card" id="optionB">
-        <h2>Test B</h2>
+        <h2>Hard Test</h2>
         <p class="test-type">Short Answer</p>
         <ul class="test-features">
-          <li>✓ 20 randomized questions</li>
+          <li>✓ 10 randomized questions</li>
           <li>✓ Open-ended responses</li>
           <li>✓ Test your recall ability</li>
           <li>✓ Suggested answers provided</li>
           <li>✓ Comprehensive feedback</li>
         </ul>
-        <button class="start-test-btn" data-test="B" id="startTestB">Start Test B</button>
+        <button class="start-test-btn" data-test="B" id="startTestB">Start Hard Test</button>
       </div>
     </div>
   </div>
   
-  <div class="toggle-bar" id="toggleBar" style="display:none;">
-    <button id="btnShowA">Start Test A</button>
-    <button id="btnShowB">Start Test B</button>
-  </div>
 
   <!-- Optional: Plain-text question sources (easy to replace). One question per line. -->
   <script type="text/plain" id="sourceA">
@@ -561,6 +572,129 @@ A39: Observation | Observation ensures design is based on actual user behavior a
 Q40: Which factor is important when forming a project team? | Member availability and skills | Scope creep | Kanban | High morale
 A40: Member availability and skills | Team formation requires matching member availability and skills to project needs.
   </script>
+
+  <script type="text/plain" id="sourceC">
+Q1: Fill in the blanks: The two main development approaches are ___ and ___.
+A1: Agile | Waterfall | Agile focuses on iteration; Waterfall is sequential.
+
+Q2: A project’s primary trade-offs are ___, ___, and ___.
+A2: Scope | Time | Cost | These form the classic project management triangle.
+
+Q3: Functional requirements define ___, while non-functional requirements focus on ___.
+A3: What a system must do | How it should perform | Function vs performance.
+
+Q4: In Waterfall, changes to functional requirements are handled through ___ control.
+A4: Change | Structured change control ensures scope stability.
+
+Q5: In Agile, adjustments to functional requirements occur through ___ refinement.
+A5: Backlog | Backlog refinement balances value and feasibility.
+
+Q6: Non-functional requirements include aspects such as ___, ___, ___, and ___.
+A6: Performance | Usability | Reliability | Security | These define system quality.
+
+Q7: Operational non-functional requirements include ___, ___, ___, and ___.
+A7: Technical Environment | System Integration | Portability | Maintainability | These ensure smooth operation.
+
+Q8: Performance non-functional requirements include ___, ___, ___, and ___.
+A8: Speed | Capacity | Availability | Reliability | These measure efficiency.
+
+Q9: Security non-functional requirements include ___, ___, ___, and ___.
+A9: System Value | Access Control | Encryption & Authentication | Virus Control | These protect data.
+
+Q10: Cultural & Political non-functional requirements include ___, ___, ___, and ___.
+A10: Centralized vs Local Control | Language Differences | Laws & Government Regulations | Scrutiny of Local Laws | These reflect organizational context.
+
+Q11: Problem Analysis focuses on understanding ___ before defining ___.
+A11: Why | What | It clarifies the business problem.
+
+Q12: Root Cause Analysis identifies ___ rather than just addressing ___.
+A12: Underlying cause | Symptoms | Ensures lasting solutions.
+
+Q13: Duration Analysis examines ___ taken for activities to identify ___.
+A13: Time | Efficiency opportunities | Streamlines processes.
+
+Q14: Activity-Based Costing considers both ___ and ___ costs.
+A14: Direct | Indirect | Provides accurate cost picture.
+
+Q15: Informal Benchmarking compares ___ with other businesses to identify ___.
+A15: Processes | Improvements | Gains insights from peers.
+
+Q16: Outcome Analysis looks at ___ of past actions to guide ___.
+A16: Results | Future decisions | Learns from history.
+
+Q17: Technology Analysis studies ___ and ___ to inform investments.
+A17: Current environment | Trends | Guides tech choices.
+
+Q18: Activity Elimination removes ___ activities that do not ___.
+A18: Non-value | Add value | Frees resources.
+
+Q19: Interviewing as a requirements technique provides ___ understanding through ___.
+A19: In-depth | Direct communication | Builds clarity.
+
+Q20: Observation helps identify ___ requirements by watching ___.
+A20: Implicit | Real-world behavior | Ensures user-centered design.
+
+Q21: Questionnaires are useful for ___ projects because they provide ___.
+A21: Large | Scalable data | Standardized responses.
+
+Q22: Document Analysis reduces ___ by basing requirements on ___.
+A22: Miscommunication | Existing documents | Ensures accuracy.
+
+Q23: Shadowing involves ___ to understand ___.
+A23: Following users | Their tasks | Captures real workflows.
+
+Q24: Requirements are defined by ___ and ___.
+A24: Business Analysts | Stakeholders | They capture needs.
+
+Q25: Project work is executed by ___ and ___.
+A25: Project Manager | Developers | They deliver solutions.
+
+Q26: A Work Breakdown Structure decomposes a project into ___ components.
+A26: Smaller | Manageable | Provides detailed scope.
+
+Q27: Scope creep refers to adding ___ after a project is ___.
+A27: New requirements | Underway | Expands scope unexpectedly.
+
+Q28: Open communication helps prevent ___.
+A28: Team conflict | Encourages collaboration.
+
+Q29: Skill sets are important when ___ a project team.
+A29: Staffing | Ensures capability alignment.
+
+Q30: High morale indicates a team has ___.
+A30: Jelled | Working well together.
+
+Q31: Possible team motivation strategies include ___ and ___.
+A31: Rewards | Recognition | Boosts performance.
+
+Q32: Kanban is used for ___ work process and ___.
+A32: Visualizing | Flow | Tracks tasks.
+
+Q33: Effort estimation is critical for managing ___.
+A33: Cost control | Prevents overruns.
+
+Q34: Important considerations for forming a group project include ___ and ___.
+A34: Member availability | Skills | Ensures effective collaboration.
+
+Q35: Fill in the blanks: Functional requirements are adjusted to balance ___, ___, and ___.
+A35: Business value | Technical feasibility | Project constraints | Ensures maximum value delivery.
+
+Q36: Non-functional requirements related to usability focus on ___ interaction.
+A36: User | Ensures ease of use.
+
+Q37: Reliability as a non-functional requirement ensures system ___ over time.
+A37: Consistency | Maintains trust.
+
+Q38: Maintainability ensures a system can be ___ and ___ efficiently.
+A38: Updated | Fixed | Supports long-term use.
+
+Q39: Availability measures how often a system is ___.
+A39: Accessible | Ensures uptime.
+
+Q40: Encryption & Authentication protect system ___ and ___.
+A40: Data | Access | Safeguards information.
+  </script>
+
   <script type="text/plain" id="sourceB">
 Q1: Define functional requirements and explain their purpose.
 A1: Functional requirements define what a system must do, describing its core features and tasks.
@@ -685,10 +819,10 @@ A40: Activity Elimination improves efficiency by removing tasks that add no valu
 
  <!-- Test A -->
   <form id="testA" class="test hidden">
-    <h2>Test A</h2>
+    <h2>Easy Test</h2>
     <div class="progress" id="progressA" aria-live="polite">
       <div class="progress-track"><div class="progress-fill" id="progressFillA"></div></div>
-      <div class="progress-text" id="progressTextA">1 / 20</div>
+      <div class="progress-text" id="progressTextA">1 / 10</div>
     </div>
     <!-- Questions are generated from #sourceA; static markup removed -->
 
@@ -696,16 +830,16 @@ A40: Activity Elimination improves efficiency by removing tasks that add no valu
       <button type="button" id="btnPrevA" class="nav-btn">Prev</button>
       <button type="button" id="btnCheckA" class="nav-btn">Check</button>
       <button type="button" id="btnNextA" class="nav-btn">Next</button>
-      <button type="button" id="btnSubmitA">Submit Test A</button>
+      <button type="button" id="btnSubmitA">Submit Easy Test</button>
     </div>
   </form>
 
 <!-- Test B -->
   <form id="testB" class="test hidden">
-    <h2>Test B</h2>
+    <h2>Hard Test</h2>
     <div class="progress" id="progressB" aria-live="polite">
       <div class="progress-track"><div class="progress-fill" id="progressFillB"></div></div>
-      <div class="progress-text" id="progressTextB">1 / 20</div>
+      <div class="progress-text" id="progressTextB">1 / 10</div>
     </div>
     <!-- Questions are generated from #sourceB; static markup removed -->
 
@@ -713,57 +847,77 @@ A40: Activity Elimination improves efficiency by removing tasks that add no valu
       <button type="button" id="btnPrevB" class="nav-btn">Prev</button>
       <button type="button" id="btnCheckB" class="nav-btn">Check</button>
       <button type="button" id="btnNextB" class="nav-btn">Next</button>
-      <button type="button" id="btnSubmitB">Submit Test B</button>
+      <button type="button" id="btnSubmitB">Submit Hard Test</button>
+    </div>
+  </form>
+
+<!-- Test C -->
+  <form id="testC" class="test hidden">
+    <h2>Medium Test</h2>
+    <div class="progress" id="progressC" aria-live="polite">
+      <div class="progress-track"><div class="progress-fill" id="progressFillC"></div></div>
+      <div class="progress-text" id="progressTextC">1 / 10</div>
+    </div>
+    <!-- Questions are generated from #sourceC -->
+
+    <div class="form-actions">
+      <button type="button" id="btnPrevC" class="nav-btn">Prev</button>
+      <button type="button" id="btnCheckC" class="nav-btn">Check</button>
+      <button type="button" id="btnNextC" class="nav-btn">Next</button>
+      <button type="button" id="btnSubmitC">Submit Medium Test</button>
     </div>
   </form>
 
   <!-- Results Page -->
   <div id="resultsPage" class="test hidden">
     <h2 id="resultsTitle">Test Results</h2>
+    <div class="results-actions">
+      <button type="button" id="btnTryAgain">Try Again</button>
+    </div>
     <div class="results-summary">
       <div class="score-display">
-        <div class="score-number" id="scoreNumber">0/20</div>
+        <div class="score-number" id="scoreNumber">0/10</div>
         <div class="score-percentage" id="scorePercentage">0%</div>
       </div>
       <div class="results-message" id="resultsMessage"></div>
     </div>
     <div class="results-details" id="resultsDetails"></div>
-    <div class="form-actions">
-      <button type="button" id="btnTryAgain">Try Again</button>
-    </div>
   </div>
   <script>
 // Answers object - populated dynamically by renderFromPlainText from sourceA
 const answers = {};
 // Short answer key - populated dynamically by renderFromPlainText from sourceB
 const shortAnswerKey = {};
+// Blanks answer key for Medium Test
+const blanksAnswerKey = {};
 
     function toggleTest(test) {
       // Hide all forms including results page
       document.getElementById('testA').classList.add('hidden');
       document.getElementById('testB').classList.add('hidden');
+      document.getElementById('testC').classList.add('hidden');
       document.getElementById('resultsPage').classList.add('hidden');
       // Hide intro page once a test is selected
       const intro = document.getElementById('introPage');
       if (intro) intro.style.display = 'none';
-      // Ensure toggle bar is visible while testing (for switching after completion)
-      const tb = document.getElementById('toggleBar');
-      if (tb) tb.style.display = 'flex';
-      
-      // Hide the start buttons once a test is started
-      const btnShowA = document.getElementById('btnShowA');
-      const btnShowB = document.getElementById('btnShowB');
-      if (btnShowA) btnShowA.style.display = 'none';
-      if (btnShowB) btnShowB.style.display = 'none';
+      // No toggle bar or start buttons present
       
       // Reset the selected test
       const formId = 'test' + test;
+      // Re-randomize questions each time a test is started
+      if (window.rerandomizeTest) {
+        window.rerandomizeTest(test);
+      }
       resetForm(test);
       
       // Show the selected test and reset to first question
       document.getElementById(formId).classList.remove('hidden');
-      currentIndex[formId] = 0;
-      showQuestion(formId, 0);
+      if (window.currentIndex && window.showQuestion) {
+        window.currentIndex[formId] = 0;
+        window.showQuestion(formId, 0);
+      }
+      // Update backdrop to new layout
+      if (window.requestBackdropUpdate) { window.requestBackdropUpdate(); }
     }
 
     function submitTest(test) {
@@ -778,12 +932,24 @@ const shortAnswerKey = {};
         const firstInput = q.querySelector('input');
         const inputName = firstInput ? firstInput.name : null;
         const questionText = q.querySelector('p')?.textContent || `Question ${idx+1}`;
-        const rawAnswer = inputName ? (test === 'B' ? shortAnswerKey[inputName] : answers[inputName]) : null;
-        const correctAnswer = rawAnswer ? String(rawAnswer).split('|')[0].trim() : null;
+        let correctAnswer = null;
         let explanation = '';
-        if (rawAnswer) {
-          const parts = String(rawAnswer).split('|');
-          explanation = parts.length > 1 ? parts.slice(1).join('|').trim() : (test === 'B' ? String(rawAnswer).trim() : '');
+        if (test === 'C') {
+          // Derive qId from first input (e.g., q1-b1 -> q1)
+          const baseName = inputName ? String(inputName).split('-')[0] : null;
+          const key = baseName;
+          const entry = key ? blanksAnswerKey[key] : null;
+          if (entry) {
+            correctAnswer = Array.isArray(entry.answers) ? entry.answers.join(', ') : '';
+            explanation = entry.explanation || '';
+          }
+        } else {
+          const rawAnswer = inputName ? (test === 'B' ? shortAnswerKey[inputName] : answers[inputName]) : null;
+          correctAnswer = rawAnswer ? String(rawAnswer).split('|')[0].trim() : null;
+          if (rawAnswer) {
+            const parts = String(rawAnswer).split('|');
+            explanation = parts.length > 1 ? parts.slice(1).join('|').trim() : (test === 'B' ? String(rawAnswer).trim() : '');
+          }
         }
         let userAnswer = "";
         let isCorrect = false;
@@ -792,10 +958,19 @@ const shortAnswerKey = {};
           const selected = q.querySelector('input[type="radio"]:checked');
           if (selected) userAnswer = selected.value;
           isCorrect = userAnswer === correctAnswer;
-        } else {
+        } else if (test !== 'C') {
           const textInput = q.querySelector('input[type="text"]');
           userAnswer = textInput ? textInput.value.trim() : "";
           isCorrect = userAnswer.toLowerCase() === (correctAnswer || '').toLowerCase();
+        } else {
+          // blanks: compare each blank with expected
+          const blanks = Array.from(q.querySelectorAll('input[type="text"].blank'));
+          const baseName = inputName ? String(inputName).split('-')[0] : null;
+          const entry = baseName ? blanksAnswerKey[baseName] : null;
+          const expected = entry && Array.isArray(entry.answers) ? entry.answers : [];
+          const answersGiven = blanks.map(inp => (inp.value || '').trim());
+          userAnswer = answersGiven.join(', ');
+          isCorrect = expected.length === answersGiven.length && answersGiven.every((ans, i) => ans.toLowerCase() === (expected[i] || '').toLowerCase());
         }
 
         if (isCorrect) correctCount++;
@@ -831,19 +1006,16 @@ const shortAnswerKey = {};
       // Hide tests, show results
       document.getElementById('testA').classList.add('hidden');
       document.getElementById('testB').classList.add('hidden');
+      document.getElementById('testC').classList.add('hidden');
       document.getElementById('resultsPage').classList.remove('hidden');
       
-      // Show the start buttons again after test completion
-      const btnShowA = document.getElementById('btnShowA');
-      const btnShowB = document.getElementById('btnShowB');
-      if (btnShowA) btnShowA.style.display = '';
-      if (btnShowB) btnShowB.style.display = '';
-      // Keep toggle bar visible; allow user to start another test
-      const tb = document.getElementById('toggleBar');
-      if (tb) tb.style.display = 'flex';
+      // No toggle bar; only Try Again at top
+      // Update backdrop for results layout
+      if (window.requestBackdropUpdate) { window.requestBackdropUpdate(); }
 
-      // Update title
-      document.getElementById('resultsTitle').textContent = `Test ${test} Results`;
+      // Update title with friendly test name
+      const testName = (test === 'A') ? 'Easy Test' : (test === 'B' ? 'Hard Test' : 'Medium Test');
+      document.getElementById('resultsTitle').textContent = `${testName} Results`;
 
       // Calculate percentage
       const percentage = Math.round((correctCount / totalCount) * 100);
@@ -906,6 +1078,17 @@ const shortAnswerKey = {};
       function createShortQuestion(qId, text){
         return `\n<div class="question">\n  <p>${text}</p>\n  <input type="text" name="${qId}" style="width:100%">\n  <div class="answer hidden" id="ans-${qId}"></div>\n</div>`;
       }
+      function createBlanksQuestion(qId, text){
+        // Replace each occurrence of ___ with a text input
+        let idx = 1;
+        const replaced = text.replace(/_{3,}/g, () => {
+          const name = `${qId}-b${idx}`;
+          const html = `<input type="text" class="blank" name="${name}" style="min-width:120px">`;
+          idx += 1;
+          return html;
+        });
+        return `\n<div class="question">\n  <p>${replaced}</p>\n  <div class="answer hidden" id="ans-${qId}"></div>\n</div>`;
+      }
             // If plain-text sources exist, render questions from them for easy editing
             function renderFromPlainText(formId, sourceId, type){
               const sourceEl = document.getElementById(sourceId);
@@ -936,8 +1119,11 @@ const shortAnswerKey = {};
                 // Check if this line contains question options (has multiple | separators)
                 const pipeCount = (text.match(/\|/g) || []).length;
                 
-                // For choice questions, look for pipes. For text questions, any non-empty line is a question
-                const isQuestion = (type === 'choice' && pipeCount >= 1) || (type === 'text' && pipeCount === 0 && text.length > 0);
+                // Determine question line by type
+                const hasBlanks = /_{3,}/.test(text);
+                const isQuestion = (type === 'choice' && pipeCount >= 1)
+                                  || (type === 'text' && pipeCount === 0 && text.length > 0)
+                                  || (type === 'blanks' && hasBlanks);
                 
                 if (isQuestion) {
                   // This is a question line
@@ -967,7 +1153,7 @@ const shortAnswerKey = {};
                         }
                       }
                     }
-                  } else {
+                  } else if (type === 'text') {
                     // Short answer question
                     html += createShortQuestion(qId, text);
                     // Check next line for answer
@@ -977,6 +1163,21 @@ const shortAnswerKey = {};
                       if (nextLine.trim().length > 0) {
                         shortAnswerKey[qId] = nextLine;
                         skipNext = true; // Skip the answer line
+                      }
+                    }
+                  } else if (type === 'blanks') {
+                    // Fill-in-the-blanks question: text contains ___ placeholders
+                    html += createBlanksQuestion(qId, text);
+                    if (i + 1 < cleanedLines.length) {
+                      const nextLine = cleanedLines[i + 1];
+                      const parts = nextLine.split('|').map(s => s.trim());
+                      // Count blanks to map expected answers
+                      const blanksCount = (text.match(/_{3,}/g) || []).length;
+                      if (parts.length >= blanksCount) {
+                        const answersArr = parts.slice(0, blanksCount);
+                        const explanation = parts.slice(blanksCount).join('|').trim();
+                        blanksAnswerKey[qId] = { answers: answersArr, explanation };
+                        skipNext = true;
                       }
                     }
                   }
@@ -1016,7 +1217,7 @@ const shortAnswerKey = {};
             migrateTestAIfNeeded();
             // Minimize both forms, then render from sources to remove static markup
             (function(){
-              const formIds = ['testA','testB'];
+              const formIds = ['testA','testB','testC'];
               formIds.forEach(fid => {
                 const form = document.getElementById(fid);
                 if (!form) return;
@@ -1028,6 +1229,7 @@ const shortAnswerKey = {};
             })();
             renderFromPlainText('testA','sourceA','choice');
             renderFromPlainText('testB','sourceB','text');
+            renderFromPlainText('testC','sourceC','blanks');
       
       // Use event delegation on document to catch all button clicks
       document.addEventListener('click', function(e) {
@@ -1046,30 +1248,30 @@ const shortAnswerKey = {};
           submitTest('B');
           return false;
         }
+        if (target.id === 'btnSubmitC' || target.closest('#btnSubmitC')) {
+          e.preventDefault();
+          e.stopPropagation();
+          submitTest('C');
+          return false;
+        }
       }, true); // Use capture phase
       
-      const btnShowA = document.getElementById('btnShowA');
-      if (btnShowA) btnShowA.addEventListener('click', function() { toggleTest('A'); });
-      const btnShowB = document.getElementById('btnShowB');
-      if (btnShowB) btnShowB.addEventListener('click', function() { toggleTest('B'); });
+      // Removed toggle bar start buttons
       // Intro page start buttons
       const startA = document.getElementById('startTestA');
       if (startA) startA.addEventListener('click', function(){ toggleTest('A'); });
       const startB = document.getElementById('startTestB');
       if (startB) startB.addEventListener('click', function(){ toggleTest('B'); });
+      const startC = document.getElementById('startTestC');
+      if (startC) startC.addEventListener('click', function(){ toggleTest('C'); });
       // Results page button
       const btnTryAgain = document.getElementById('btnTryAgain');
       if (btnTryAgain) btnTryAgain.addEventListener('click', function() {
         location.reload();
       });
 
-      // (Removed) JSON import/export helpers and buttons
-      // (Removed) Regenerate buttons and functions
-
-      // Note: avoid redundant re-rendering to prevent duplicate question cards
-
       // Paging: show one question at a time per form
-      const currentIndex = { testA: 0, testB: 0 };
+      const currentIndex = { testA: 0, testB: 0, testC: 0 };
       const autoAdvance = false; // auto-advance disabled: user must press Next to continue
 
       function showQuestion(formId, index){
@@ -1082,9 +1284,9 @@ const shortAnswerKey = {};
         if (index >= total) index = total - 1;
         currentIndex[formId] = index;
         questions.forEach((q,i) => q.style.display = (i === index ? '' : 'none'));
-        const prev = document.getElementById(formId === 'testA' ? 'btnPrevA' : 'btnPrevB');
-        const next = document.getElementById(formId === 'testA' ? 'btnNextA' : 'btnNextB');
-        const check = document.getElementById(formId === 'testA' ? 'btnCheckA' : 'btnCheckB');
+        const prev = document.getElementById(formId === 'testA' ? 'btnPrevA' : (formId === 'testB' ? 'btnPrevB' : 'btnPrevC'));
+        const next = document.getElementById(formId === 'testA' ? 'btnNextA' : (formId === 'testB' ? 'btnNextB' : 'btnNextC'));
+        const check = document.getElementById(formId === 'testA' ? 'btnCheckA' : (formId === 'testB' ? 'btnCheckB' : 'btnCheckC'));
         const isLast = index === total - 1;
         if (prev) { prev.disabled = index === 0; prev.onclick = function(){ prevQuestion(formId); }; }
         if (next) {
@@ -1093,19 +1295,22 @@ const shortAnswerKey = {};
           next.disabled = isLast;
         }
         if (check) { check.style.display = isLast ? 'none' : ''; check.onclick = function(){ checkQuestion(formId); }; }
-        const submitBtn = document.getElementById(formId === 'testA' ? 'btnSubmitA' : 'btnSubmitB');
+        const submitBtn = document.getElementById(formId === 'testA' ? 'btnSubmitA' : (formId === 'testB' ? 'btnSubmitB' : 'btnSubmitC'));
         if (submitBtn) {
           submitBtn.style.display = isLast ? '' : 'none';
           submitBtn.disabled = false;
         }
         // progress bar
-        const isA = formId === 'testA';
-        const progressFill = isA ? document.getElementById('progressFillA') : document.getElementById('progressFillB');
-        const progressText = isA ? document.getElementById('progressTextA') : document.getElementById('progressTextB');
+        const suffix = formId === 'testA' ? 'A' : (formId === 'testB' ? 'B' : 'C');
+        const progressFill = document.getElementById('progressFill' + suffix);
+        const progressText = document.getElementById('progressText' + suffix);
         const pct = total > 0 ? Math.round(((index+1)/total) * 100) : 0;
         if (progressFill) progressFill.style.width = pct + '%';
         if (progressText) progressText.textContent = `${index+1} / ${total}`;
       }
+      // Expose paging helpers for global calls (e.g., from toggleTest)
+      window.currentIndex = currentIndex;
+      window.showQuestion = showQuestion;
 
       function prevQuestion(formId) {
         const idx = currentIndex[formId];
@@ -1131,12 +1336,25 @@ const shortAnswerKey = {};
         const ansDiv = q.querySelector('.answer');
         const firstInput = q.querySelector('input');
         const inputName = firstInput ? firstInput.name : null;
-        const rawAnswer = formId === 'testB' ? shortAnswerKey[inputName] : answers[inputName];
-        const correctAnswer = rawAnswer ? String(rawAnswer).split('|')[0].trim() : null;
+        let correctAnswer = null;
         let explanation = '';
-        if (rawAnswer) {
-          const parts = String(rawAnswer).split('|');
-          explanation = parts.length > 1 ? parts.slice(1).join('|').trim() : (formId === 'testB' ? String(rawAnswer).trim() : '');
+        let isBlanks = (formId === 'testC');
+        let expected = [];
+        if (isBlanks) {
+          const baseName = inputName ? String(inputName).split('-')[0] : null;
+          const entry = baseName ? blanksAnswerKey[baseName] : null;
+          if (entry) {
+            expected = Array.isArray(entry.answers) ? entry.answers : [];
+            correctAnswer = expected.join(', ');
+            explanation = entry.explanation || '';
+          }
+        } else {
+          const rawAnswer = formId === 'testB' ? shortAnswerKey[inputName] : answers[inputName];
+          correctAnswer = rawAnswer ? String(rawAnswer).split('|')[0].trim() : null;
+          if (rawAnswer) {
+            const parts = String(rawAnswer).split('|');
+            explanation = parts.length > 1 ? parts.slice(1).join('|').trim() : (formId === 'testB' ? String(rawAnswer).trim() : '');
+          }
         }
 
         if (q.querySelector('input[type="radio"]')) {
@@ -1155,7 +1373,7 @@ const shortAnswerKey = {};
               ansDiv.classList.remove('hidden'); ansDiv.style.display = 'block';
             }
           }
-        } else {
+        } else if (!isBlanks) {
           const textInput = q.querySelector('input[type="text"]');
           const userText = textInput ? textInput.value.trim() : '';
           if (userText && userText.toLowerCase() === (correctAnswer || '').toLowerCase()) {
@@ -1171,57 +1389,83 @@ const shortAnswerKey = {};
               ansDiv.classList.remove('hidden'); ansDiv.style.display = 'block';
             }
           }
+        } else {
+          // blanks type
+          const blanks = Array.from(q.querySelectorAll('input[type="text"].blank'));
+          const answersGiven = blanks.map(inp => (inp.value || '').trim());
+          const allCorrect = expected.length === answersGiven.length && answersGiven.every((ans, i) => ans.toLowerCase() === (expected[i] || '').toLowerCase());
+          if (allCorrect) {
+            if (ansDiv) {
+              ansDiv.textContent = "Correct!" + (explanation ? " — " + explanation : "");
+              ansDiv.className = "answer correct";
+              ansDiv.classList.remove('hidden'); ansDiv.style.display = 'block';
+            }
+          } else {
+            if (ansDiv) {
+              ansDiv.textContent = "Suggested Answers: " + expected.join(', ') + (explanation ? " — " + explanation : "");
+              ansDiv.className = "answer incorrect";
+              ansDiv.classList.remove('hidden'); ansDiv.style.display = 'block';
+            }
+          }
         }
       }
 
-      function initPaging() {
-        ['testA','testB'].forEach(id => {
-          const form = document.getElementById(id);
-          if (!form) return;
-          let questions = Array.from(form.querySelectorAll('.question'));
-          // Dedupe any accidental duplicate question cards (same text)
-          const seen = new Set();
-          questions.forEach(q => {
-            const t = (q.querySelector('p')?.textContent || '').trim();
-            if (t && seen.has(t)) { q.remove(); }
-            else if (t) { seen.add(t); }
-          });
-          // Refresh questions list after possible removals
-          questions = Array.from(form.querySelectorAll('.question'));
-          // 1) Strip leading numbers from question text (e.g., "1. ")
-          questions.forEach(q => {
-            const p = q.querySelector('p');
-            if (p) p.textContent = (p.textContent || '').replace(/^\s*\d+\.?\s*/, '');
-          });
-          // 2) Randomize and select a subset of 20 questions (out of up to 40)
-          const shuffled = questions.map(q => ({ q, sort: Math.random() }))
-                                    .sort((a,b) => a.sort - b.sort)
-                                    .map(({q}) => q);
-          const subset = shuffled.slice(0, 20);
-          const actions = form.querySelector('.form-actions');
-          // Remove non-selected questions from DOM
-          questions.forEach(q => { if (!subset.includes(q)) q.remove(); });
-          // Append selected in chosen order
-          subset.forEach(q => form.insertBefore(q, actions));
-          // hide all initially
-          subset.forEach(q => q.style.display = 'none');
-          // show first
-          showQuestion(id, 0);
-          // Keyboard shortcuts: N for Next, C for Check, Enter -> Check
-          form.addEventListener('keydown', function(ev){
-            const key = ev.key.toLowerCase();
-            if (key === 'n') { ev.preventDefault(); nextQuestion(id); }
-            if (key === 'c') { ev.preventDefault(); checkQuestion(id); }
-            if (key === 'enter'){
-              const active = document.activeElement;
-              if (active && (active.tagName === 'INPUT' || active.tagName === 'TEXTAREA')){
-                ev.preventDefault();
-                // keep Enter mapped to Check for quick validation
-                checkQuestion(id);
-              }
-            }
-          });
+      function initPagingFor(id) {
+        const form = document.getElementById(id);
+        if (!form) return;
+        let questions = Array.from(form.querySelectorAll('.question'));
+        // Dedupe any accidental duplicate question cards (same text)
+        const seen = new Set();
+        questions.forEach(q => {
+          const t = (q.querySelector('p')?.textContent || '').trim();
+          if (t && seen.has(t)) { q.remove(); }
+          else if (t) { seen.add(t); }
         });
+        // Refresh questions list after possible removals
+        questions = Array.from(form.querySelectorAll('.question'));
+        // 1) Strip leading numbers from question text (e.g., "1. ")
+        //    Skip questions that contain inputs (e.g., Medium blanks) to avoid removing the inputs.
+        questions.forEach(q => {
+          const p = q.querySelector('p');
+          if (!p) return;
+          const hasInputs = !!p.querySelector('input');
+          if (hasInputs) return; // keep blanks inputs intact
+          p.textContent = (p.textContent || '').replace(/^\s*\d+\.?\s*/, '');
+        });
+        // 2) Randomize and select a subset of 10 questions
+        const shuffled = questions.map(q => ({ q, sort: Math.random() }))
+                                  .sort((a,b) => a.sort - b.sort)
+                                  .map(({q}) => q);
+        const subset = shuffled.slice(0, 10);
+        const actions = form.querySelector('.form-actions');
+        // Remove non-selected questions from DOM
+        questions.forEach(q => { if (!subset.includes(q)) q.remove(); });
+        // Append selected in chosen order
+        subset.forEach(q => form.insertBefore(q, actions));
+        // hide all initially
+        subset.forEach(q => q.style.display = 'none');
+        // show first
+        showQuestion(id, 0);
+        // Keyboard shortcuts: N for Next, C for Check, Enter -> Check
+        form.addEventListener('keydown', function(ev){
+          const key = ev.key.toLowerCase();
+          if (key === 'n') { ev.preventDefault(); nextQuestion(id); }
+          if (key === 'c') { ev.preventDefault(); checkQuestion(id); }
+          if (key === 'enter'){
+            const active = document.activeElement;
+            if (active && (active.tagName === 'INPUT' || active.tagName === 'TEXTAREA')){
+              ev.preventDefault();
+              // keep Enter mapped to Check for quick validation
+              checkQuestion(id);
+            }
+          }
+        });
+      }
+
+      function initPaging() {
+        initPagingFor('testA');
+        initPagingFor('testB');
+        initPagingFor('testC');
       }
 
       // Remove show-answer buttons since we validate/correct before advancing
@@ -1250,7 +1494,36 @@ const shortAnswerKey = {};
       setTimeout(updateBackdrop, 500);
       // Watch for layout changes (content added/removed) and update backdrop
       const observer = new MutationObserver(updateBackdrop);
-      observer.observe(page, { childList: true, subtree: true });
+      observer.observe(page, { childList: true, subtree: true, attributes: true, attributeFilter: ['style','class'] });
+      // Expose a global hook so other functions can force an update
+      window.requestBackdropUpdate = updateBackdrop;
+
+      // Helper to rebuild questions from plain text and reinitialize paging for a test
+      window.rerandomizeTest = function(test){
+        const formId = test === 'A' ? 'testA' : (test === 'B' ? 'testB' : 'testC');
+        const sourceId = test === 'A' ? 'sourceA' : (test === 'B' ? 'sourceB' : 'sourceC');
+        const type = test === 'A' ? 'choice' : (test === 'B' ? 'text' : 'blanks');
+        const form = document.getElementById(formId);
+        if (!form) return;
+        // Clear answer maps for the given test type
+        if (type === 'choice') {
+          for (const k in answers) delete answers[k];
+        } else if (type === 'text') {
+          for (const k in shortAnswerKey) delete shortAnswerKey[k];
+        } else if (type === 'blanks') {
+          for (const k in blanksAnswerKey) delete blanksAnswerKey[k];
+        }
+        // Reset form content to header + progress + actions to avoid accumulating DOM
+        const headerHtml = form.querySelector('h2')?.outerHTML || '';
+        const progressHtml = form.querySelector('.progress')?.outerHTML || '';
+        const actionsHtml = form.querySelector('.form-actions')?.outerHTML || '';
+        form.innerHTML = `${headerHtml}\n${progressHtml}\n${actionsHtml}`;
+        // Allow render again
+        delete form.dataset.rendered;
+        // Render from sources and reinit paging
+        renderFromPlainText(formId, sourceId, type);
+        initPagingFor(formId);
+      };
     });
   </script>
   </div>
