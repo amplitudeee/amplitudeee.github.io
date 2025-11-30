@@ -5,6 +5,16 @@ const shortAnswerKey = {};
 // Blanks answer key for Medium Test
 const blanksAnswerKey = {};
 
+// Shuffle array function (Fisher-Yates algorithm)
+function shuffleArray(array) {
+  const arr = [...array]; // Create a copy to avoid mutating original
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+}
+
 // Lenient normalization for comparing answers (case/spacing/punctuation)
 function normalizeAnswer(text) {
   if (text == null) return '';
@@ -243,7 +253,9 @@ function isEquivalentAnswer(user, expected){
       }
       function createMCQuestion(qId, text, options){
         const qNum = qId.replace(/^q/, '');
-        const optionsHtml = options.map((val, i) => {
+        // Shuffle the options for multiple choice questions
+        const shuffledOptions = shuffleArray(options);
+        const optionsHtml = shuffledOptions.map((val, i) => {
           const oid = `${qId}-o${i+1}`;
           return `  <label for="${oid}"><input id="${oid}" type="radio" name="${qId}" value="${val}"> ${val}</label>`;
         }).join('\n');
@@ -680,19 +692,23 @@ function isEquivalentAnswer(user, expected){
         }
         form._kbHandler = function(ev){
           const key = ev.key.toLowerCase();
-          if (ev.key === 'ArrowRight') { ev.preventDefault(); nextQuestion(id); showToast('Next'); }
-          if (ev.key === 'ArrowLeft') { ev.preventDefault(); prevQuestion(id); showToast('Prev'); }
-          if (ev.key === 'Home') {
-            ev.preventDefault();
-            showQuestion(id, 0);
-            showToast('First');
+          // Only enable left/right/home/end shortcuts for Easy Test (testA)
+          if (id === 'testA') {
+            if (ev.key === 'ArrowRight') { ev.preventDefault(); nextQuestion(id); showToast('Next'); }
+            if (ev.key === 'ArrowLeft') { ev.preventDefault(); prevQuestion(id); showToast('Prev'); }
+            if (ev.key === 'Home') {
+              ev.preventDefault();
+              showQuestion(id, 0);
+              showToast('First');
+            }
+            if (ev.key === 'End') {
+              ev.preventDefault();
+              const total = form.querySelectorAll('.question').length;
+              if (total > 0) showQuestion(id, total - 1);
+              showToast('Last');
+            }
           }
-          if (ev.key === 'End') {
-            ev.preventDefault();
-            const total = form.querySelectorAll('.question').length;
-            if (total > 0) showQuestion(id, total - 1);
-            showToast('Last');
-          }
+          // Up/Down arrows work on all tests for showing/hiding answers
           if (ev.key === 'ArrowUp') { ev.preventDefault();
             const shown = toggleAnswer(id, true);
             // Sync button label
@@ -700,7 +716,6 @@ function isEquivalentAnswer(user, expected){
             if (btn) btn.textContent = shown ? 'Hide Answer' : 'Show Answer';
             showToast('Show Answer');
           }
-          // Remove Right Control shortcut per request
           if (ev.key === 'ArrowDown') { ev.preventDefault();
             const shown = toggleAnswer(id, false);
             const btn = document.getElementById(id === 'testA' ? 'btnCheckA' : (id === 'testB' ? 'btnCheckB' : 'btnCheckC'));
