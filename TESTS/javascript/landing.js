@@ -1260,6 +1260,13 @@ document.addEventListener('DOMContentLoaded', function() {
   // Early exit if critical elements don't exist
   if (!newFileChoice || !existingFileChoice) return;
   
+  // Back button handler
+  if (backBtn) {
+    backBtn.addEventListener('click', () => {
+      showSection('choice');
+    });
+  }
+  
   // Choice selection
   newFileChoice.addEventListener('click', () => {
     isCreatingNew = true;
