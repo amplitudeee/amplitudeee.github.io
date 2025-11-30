@@ -234,13 +234,14 @@
       /* Hide help shortcuts button on mobile */
       .form-actions .help-shortcuts { display: none; }
       h2 { font-size: 18px; }
-      input[type="text"] { font-size: 14px; }
+      /* Prevent iOS mobile zoom on focus by using >=16px */
+      input[type="text"], textarea, select { font-size: 16px; }
       label { 
         display: block;
         margin-bottom: 6px;
         font-size: 13px;
       }
-      .question input.blank { display:block; width:100%; min-width:0 !important; margin:6px 0; }
+      .question input.blank { display:block; width:100%; min-width:0 !important; margin:6px 0; font-size:16px; }
     }
 
     /* Respect reduced motion */
