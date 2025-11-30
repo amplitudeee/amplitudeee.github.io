@@ -211,6 +211,8 @@
         gap: 8px;
         margin-top: 16px;
       }
+      /* Hide desktop-only Enter hint on small screens */
+      .results-actions .hint { display: none; }
       h2 { font-size: 18px; }
       input[type="text"] { font-size: 14px; }
       label { 
@@ -417,6 +419,10 @@
 
     /* Results actions (top area with Try Again) */
     .results-actions { display: flex; justify-content: flex-end; gap: 10px; margin: 8px 0 12px; }
+    .results-actions .hint { align-self: center; font-size: 12px; color: #ddd; opacity: .85; }
+    /* Suppress focus outline rectangle on the results page/title when focused programmatically */
+    #resultsPage:focus { outline: none; }
+    #resultsTitle:focus { outline: none; }
 
     /* Shortcut toast (accessible, brief, respects reduced motion) */
     .shortcut-toast {
@@ -929,6 +935,7 @@ A40: Activity Elimination improves efficiency by removing tasks that add no valu
     <h2 id="resultsTitle" tabindex="-1">Test Results</h2>
     <div class="results-actions">
       <button type="button" id="btnTryAgain">Try Again</button>
+      <span class="hint">Press Enter to try again</span>
     </div>
     <div class="results-summary" aria-live="polite">
       <div class="score-display">
@@ -1115,6 +1122,9 @@ function isEquivalentAnswer(user, expected){
       document.getElementById('testB').classList.add('hidden');
       document.getElementById('testC').classList.add('hidden');
       document.getElementById('resultsPage').classList.remove('hidden');
+      // Ensure results page can capture key events: set focus
+      const rp = document.getElementById('resultsPage');
+      if (rp) { rp.setAttribute('tabindex','0'); try { rp.focus({ preventScroll: true }); } catch(_) { rp.focus(); } }
       
       // No toggle bar; only Try Again at top
       // Update backdrop for results layout
@@ -1123,6 +1133,7 @@ function isEquivalentAnswer(user, expected){
       // Update title with friendly test name
       const testName = (test === 'A') ? 'Easy Test' : (test === 'B' ? 'Hard Test' : 'Medium Test');
       document.getElementById('resultsTitle').textContent = `${testName} Results`;
+      // Avoid focusing the title to prevent a visible focus rectangle; resultsPage has focus.
 
       // Calculate percentage
       const percentage = Math.round((correctCount / totalCount) * 100);
@@ -1413,6 +1424,11 @@ function isEquivalentAnswer(user, expected){
             ev.preventDefault();
             ev.stopPropagation();
           }
+          if (ev.key === 'Enter') {
+            ev.preventDefault();
+            const btn = document.getElementById('btnTryAgain');
+            if (btn) btn.click();
+          }
         });
       }
 
@@ -1436,12 +1452,20 @@ function isEquivalentAnswer(user, expected){
         const isLast = index === total - 1;
         if (prev) { prev.disabled = index === 0; prev.onclick = function(){ prevQuestion(formId); }; }
         if (next) {
-          next.textContent = 'Next';
-          next.onclick = function(){ nextQuestion(formId); };
-          next.disabled = isLast;
+          const testLetter = (formId === 'testA' ? 'A' : (formId === 'testB' ? 'B' : 'C'));
+          if (isLast) {
+            next.textContent = 'Submit';
+            next.disabled = false;
+            next.onclick = function(){ submitTest(testLetter); };
+          } else {
+            next.textContent = 'Next';
+            next.onclick = function(){ nextQuestion(formId); };
+            next.disabled = false;
+          }
         }
           if (check) {
-              check.style.display = isLast ? 'none' : '';
+              // Always show the Show/Hide Answer button, even on the last question
+              check.style.display = '';
               // Set initial label based on current question's answer visibility
               const current = questions[index];
               const ansDiv = current ? current.querySelector('.answer') : null;
@@ -1459,7 +1483,8 @@ function isEquivalentAnswer(user, expected){
             }
         const submitBtn = document.getElementById(formId === 'testA' ? 'btnSubmitA' : (formId === 'testB' ? 'btnSubmitB' : 'btnSubmitC'));
         if (submitBtn) {
-          submitBtn.style.display = isLast ? '' : 'none';
+          // Hide the separate Submit button since Next becomes Submit on the last question
+          submitBtn.style.display = 'none';
           submitBtn.disabled = false;
         }
         // progress bar
@@ -1600,7 +1625,11 @@ function isEquivalentAnswer(user, expected){
           toastTimer = setTimeout(() => { toastEl.classList.remove('show'); }, 1200);
         }
 
-        form.addEventListener('keydown', function(ev){
+        // Ensure only one keyboard handler is attached per form (avoid double-advance)
+        if (form._kbHandler) {
+          form.removeEventListener('keydown', form._kbHandler);
+        }
+        form._kbHandler = function(ev){
           const key = ev.key.toLowerCase();
           if (key === 'n') { ev.preventDefault(); nextQuestion(id); showToast('Next'); }
           if (key === 'p') { ev.preventDefault(); prevQuestion(id); showToast('Prev'); }
@@ -1645,7 +1674,8 @@ function isEquivalentAnswer(user, expected){
               showToast('Show Answer');
             }
           }
-        });
+        };
+        form.addEventListener('keydown', form._kbHandler);
         // Clickable progress text to open quick navigator (simple prompt)
         const suffix = id === 'testA' ? 'A' : (id === 'testB' ? 'B' : 'C');
         const pText = document.getElementById('progressText' + suffix);
