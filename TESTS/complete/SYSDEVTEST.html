@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>System Development Practice Tests</title>
+    <!--
+    Name: Matt
+    File: SYSDEVTEST.html
+    Date: Nov 30 2025
+    SYSDEVTEST -->
+    <link href="../css/style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+  <div class="accents" aria-hidden="true">
+    <span class="blob b1"></span>
+    <span class="blob b2"></span>
+    <span class="blob b3"></span>
+  </div>
+  <div class="card-backdrop" aria-hidden="true"></div>
+  <div class="page">
+  <!-- Intro Page -->
+  <div id="introPage" class="intro-page">
+    <h1 class="shimmer">System Development Practice Tests</h1>
+    <p style="text-align: center; margin-bottom: 24px; font-size: 18px; color: #ddd;">Ideally to be ready for the real test you should be able to fill out the medium tests with ease and most of the hard test answers</p>
+    <p style="text-align: center; margin-bottom: 24px; font-size: 18px; color: #ddd;">Choose your test format</p>
+    <div class="test-options">
+      <div class="test-option-card" id="optionA">
+        <h2>Easy Test</h2>
+        <p class="test-type">Multiple Choice & True/False</p>
+        <ul class="test-features">
+          <li>✓ 10 randomized questions</li>
+          <li>✓ Multiple choice options</li>
+          <li>✓ True/False questions</li>
+          <li>✓ Instant feedback on each answer</li>
+          <li>✓ Detailed explanations provided</li>
+        </ul>
+        <button class="start-test-btn" data-test="A" id="startTestA">Start Easy Test</button>
+      </div>
+      <div class="test-option-card" id="optionC">
+        <h2>Medium Test</h2>
+        <p class="test-type">Fill in the Blanks</p>
+        <ul class="test-features">
+          <li>✓ 10 randomized questions</li>
+          <li>✓ Fill in missing words</li>
+          <li>✓ Case-insensitive matching</li>
+          <li>✓ Suggested answers provided</li>
+          <li>✓ Detailed explanations optional</li>
+        </ul>
+        <button class="start-test-btn" data-test="C" id="startTestC">Start Medium Test</button>
+      </div>
+      <div class="test-option-card" id="optionB">
+        <h2>Hard Test</h2>
+        <p class="test-type">Short Answer</p>
+        <ul class="test-features">
+          <li>✓ 10 randomized questions</li>
+          <li>✓ Open-ended responses</li>
+          <li>✓ Test your recall ability</li>
+          <li>✓ Suggested answers provided</li>
+          <li>✓ Comprehensive feedback</li>
+        </ul>
+        <button class="start-test-btn" data-test="B" id="startTestB">Start Hard Test</button>
+      </div>
+    </div>
+  </div>
+  
+
+  <!-- Optional: Plain-text question sources (easy to replace). One question per line. -->
+  <script type="text/plain" id="sourceA">
+Q1: Functional requirements define how a system should perform. | True | False
+A1: False | Functional = what the system must do; the how is non-functional.
+
+Q2: Non-functional requirements focus on how a system should perform. | True | False
+A2: True | Non-functional defines how the system performs (quality attributes).
+
+Q3: Functional requirements are not static and can be adjusted via structured processes. | True | False
+A3: True | Functional requirements can be adjusted through change control or backlog refinement.
+
+Q4: Change control is used in Agile to adjust the scope of functional requirements. | True | False
+A4: False | Change Control is used in Waterfall; Agile uses Backlog Refinement.
+
+Q5: Backlog refinement is used in Agile to adjust functional requirements. | True | False
+A5: True | In Agile, backlog refinement adjusts the scope of functional requirements.
+
+Q6: Performance, reliability, and security are examples of non-functional requirement aspects. | True | False
+A6: True | These are all non-functional requirement aspects.
+
+Q7: Portability and maintainability belong to Operational non-functional requirements. | True | False
+A7: True | Portability, Maintainability, System Integration and Technical Environment are part of Operational non-functional requirements.
+
+Q8: Availability and reliability are part of Performance non-functional requirements. | True | False
+A8: False | Availability and Reliability, Speed and Capacity are part of Operational requirements.
+
+Q9: Access control and encryption are examples of Security non-functional requirements. | True | False
+A9: True | Access Control, Encryption, Virus Control and System Value are Security non-functional requirements.
+
+Q10: Laws and government regulations are part of Cultural & Political requirements. | True | False
+A10: True | Laws & government regulations, Centralized vs Local Control, Language Differences and Scrutiny of Local Laws in a Globalized Organizationare are Cultural & Political requirements.
+
+Q11: Problem Analysis focuses on understanding ‘why’ before ‘what’. | True | False
+A11: True | Problem Analysis identifies the business problem, focusing on 'why' first.
+
+Q12: Root Cause Analysis focuses on symptoms rather than underlying issues. | True | False
+A12: False | Root Cause Analysis digs into underlying causes, not just symptoms.
+
+Q13: Duration Analysis looks at time taken for process activities to find efficiency opportunities. | True | False
+A13: True | Duration Analysis examines time taken to identify efficiency opportunities.
+
+Q14: Activity-Based Costing includes only direct costs. | True | False
+A14: False | Activity-Based Costing includes both direct and indirect costs.
+
+Q15: Informal Benchmarking involves analyzing the current technology environment and trends, to inform decisions about technology investments. | True | False
+A15: False | Informal Benchmarking compares processes with other businesses for improvement ideas.
+
+Q16: Outcome Analysis identifying activities that do not add value and can be eliminated. | True | False
+A16: False | Outcome Analysis uses past results to guide future actions.
+
+Q17: Technology Analysis examines current environment and trends to inform investments. | True | False
+A17: True | Technology Analysis looks at current tech environment and trends for investment decisions.
+
+Q18: Activity Elimination targets non–value-adding activities to free resources. | True | False
+A18: True | Activity Elimination removes non–value-adding activities to free up resources.
+
+Q19: Open communication helps prevent success. | True | False
+A19: False | Open communication is key to preventing team conflict.
+
+Q20: Effort estimation is not important for cost control. | True | False
+A20: False | Effort estimation is crucial for cost control.
+
+Q21: Which process adjusts functional requirements in Waterfall? | Change Control | Backlog Refinement | Scope Creep | Kanban
+A21: Change Control | Change Control is the formal process in Waterfall for adjusting requirements.
+
+Q22: Which non-functional category includes Availability? | Operational | Performance | Security | Cultural & Political
+A22: Operational | Availability is part of Operational non-functional requirements.
+
+Q23: Which analysis strategy identifies inefficient code as the cause of performance issues? | Problem Analysis | Root Cause Analysis | Duration Analysis | Outcome Analysis
+A23: Root Cause Analysis | Root Cause Analysis digs deep to find the underlying cause of issues.
+
+Q24: Which requirements gathering technique builds relationships with stakeholders? | Interviewing | Observation | Questionnaire | Document Analysis
+A24: Interviewing | Interviewing builds relationships and gathers detailed information.
+
+Q25: Who defines requirements? | Project Managers and Developers | Testers and Customers | Business Analysts and Stakeholders | System Architects and End Users
+A25: Business Analysts and Stakeholders | Business Analysts work with Stakeholders to define requirements.
+
+Q26: What does WBS stand for? | Work Breakdown Structure | Workflow Business System | Work Balance Sheet | Work Budget Strategy
+A26: Work Breakdown Structure | WBS breaks down a project into smaller, manageable tasks.
+
+Q27: Which are the three trade-offs of effort estimation? | Speed, Reliability, Security | Skills, Morale, Rewards | Scope, Time, Cost | Availability, Portability, Maintainability
+A27: Scope, Time, Cost | The project triangle balances Scope, Time, and Cost.
+
+Q28: What is scope creep? | Breaking down project tasks | Adding new requirements after project starts | Visualizing workflow | Estimating costs
+A28: Adding new requirements after project starts | Scope creep is uncontrolled expansion of project requirements.
+
+Q29: Which method visualizes work process and flow? | WBS | Benchmarking | Shadowing | Kanban 
+A29: Kanban | Kanban boards visualize workflow and help manage tasks.
+
+Q30: High morale indicates what? | Scope creep | Team has jelled | Poor communication | Cost control
+A30: Team has jelled | High morale means the team has bonded and works well together.
+
+Q31: Which requirements gathering technique provides a comprehensive understanding of system functionalities and business processes? | Interviewing | Observation | Questionnaire | Document Analysis
+A31: Document Analysis | Document Analysis provides comprehensive system and process understanding.
+
+Q32: Which requirements analysis strategy involves looking at past results to guide future actions? | Outcome Analysis | Technology Analysis | Activity Elimination | Informal Benchmarking
+A32: Outcome Analysis | Outcome Analysis examines past results to inform future decisions.
+
+Q33: Which non-functional category includes Portability? | Performance | Security | Cultural & Political | Operational
+A33: Operational | Portability, Maintainability, System integration, and Technical Envrionment are all part of Operational non-functional requirements.
+
+Q34: Which strategy involves analyzing the current technology environment and trends? | Problem Analysis | Technology Analysis | Duration Analysis | Activity-Based Costing
+A34: Technology Analysis | Technology Analysis examines current tech environment and trends.
+
+Q35: Which requirements gathering technique can scale to a large number of respondents? | Interviewing | Observation | Questionnaire | Shadowing
+A35: Questionnaire | Questionnaires can efficiently gather input from many respondents.
+
+Q36: Which strategy involves identifying all costs associated with a business activity? | Activity-Based Costing | Root Cause Analysis | Outcome Analysis | Duration Analysis
+A36: Activity-Based Costing | Activity-Based Costing identifies all direct and indirect costs.
+
+Q37: Which non-functional category includes Virus Control? | Operational | Performance | Security | Cultural & Political
+A37: Security | Virus Control is part of Security non-functional requirements.
+
+Q38: Which strategy involves comparing processes with other businesses? | Technology Analysis | Activity Elimination | Informal Benchmarking | Problem Analysis
+A38: Informal Benchmarking | Informal Benchmarking compares processes with other organizations.
+
+Q39: Which requirements gathering technique ensures design is centered around user needs? | Interviewing | Observation | Questionnaire | Document Analysis
+A39: Observation | Observation ensures design is based on actual user behavior and needs.
+
+Q40: Which factor is important when forming a project team? | High morale | Member availability and skills | Office Location Preference | How Much Beer your each member drank on the weekend
+A40: Member availability and skills | Team formation requires matching member availability and skills to project needs.
+  </script>
+
+  <script type="text/plain" id="sourceC">
+Q1: Fill in the blanks: The two main development approaches are ___ and ___.
+A1: Agile | Waterfall | Agile focuses on iteration; Waterfall is sequential.
+
+Q2: A project’s primary trade-offs are ___, ___, and ___.
+A2: Scope | Time | Cost | These form the classic project management triangle.
+
+Q3: Functional requirements define ___, while non-functional requirements focus on ___.
+A3: What a system must do | How it should perform | Function vs performance.
+
+Q4: In Waterfall, changes to functional requirements are handled through ___ control.
+A4: Change | Structured change control ensures scope stability.
+
+Q5: In Agile, adjustments to functional requirements occur through ___ refinement.
+A5: Backlog | Backlog refinement balances value and feasibility.
+
+Q6: Non-functional requirements include aspects such as ___, ___, ___, and ___.
+A6: Performance | Usability | Reliability | Security | These define system quality.
+
+Q7: Operational non-functional requirements include ___, ___, ___, and ___.
+A7: Technical Environment | System Integration | Portability | Maintainability | These ensure smooth operation.
+
+Q8: Performance non-functional requirements include ___, ___, ___, and ___.
+A8: Speed | Capacity | Availability | Reliability | These measure efficiency.
+
+Q9: Security non-functional requirements include ___, ___, ___, and ___.
+A9: System Value | Access Control | Encryption & Authentication | Virus Control | These protect data.
+
+Q10: Cultural & Political non-functional requirements include ___, ___, ___, and ___.
+A10: Centralized vs Local Control | Language Differences | Laws & Government Regulations | Scrutiny of Local Laws | These reflect organizational context.
+
+Q11: Problem Analysis focuses on understanding ___ before defining ___.
+A11: Why | What | It clarifies the business problem.
+
+Q12: Root Cause Analysis identifies ___ rather than just addressing ___.
+A12: Underlying cause | Symptoms | Ensures lasting solutions.
+
+Q13: Duration Analysis examines ___ taken for activities to identify ___.
+A13: Time | Efficiency opportunities | Streamlines processes.
+
+Q14: Activity-Based Costing considers both ___ and ___ costs.
+A14: Direct | Indirect | Provides accurate cost picture.
+
+Q15: Informal Benchmarking compares ___ with other businesses to identify ___.
+A15: Processes | Improvements | Gains insights from peers.
+
+Q16: Outcome Analysis looks at ___ of past actions to guide ___.
+A16: Results | Future decisions | Learns from history.
+
+Q17: Technology Analysis studies ___ and ___ to inform investments.
+A17: Current environment | Trends | Guides tech choices.
+
+Q18: Activity Elimination removes ___ activities that do not ___.
+A18: Non-value | Add value | Frees resources.
+
+Q19: Interviewing as a requirements technique provides ___ understanding through ___.
+A19: In-depth | Direct communication | Builds clarity.
+
+Q20: Observation helps identify ___ requirements by watching ___.
+A20: Implicit | Real-world behavior | Ensures user-centered design.
+
+Q21: Questionnaires are useful for ___ projects because they provide ___.
+A21: Large | Scalable data | Standardized responses.
+
+Q22: Document Analysis reduces ___ by basing requirements on ___.
+A22: Miscommunication | Existing documents | Ensures accuracy.
+
+Q23: Shadowing involves ___ to understand ___.
+A23: Following users | Their tasks | Captures real workflows.
+
+Q24: Requirements are defined by ___ and ___.
+A24: Business Analysts | Stakeholders | They capture needs.
+
+Q25: Project work is executed by ___ and ___.
+A25: Project Manager | Developers | They deliver solutions.
+
+Q26: A Work Breakdown Structure decomposes a project into ___ components.
+A26: Smaller | Manageable | Provides detailed scope.
+
+Q27: Scope creep refers to adding ___ after a project is ___.
+A27: New requirements | Underway | Expands scope unexpectedly.
+
+Q28: Open communication helps prevent ___.
+A28: Team conflict | Encourages collaboration.
+
+Q29: Skill sets are important when ___ a project team.
+A29: Staffing | Ensures capability alignment.
+
+Q30: High morale indicates a team has ___.
+A30: Jelled | Working well together.
+
+Q31: Possible team motivation strategies include ___ and ___.
+A31: Rewards | Recognition | Boosts performance.
+
+Q32: Kanban is used for ___ work process and ___.
+A32: Visualizing | Flow | Tracks tasks.
+
+Q33: Effort estimation is critical for managing ___.
+A33: Cost control | Prevents overruns.
+
+Q34: Important considerations for forming a group project include ___ and ___.
+A34: Member availability | Skills | Ensures effective collaboration.
+
+Q35: Fill in the blanks: Functional requirements are adjusted to balance ___, ___, and ___.
+A35: Business value | Technical feasibility | Project constraints | Ensures maximum value delivery.
+
+Q36: Non-functional requirements related to usability focus on ___ interaction.
+A36: User | Ensures ease of use.
+
+Q37: Reliability as a non-functional requirement ensures system ___ over time.
+A37: Consistency | Maintains trust.
+
+Q38: Maintainability ensures a system can be ___ and ___ efficiently.
+A38: Updated | Fixed | Supports long-term use.
+
+Q39: Availability measures how often a system is ___.
+A39: Accessible | Ensures uptime.
+
+Q40: Encryption & Authentication protect system ___ and ___.
+A40: Data | Access | Safeguards information.
+  </script>
+
+  <script type="text/plain" id="sourceB">
+Q1: Define functional requirements and explain their purpose.
+A1: Functional requirements define what a system must do, describing its core features and tasks.
+
+Q2: Define non-functional requirements and explain their focus.
+A2: Non-functional requirements focus on how the system performs, covering quality attributes like speed, security, and usability.
+
+Q3: How are functional requirements adjusted in scope during a project?
+A3: They are adjusted through structured processes such as change control (Waterfall) or backlog refinement (Agile).
+
+Q4: Name two structured processes used to adjust functional requirements.
+A4: Change control in Waterfall and backlog refinement in Agile.
+
+Q5: List four aspects covered by non-functional requirements.
+A5: Performance, usability, reliability, security, maintainability.
+
+Q6: Which non-functional category includes Portability and Maintainability?
+A6: Operational — includes portability, maintainability, technical environment, and system integration.
+
+Q7: Which non-functional category includes Speed and Capacity?
+A7: Performance — includes speed, capacity, availability, reliability.
+
+Q8: Which non-functional category includes Access Control and Encryption?
+A8: Security — includes system value, access control, encryption & authentication, virus control.
+
+Q9: Which non-functional category includes Laws and Government Regulations?
+A9: Cultural & Political — includes laws, government regulations, language differences, centralized vs local control.
+
+Q10: What is the goal of Problem Analysis in requirements analysis?
+A10: Problem Analysis identifies and articulates the business problem, focusing on 'why' before 'what'.
+
+Q11: What is the goal of Root Cause Analysis?
+A11: Root Cause Analysis identifies underlying causes of problems rather than just symptoms.
+
+Q12: What does Duration Analysis examine?
+A12: Duration Analysis examines the time taken for activities to find efficiency opportunities.
+
+Q13: What does Activity-Based Costing include beyond direct costs?
+A13: Activity-Based Costing includes indirect costs like rent, utilities, salaries, and marketing in addition to direct costs.
+
+Q14: What is Informal Benchmarking used for?
+A14: Informal Benchmarking compares processes with other businesses to identify areas for improvement.
+
+Q15: What is Outcome Analysis used for?
+A15: Outcome Analysis uses past results to guide future actions.
+
+Q16: What is Technology Analysis used for?
+A16: Technology Analysis examines current technology environment and trends to inform investment decisions.
+
+Q17: What is Activity Elimination used for?
+A17: Activity Elimination removes non–value-adding activities to free resources.
+
+Q18: What is the main benefit of Interviewing as a requirements gathering technique?
+A18: Interviewing provides in-depth understanding and builds relationships with stakeholders.
+
+Q19: What is the main benefit of Observation as a requirements gathering technique?
+A19: Observation provides real-world understanding of user behavior and reduces miscommunication.
+
+Q20: What is the main benefit of Questionnaires as a requirements gathering technique?
+A20: Questionnaires scale to large groups, provide quantitative data, and allow anonymity.
+
+Q21: What is the main benefit of Document Analysis as a requirements gathering technique?
+A21: Document Analysis provides comprehensive understanding of systems and identifies gaps efficiently.
+
+Q22: What is Shadowing used for in requirements gathering?
+A22: Shadowing involves following users to observe their work and uncover implicit requirements.
+
+Q23: Who defines requirements in a project?
+A23: Business analysts and stakeholders define requirements.
+
+Q24: Who does the work after requirements are defined?
+A24: Project managers and developers do the work after requirements are defined.
+
+Q25: What does WBS stand for and what is its purpose?
+A25: Work Breakdown Structure — decomposes a project into smaller components for clarity and scope management.
+
+Q26: What are the three trade-offs of effort estimation?
+A26: Scope, Time, Cost — the three trade-offs of effort estimation.
+
+Q27: What is scope creep?
+A27: Scope creep is adding new requirements after a project has started.
+
+Q28: Why is open communication important in project teams?
+A28: Open communication prevents team conflict and supports collaboration.
+
+Q29: Why are skill sets important when staffing a project team?
+A29: Skill sets ensure the team has the right expertise for tasks.
+
+Q30: What does high morale indicate in a project team?
+A30: High morale indicates the team has 'jelled' and is working well together.
+
+Q31: What is a possible team motivation strategy?
+A31: Rewards and recognition motivate teams and improve performance.
+
+Q32: What does Kanban do?
+A32: Kanban visualizes work processes and flow.
+
+Q33: Why is effort estimation critical for cost control?
+A33: Effort estimation is critical for cost control because it predicts resource needs and expenses.
+
+Q34: What is an important consideration when forming a group project?
+A34: Member availability and skills are important considerations when forming a group project.
+
+Q35: Why is rewards and recognition important for team motivation?
+A35: Rewards and recognition encourage motivation, engagement, and sustained performance.
+
+Q36: What does Kanban help visualize in project management?
+A36: Kanban helps visualize workflow, bottlenecks, and task progress.
+
+Q37: Why is effort estimation critical for managing project costs?
+A37: Effort estimation ensures accurate budgeting and prevents overspending.
+
+Q38: What are two important considerations when forming a group project team?
+A38: Member availability and skills — ensures tasks are covered and team balance is maintained.
+
+Q39: Give an example of how Outcome Analysis might influence future software releases.
+A39: Outcome Analysis might lead to more thorough testing if past releases caused support issues.
+
+Q40: Explain how Activity Elimination can improve efficiency in a business process.
+A40: Activity Elimination improves efficiency by removing tasks that add no value, freeing resources for useful work.
+  </script>
+
+ <!-- Test A -->
+  <form id="testA" class="test hidden">
+    <h2>Easy Test</h2>
+    <div class="progress" id="progressA" aria-live="polite">
+      <div class="progress-track"><div class="progress-fill" id="progressFillA"></div></div>
+      <div class="progress-text" id="progressTextA">1 / 10</div>
+    </div>
+    <!-- Questions are generated from #sourceA; static markup removed -->
+
+    <div class="form-actions">
+      <button type="button" id="btnPrevA" class="nav-btn">Prev</button>
+      <button type="button" id="btnCheckA" class="nav-btn">Show Answer</button>
+      <button type="button" id="btnNextA" class="nav-btn">Next</button>
+      <button type="button" id="btnSubmitA">Submit Easy Test</button>
+      <button type="button" class="help-shortcuts" id="helpA" aria-haspopup="true" aria-expanded="false" aria-label="Keyboard shortcuts help">?
+        <span class="popover" role="tooltip">Keyboard Shortcuts:<br>Next = Right Arrow<br>Prev = Left Arrow<br>Show Answer = Up Arrow<br>Hide Answer = Down Arrow<br>First = Home<br>Last = End</span>
+      </button>
+    </div>
+  </form>
+
+<!-- Test B -->
+  <form id="testB" class="test hidden">
+    <h2>Hard Test</h2>
+    <div class="progress" id="progressB" aria-live="polite">
+      <div class="progress-track"><div class="progress-fill" id="progressFillB"></div></div>
+      <div class="progress-text" id="progressTextB">1 / 10</div>
+    </div>
+    <!-- Questions are generated from #sourceB; static markup removed -->
+
+    <div class="form-actions">
+      <button type="button" id="btnPrevB" class="nav-btn">Prev</button>
+      <button type="button" id="btnCheckB" class="nav-btn">Show Answer</button>
+      <button type="button" id="btnResetB" class="nav-btn">Clear Question</button>
+      <button type="button" id="btnNextB" class="nav-btn">Next</button>
+      <button type="button" id="btnSubmitB">Submit Hard Test</button>
+      <button type="button" class="help-shortcuts" id="helpB" aria-haspopup="true" aria-expanded="false" aria-label="Keyboard shortcuts help">?
+        <span class="popover" role="tooltip">Keyboard Shortcuts:<br>Next = Right Arrow<br>Prev = Left Arrow<br>Show Answer = Up Arrow<br>Hide Answer = Down Arrow<br>First = Home<br>Last = End</span>
+      </button>
+    </div>
+  </form>
+
+<!-- Test C -->
+  <form id="testC" class="test hidden">
+    <h2>Medium Test</h2>
+    <div class="progress" id="progressC" aria-live="polite">
+      <div class="progress-track"><div class="progress-fill" id="progressFillC"></div></div>
+      <div class="progress-text" id="progressTextC">1 / 10</div>
+    </div>
+    <!-- Questions are generated from #sourceC -->
+
+    <div class="form-actions">
+      <button type="button" id="btnPrevC" class="nav-btn">Prev</button>
+      <button type="button" id="btnCheckC" class="nav-btn">Show Answer</button>
+      <button type="button" id="btnResetC" class="nav-btn">Clear Question</button>
+      <button type="button" id="btnNextC" class="nav-btn">Next</button>
+      <button type="button" id="btnSubmitC">Submit Medium Test</button>
+      <button type="button" class="help-shortcuts" id="helpC" aria-haspopup="true" aria-expanded="false" aria-label="Keyboard shortcuts help">?
+        <span class="popover" role="tooltip">Keyboard Shortcuts:<br>Next = Right Arrow<br>Prev = Left Arrow<br>Show Answer = Up Arrow<br>Hide Answer = Down Arrow<br>First = Home<br>Last = End</span>
+      </button>
+    </div>
+  </form>
+
+  <!-- Results Page -->
+  <div id="resultsPage" class="test hidden">
+    <h2 id="resultsTitle" tabindex="-1">Test Results</h2>
+    <div class="results-actions">
+      <button type="button" id="btnTryAgain">Try Again</button>
+      <span class="hint">Press Enter to try again</span>
+    </div>
+    <div class="results-summary" aria-live="polite">
+      <div class="score-display">
+        <div class="score-number" id="scoreNumber">0/10</div>
+        <div class="score-percentage" id="scorePercentage">0%</div>
+      </div>
+      <div class="results-message" id="resultsMessage"></div>
+    </div>
+    <div class="results-details" id="resultsDetails"></div>
+  </div>
+  <!-- Shortcut toast for keyboard feedback -->
+  <div id="shortcutToast" class="shortcut-toast" role="status" aria-live="polite" aria-atomic="true"></div>
+  <script src="../javascript/script.js"></script>
+  </div>
+</body>
+</html>

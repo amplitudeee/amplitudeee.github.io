@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>T/F Question Generator</title>
+  <!--
+  Name: Matt
+  File: index.html
+  Date: Nov 30 2025
+  T/F Question Generator Landing Page -->
+  <link href="css/style.css" rel="stylesheet" type="text/css">
+  <style>
+    .hero {
+      text-align: center;
+      padding: 40px 0 60px;
+    }
+    
+    .hero h1 {
+      font-size: 3rem;
+      margin: 0 0 20px;
+      line-height: 1.2;
+    }
+    
+    .hero p {
+      font-size: 1.25rem;
+      color: #ddd;
+      margin: 0 0 40px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      margin: 40px 0;
+    }
+    
+    .feature-card {
+      background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+      border-radius: 12px;
+      padding: 28px;
+      border: 1px solid rgba(255,255,255,0.08);
+      backdrop-filter: blur(8px);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    
+    .feature-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+    }
+    
+    .feature-card h3 {
+      color: var(--accent2);
+      font-size: 1.4rem;
+      margin: 0 0 12px;
+    }
+    
+    .feature-card p {
+      color: #ccc;
+      line-height: 1.6;
+      margin: 0;
+    }
+    
+    .upload-section {
+      margin: 60px 0 40px;
+      text-align: center;
+    }
+    
+    .upload-section h2 {
+      font-size: 2rem;
+      margin: 0 0 16px;
+    }
+    
+    .upload-section p {
+      color: #ddd;
+      margin: 0 0 32px;
+    }
+    
+    .upload-area {
+      background: linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03));
+      border: 2px dashed rgba(255,255,255,0.2);
+      border-radius: 16px;
+      padding: 60px 40px;
+      margin: 0 auto;
+      max-width: 600px;
+      transition: all 0.3s;
+      cursor: pointer;
+    }
+    
+    .upload-area:hover {
+      border-color: var(--accent2);
+      background: linear-gradient(135deg, rgba(247,183,51,0.1), rgba(255,255,255,0.05));
+    }
+    
+    .upload-area.drag-over {
+      border-color: var(--accent1);
+      background: linear-gradient(135deg, rgba(255,107,107,0.15), rgba(255,255,255,0.08));
+      transform: scale(1.02);
+    }
+    
+    .upload-icon {
+      font-size: 4rem;
+      margin-bottom: 20px;
+      opacity: 0.7;
+    }
+    
+    .upload-text {
+      font-size: 1.2rem;
+      color: #fff;
+      margin: 0 0 8px;
+    }
+    
+    .upload-hint {
+      color: #aaa;
+      font-size: 0.95rem;
+    }
+    
+    .file-input {
+      display: none;
+    }
+    
+    .cta-button {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--accent2), var(--accent1));
+      color: #fff;
+      font-size: 1.1rem;
+      font-weight: 600;
+      padding: 16px 40px;
+      border-radius: 50px;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 16px rgba(247,183,51,0.4);
+      transition: all 0.3s;
+      text-decoration: none;
+    }
+    
+    .cta-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 24px rgba(247,183,51,0.6);
+    }
+    
+    .cta-button:active {
+      transform: translateY(0);
+    }
+    
+    .status-message {
+      margin-top: 24px;
+      padding: 16px;
+      border-radius: 8px;
+      display: none;
+    }
+    
+    .status-message.success {
+      background: rgba(76,175,80,0.2);
+      border: 1px solid rgba(76,175,80,0.4);
+      color: #a5d6a7;
+    }
+    
+    .status-message.error {
+      background: rgba(244,67,54,0.2);
+      border: 1px solid rgba(244,67,54,0.4);
+      color: #ef9a9a;
+    }
+    
+    .status-message.info {
+      background: rgba(33,150,243,0.2);
+      border: 1px solid rgba(33,150,243,0.4);
+      color: #90caf9;
+    }
+    
+    @media (max-width: 700px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+      
+      .hero p {
+        font-size: 1rem;
+      }
+      
+      .upload-area {
+        padding: 40px 24px;
+      }
+      
+      .upload-icon {
+        font-size: 3rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="accents" aria-hidden="true">
+    <span class="blob b1"></span>
+    <span class="blob b2"></span>
+    <span class="blob b3"></span>
+  </div>
+  <div class="card-backdrop" aria-hidden="true"></div>
+  
+  <div class="page">
+    <div class="hero">
+      <h1>📝 T/F Question Generator</h1>
+      <p>Upload a Word document and automatically generate 40 true/false questions for your study material</p>
+      <a href="tests/SYSDEVTEST.html" class="cta-button">View Sample Test</a>
+    </div>
+    
+    <div class="features">
+      <div class="feature-card">
+        <h3>⚡ Fast Generation</h3>
+        <p>Upload your Word document and get 40 carefully crafted true/false questions in seconds</p>
+      </div>
+      
+      <div class="feature-card">
+        <h3>🎯 Smart Analysis</h3>
+        <p>Advanced algorithms analyze your content to create meaningful and educational questions</p>
+      </div>
+      
+      <div class="feature-card">
+        <h3>📊 Ready to Use</h3>
+        <p>Export questions in multiple formats or use our built-in test interface to study immediately</p>
+      </div>
+    </div>
+    
+    <div class="upload-section">
+      <h2>Get Started</h2>
+      <p>Upload your Word document (.docx) to begin</p>
+      
+      <div class="upload-area" id="uploadArea">
+        <div class="upload-icon">📄</div>
+        <p class="upload-text">Click to browse or drag and drop</p>
+        <p class="upload-hint">Supports .docx files up to 10MB</p>
+      </div>
+      
+      <input type="file" id="fileInput" class="file-input" accept=".docx,.doc">
+      
+      <div id="statusMessage" class="status-message"></div>
+    </div>
+  </div>
+  
+  <script src="javascript/script.js"></script>
+  <script>
+    // File upload handling
+    const uploadArea = document.getElementById('uploadArea');
+    const fileInput = document.getElementById('fileInput');
+    const statusMessage = document.getElementById('statusMessage');
+    
+    // Click to browse
+    uploadArea.addEventListener('click', () => {
+      fileInput.click();
+    });
+    
+    // File selected
+    fileInput.addEventListener('change', handleFileSelect);
+    
+    // Drag and drop
+    uploadArea.addEventListener('dragover', (e) => {
+      e.preventDefault();
+      uploadArea.classList.add('drag-over');
+    });
+    
+    uploadArea.addEventListener('dragleave', () => {
+      uploadArea.classList.remove('drag-over');
+    });
+    
+    uploadArea.addEventListener('drop', (e) => {
+      e.preventDefault();
+      uploadArea.classList.remove('drag-over');
+      
+      const files = e.dataTransfer.files;
+      if (files.length > 0) {
+        handleFile(files[0]);
+      }
+    });
+    
+    function handleFileSelect(e) {
+      const file = e.target.files[0];
+      if (file) {
+        handleFile(file);
+      }
+    }
+    
+    function handleFile(file) {
+      // Validate file type
+      if (!file.name.match(/\.(docx?|DOCX?)$/)) {
+        showStatus('Please upload a Word document (.docx or .doc)', 'error');
+        return;
+      }
+      
+      // Validate file size (10MB)
+      if (file.size > 10 * 1024 * 1024) {
+        showStatus('File size must be less than 10MB', 'error');
+        return;
+      }
+      
+      showStatus('Processing file: ' + file.name, 'info');
+      
+      // Simulate processing
+      setTimeout(() => {
+        showStatus('✓ Successfully generated 40 questions! Redirecting...', 'success');
+        
+        // Redirect to test page after 2 seconds
+        setTimeout(() => {
+          window.location.href = 'tests/SYSDEVTEST.html';
+        }, 2000);
+      }, 1500);
+    }
+    
+    function showStatus(message, type) {
+      statusMessage.textContent = message;
+      statusMessage.className = 'status-message ' + type;
+      statusMessage.style.display = 'block';
+    }
+  </script>
+</body>
+</html>
