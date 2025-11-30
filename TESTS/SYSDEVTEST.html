@@ -209,8 +209,26 @@
         border-radius: 12px;
         padding: 10px;
         gap: 8px;
+        row-gap: 8px;
+        flex-wrap: wrap;
         margin-top: 16px;
       }
+      /* Ensure consistent button heights on mobile */
+      .form-actions button, .form-actions .help-shortcuts {
+        height: 44px;
+        min-height: 44px;
+        padding: 10px 12px;
+        line-height: 1;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        white-space: nowrap;
+      }
+      /* Make navigation/action buttons equal width; keep help small */
+      .form-actions .nav-btn { flex: 1 1 0; min-width: 0; }
+      .form-actions .help-shortcuts { flex: 0 0 auto; }
+      /* If buttons wrap, make each take full width on second line */
+      .form-actions .nav-btn:nth-child(n+3) { flex-basis: 100%; }
       /* Hide desktop-only Enter hint on small screens */
       .results-actions .hint { display: none; }
       h2 { font-size: 18px; }
@@ -237,6 +255,15 @@
       justify-content:flex-start;
       position: relative;
       z-index: 10;
+    }
+    /* Desktop/base: normalize action button heights */
+    .form-actions button, .form-actions .help-shortcuts {
+      min-height: 40px;
+      line-height: 1;
+      white-space: nowrap;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
     }
     .help-shortcuts { margin-left: auto; font-size: 12px; color: #ffffff; opacity: .9; cursor: help; }
     .help-shortcuts .popover { display:none; position:absolute; right:10px; top:110%; background: rgba(0,0,0,0.85); color:#fff; padding:12px 14px; border-radius:8px; box-shadow: 0 6px 18px rgba(0,0,0,0.35); white-space: pre-line; line-height: 1.5; max-width: min(90vw, 480px); min-width: 280px; }
