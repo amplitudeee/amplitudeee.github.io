@@ -136,14 +136,29 @@ function isEquivalentAnswer(user, expected){
           userAnswer = textInput ? textInput.value.trim() : "";
           isCorrect = userAnswer.toLowerCase() === (correctAnswer || '').toLowerCase();
         } else {
-          // blanks: compare each blank with expected
+          // blanks: compare each blank with expected (order-independent)
           const blanks = Array.from(q.querySelectorAll('input[type="text"].blank'));
           const baseName = inputName ? String(inputName).split('-')[0] : null;
           const entry = baseName ? blanksAnswerKey[baseName] : null;
           const expected = entry && Array.isArray(entry.answers) ? entry.answers : [];
           const answersGiven = blanks.map(inp => (inp.value || '').trim());
           userAnswer = answersGiven.join(', ');
-          isCorrect = expected.length === answersGiven.length && answersGiven.every((ans, i) => isEquivalentAnswer(ans, expected[i] || ''));
+          
+          // Check if answers match regardless of order
+          if (expected.length === answersGiven.length) {
+            const expectedCopy = [...expected];
+            const givenCopy = [...answersGiven];
+            isCorrect = givenCopy.every(givenAns => {
+              const matchIndex = expectedCopy.findIndex(expAns => isEquivalentAnswer(givenAns, expAns));
+              if (matchIndex !== -1) {
+                expectedCopy.splice(matchIndex, 1); // Remove matched answer
+                return true;
+              }
+              return false;
+            });
+          } else {
+            isCorrect = false;
+          }
         }
 
         if (isCorrect) correctCount++;
