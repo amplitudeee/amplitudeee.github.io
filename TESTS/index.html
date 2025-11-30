@@ -3,192 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-  <title>T/F Question Generator</title>
+  <title>Practice Test Generator</title>
   <!--
   Name: Matt
   File: index.html
   Date: Nov 30 2025
-  T/F Question Generator Landing Page -->
+  Practice Test Generator Landing Page -->
   <link href="css/style.css" rel="stylesheet" type="text/css">
-  <style>
-    .hero {
-      text-align: center;
-      padding: 40px 0 60px;
-    }
-    
-    .hero h1 {
-      font-size: 3rem;
-      margin: 0 0 20px;
-      line-height: 1.2;
-    }
-    
-    .hero p {
-      font-size: 1.25rem;
-      color: #ddd;
-      margin: 0 0 40px;
-      max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    
-    .features {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 24px;
-      margin: 40px 0;
-    }
-    
-    .feature-card {
-      background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
-      border-radius: 12px;
-      padding: 28px;
-      border: 1px solid rgba(255,255,255,0.08);
-      backdrop-filter: blur(8px);
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-    
-    .feature-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
-    }
-    
-    .feature-card h3 {
-      color: var(--accent2);
-      font-size: 1.4rem;
-      margin: 0 0 12px;
-    }
-    
-    .feature-card p {
-      color: #ccc;
-      line-height: 1.6;
-      margin: 0;
-    }
-    
-    .upload-section {
-      margin: 60px 0 40px;
-      text-align: center;
-    }
-    
-    .upload-section h2 {
-      font-size: 2rem;
-      margin: 0 0 16px;
-    }
-    
-    .upload-section p {
-      color: #ddd;
-      margin: 0 0 32px;
-    }
-    
-    .upload-area {
-      background: linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03));
-      border: 2px dashed rgba(255,255,255,0.2);
-      border-radius: 16px;
-      padding: 60px 40px;
-      margin: 0 auto;
-      max-width: 600px;
-      transition: all 0.3s;
-      cursor: pointer;
-    }
-    
-    .upload-area:hover {
-      border-color: var(--accent2);
-      background: linear-gradient(135deg, rgba(247,183,51,0.1), rgba(255,255,255,0.05));
-    }
-    
-    .upload-area.drag-over {
-      border-color: var(--accent1);
-      background: linear-gradient(135deg, rgba(255,107,107,0.15), rgba(255,255,255,0.08));
-      transform: scale(1.02);
-    }
-    
-    .upload-icon {
-      font-size: 4rem;
-      margin-bottom: 20px;
-      opacity: 0.7;
-    }
-    
-    .upload-text {
-      font-size: 1.2rem;
-      color: #fff;
-      margin: 0 0 8px;
-    }
-    
-    .upload-hint {
-      color: #aaa;
-      font-size: 0.95rem;
-    }
-    
-    .file-input {
-      display: none;
-    }
-    
-    .cta-button {
-      display: inline-block;
-      background: linear-gradient(135deg, var(--accent2), var(--accent1));
-      color: #fff;
-      font-size: 1.1rem;
-      font-weight: 600;
-      padding: 16px 40px;
-      border-radius: 50px;
-      border: none;
-      cursor: pointer;
-      box-shadow: 0 4px 16px rgba(247,183,51,0.4);
-      transition: all 0.3s;
-      text-decoration: none;
-    }
-    
-    .cta-button:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 24px rgba(247,183,51,0.6);
-    }
-    
-    .cta-button:active {
-      transform: translateY(0);
-    }
-    
-    .status-message {
-      margin-top: 24px;
-      padding: 16px;
-      border-radius: 8px;
-      display: none;
-    }
-    
-    .status-message.success {
-      background: rgba(76,175,80,0.2);
-      border: 1px solid rgba(76,175,80,0.4);
-      color: #a5d6a7;
-    }
-    
-    .status-message.error {
-      background: rgba(244,67,54,0.2);
-      border: 1px solid rgba(244,67,54,0.4);
-      color: #ef9a9a;
-    }
-    
-    .status-message.info {
-      background: rgba(33,150,243,0.2);
-      border: 1px solid rgba(33,150,243,0.4);
-      color: #90caf9;
-    }
-    
-    @media (max-width: 700px) {
-      .hero h1 {
-        font-size: 2rem;
-      }
-      
-      .hero p {
-        font-size: 1rem;
-      }
-      
-      .upload-area {
-        padding: 40px 24px;
-      }
-      
-      .upload-icon {
-        font-size: 3rem;
-      }
-    }
-  </style>
 </head>
 <body>
   <div class="accents" aria-hidden="true">
@@ -199,34 +20,366 @@
   <div class="card-backdrop" aria-hidden="true"></div>
   
   <div class="page">
-    <div class="hero">
-      <h1>📝 T/F Question Generator</h1>
-      <p>Upload a Word document and automatically generate 40 true/false questions for your study material</p>
-      <a href="tests/SYSDEVTEST.html" class="cta-button">View Sample Test</a>
+    <div class="page-header" id="pageHeader">
+      <a href="./complete/SYSDEVTEST.html" class="sample-test-btn">View Sample Test</a>
     </div>
-    
-    <div class="features">
-      <div class="feature-card">
-        <h3>⚡ Fast Generation</h3>
-        <p>Upload your Word document and get 40 carefully crafted true/false questions in seconds</p>
-      </div>
-      
-      <div class="feature-card">
-        <h3>🎯 Smart Analysis</h3>
-        <p>Advanced algorithms analyze your content to create meaningful and educational questions</p>
-      </div>
-      
-      <div class="feature-card">
-        <h3>📊 Ready to Use</h3>
-        <p>Export questions in multiple formats or use our built-in test interface to study immediately</p>
-      </div>
+    <div class="hero" id="heroSection">
+      <h1>📝 Practice Test Generator</h1>
+      <p class="tagline">Create your own practice tests from JSON files</p>
     </div>
     
     <div class="upload-section">
-      <h2>Get Started</h2>
-      <p>Upload your Word document (.docx) to begin</p>
+      <div class="choice-section" id="choiceSection">
+        <div class="choice-card" id="newFileChoice">
+          <div class="choice-icon">✨</div>
+          <h3>Create New Test Script</h3>
+          <p>Create, validate and download JSON file for the program to read</p>
+          <button class="choice-btn">Create New</button>
+        </div>
+        
+        <div class="choice-card" id="existingFileChoice">
+          <div class="choice-icon">📝</div>
+          <h3>Edit Existing Test Script</h3>
+          <p>Upload and edit existing JSON test file</p>
+          <button class="choice-btn">Edit Existing</button>
+        </div>
+        
+        <div class="choice-card" id="runPracticeChoice">
+          <div class="choice-icon">🎯</div>
+          <h3>Run Practice Test</h3>
+          <p>Upload a JSON test file and start practicing</p>
+          <button class="choice-btn">Run Test</button>
+        </div>
+      </div>
       
-      <div class="upload-area" id="uploadArea">
+      <div class="file-name-section" id="fileNameSection" style="display: none;">
+        <button class="back-btn" id="backBtn">← Back</button>
+        <h3 id="sectionTitle">Create New Test File</h3>
+        <div class="input-group" id="newFileNameGroup">
+          <label for="fileNameInput">Test file name:</label>
+          <input type="text" id="fileNameInput" placeholder="e.g., biology-test" class="file-name-input">
+          <button class="cta-button" id="createFileBtn" style="margin-top: 20px;">Create File</button>
+        </div>
+      </div>
+      
+      <div class="test-selection-section" id="testSelectionSection" style="display: none;">
+        <button class="back-btn" id="backFromSelectionBtn">← Back</button>
+        <h3>Select Test Types to Create</h3>
+        <p style="color: #bbb; margin: 16px 0;">Choose which types of tests you want to create with a max of 40 possible questions per test:</p>
+        <div style="max-width: 600px; margin: 20px auto;">
+          <label class="checkbox-option">
+            <input type="checkbox" id="selectEasyTest" checked>
+            <span>Easy Test (Multiple Choice / True-False)</span>
+            <input type="number" id="easyQuestionCount" min="1" max="40" value="10">
+            <span>questions</span>
+          </label>
+          <label class="checkbox-option">
+            <input type="checkbox" id="selectMediumTest" checked>
+            <span>Medium Test (Fill in the Blanks)</span>
+            <input type="number" id="mediumQuestionCount" min="1" max="40" value="10">
+            <span>questions</span>
+          </label>
+          <label class="checkbox-option">
+            <input type="checkbox" id="selectHardTest" checked>
+            <span>Hard Test (Short Answer)</span>
+            <input type="number" id="hardQuestionCount" min="1" max="40" value="10">
+            <span>questions</span>
+          </label>
+        </div>
+        <button class="cta-button" id="proceedToEditorBtn" style="margin-top: 20px;">Continue</button>
+      </div>
+      
+      <div class="editor-section" id="easyEditorSection" style="display: none;">
+        <h3>Easy Test (Multiple Choice / True-False)</h3>
+        
+        <!-- Step 1: Prompt Display -->
+        <div id="easyPromptStep" class="test-section">
+          <p style="color: #eee; font-size: 1.05rem; margin: 12px 0; font-weight: 500;">Copy the text below and paste it into Copilot <strong style="color: #4fc3f7;">along with your course material file</strong>:</p>
+          <textarea readonly class="prompt-box" id="easyPromptText">Create a true/false and multiple choice test using the attached file and the following format:
+
+Q1: Functional requirements define how a system should perform. | True | False
+A1: False | Explanation: Functional = what the system must do; the how is non-functional.
+
+Q2: Which requirements analysis strategy involves looking at past results to guide future actions? | Outcome Analysis | Technology Analysis | Activity Elimination | Informal Benchmarking
+A2: Outcome Analysis | Explanation: Outcome Analysis examines past results to inform future decisions.
+
+Make sure when I copy from your clipboard there will be no asterisks in the text.</textarea>
+          <div style="margin-top: 12px; display: flex; gap: 12px;">
+            <button class="secondary-btn copy-prompt-btn" data-target="easyTestPrompt">Copy to Clipboard</button>
+            <button class="cta-button" id="easyOpenCopilotBtn" style="display: none;">Open Copilot</button>
+          </div>
+        </div>
+        
+        <!-- Step 1.5: Copilot Copy Confirmation -->
+        <div id="easyCopilotConfirmStep" class="test-section" style="display: none;">
+          <h2 style="color: #4fc3f7; font-size: 2.5rem; margin-bottom: 24px; text-align: center; text-shadow: 0 0 20px rgba(79, 195, 247, 0.5);">Did you copy from Copilot's clipboard?</h2>
+          <p style="color: #eee; margin-bottom: 16px; text-align: center;">After Copilot generates your test, use the <strong style="color: #4fc3f7;">Copy message</strong> button to copy the response:</p>
+          <div style="display: flex; justify-content: center;">
+            <img src="images/copilot-copy-button.png" alt="Copilot copy button location" style="max-width: 100%; height: auto; border-radius: 8px; margin: 20px 0; border: 2px solid rgba(79, 195, 247, 0.3);">
+          </div>
+          <div style="margin-top: 20px; display: flex; gap: 12px; justify-content: center;">
+            <button class="secondary-btn" id="easyBackToCopilotBtn">Back to Copilot</button>
+            <button class="cta-button" id="easyCopiedConfirmBtn">Yes, I've Copied</button>
+          </div>
+        </div>
+        
+        <!-- Step 2: Editor & Validation -->
+        <div id="easyEditorStep" class="test-section" style="display: none;">
+          <div class="editor-instructions">
+            <strong>Format Instructions:</strong>
+            <ul>
+              <li>Each question starts with <code>Q#</code> (question number)</li>
+              <li>Each answer starts with <code>A#</code> (matching question number)</li>
+              <li>Use format "Question | Option1 | Option2 | ..." for multiple choice</li>
+              <li>Answer format "CorrectAnswer | Explanation: details"</li>
+            </ul>
+          </div>
+          <p style="color: #bbb; margin: 12px 0;">Example format:</p>
+          <textarea readonly class="prompt-box" style="margin-bottom: 12px;">Q1: Functional requirements define how a system should perform. | True | False
+A1: False | Explanation: Functional = what the system must do; the how is non-functional.
+
+Q2: Which requirements analysis strategy involves looking at past results to guide future actions? | Outcome Analysis | Technology Analysis | Activity Elimination | Informal Benchmarking
+A2: Outcome Analysis | Explanation: Outcome Analysis examines past results to inform future decisions.</textarea>
+          <textarea id="easyTestEditor" class="question-editor" rows="12" placeholder="Paste and edit Copilot's generated questions here..."></textarea>
+          <div style="display: flex; align-items: center; gap: 12px; margin-top: 12px;">
+            <button class="secondary-btn validate-section-btn" id="validateEasyBtn">Validate Easy Test</button>
+            <div id="easyValidationMessage" class="validation-message" style="display: none;"></div>
+          </div>
+        </div>
+        
+        <div class="editor-actions">
+          <button class="cta-button" id="nextTestBtn" style="display: none;">Continue to Next Test</button>
+          <button class="cta-button" id="finishTestsBtn" style="display: none;">Finish & Review</button>
+          <button class="secondary-btn" id="returnToSummaryBtn" style="display: none;">Return to Summary</button>
+        </div>
+      </div>
+      
+      <div class="editor-section" id="mediumEditorSection" style="display: none;">
+        <h3>Medium Test (Fill in the Blanks)</h3>
+        
+        <!-- Step 1: Prompt Display -->
+        <div id="mediumPromptStep" class="test-section">
+          <p style="color: #eee; font-size: 1.05rem; margin: 12px 0; font-weight: 500;">Copy the text below and paste it into Copilot <strong style="color: #4fc3f7;">along with your course material file</strong>:</p>
+          <textarea readonly class="prompt-box" id="mediumPromptText">Create a fill-in-the-blank test using the attached file and the following format:
+
+Q1: Fill in the blanks: The two main development approaches are ___ and ___.
+A1: Agile | Waterfall | Explanation: Agile focuses on iteration; Waterfall is sequential.
+
+Q2: A project's primary trade-offs are ___, ___, and ___.
+A2: Scope | Time | Cost | Explanation: These form the classic project management triangle.
+
+Make sure when I copy from your clipboard there will be no asterisks in the text.</textarea>
+          <div style="margin-top: 12px; display: flex; gap: 12px;">
+            <button class="secondary-btn copy-prompt-btn" data-target="mediumTestPrompt">Copy to Clipboard</button>
+            <button class="cta-button" id="mediumOpenCopilotBtn" style="display: none;">Open Copilot</button>
+          </div>
+        </div>
+        
+        <!-- Step 1.5: Copilot Copy Confirmation -->
+        <div id="mediumCopilotConfirmStep" class="test-section" style="display: none;">
+          <h2 style="color: #4fc3f7; font-size: 2.5rem; margin-bottom: 24px; text-align: center; text-shadow: 0 0 20px rgba(79, 195, 247, 0.5);">Did you copy from Copilot's clipboard?</h2>
+          <p style="color: #eee; margin-bottom: 16px; text-align: center;">After Copilot generates your test, use the <strong style="color: #4fc3f7;">Copy message</strong> button to copy the response:</p>
+          <div style="display: flex; justify-content: center;">
+            <img src="images/copilot-copy-button.png" alt="Copilot copy button location" style="max-width: 100%; height: auto; border-radius: 8px; margin: 20px 0; border: 2px solid rgba(79, 195, 247, 0.3);">
+          </div>
+          <div style="margin-top: 20px; display: flex; gap: 12px; justify-content: center;">
+            <button class="secondary-btn" id="mediumBackToCopilotBtn">Back to Copilot</button>
+            <button class="cta-button" id="mediumCopiedConfirmBtn">Yes, I've Copied</button>
+          </div>
+        </div>
+        
+        <!-- Step 2: Editor & Validation -->
+        <div id="mediumEditorStep" class="test-section" style="display: none;">
+          <div class="editor-instructions">
+            <strong>Format Instructions:</strong>
+            <ul>
+              <li>Each question starts with <code>Q#</code> (question number)</li>
+              <li>Each answer starts with <code>A#</code> (matching question number)</li>
+              <li>Use ___ for blanks in questions</li>
+              <li>Answer format "Blank1 | Blank2 | ... | Explanation: details"</li>
+            </ul>
+          </div>
+          <p style="color: #bbb; margin: 12px 0;">Example format:</p>
+          <textarea readonly class="prompt-box" style="margin-bottom: 12px;">Q1: Fill in the blanks: The two main development approaches are ___ and ___.
+A1: Agile | Waterfall | Explanation: Agile focuses on iteration; Waterfall is sequential.
+
+Q2: A project's primary trade-offs are ___, ___, and ___.
+A2: Scope | Time | Cost | Explanation: These form the classic project management triangle.</textarea>
+          <textarea id="mediumTestEditor" class="question-editor" rows="12" placeholder="Paste and edit Copilot's generated questions here..."></textarea>
+          <div style="display: flex; align-items: center; gap: 12px; margin-top: 12px;">
+            <button class="secondary-btn validate-section-btn" id="validateMediumBtn">Validate Medium Test</button>
+            <div id="mediumValidationMessage" class="validation-message" style="display: none;"></div>
+          </div>
+        </div>
+        
+        <div class="editor-actions">
+          <button class="cta-button" id="nextTestBtn2" style="display: none;">Continue to Next Test</button>
+          <button class="cta-button" id="finishTestsBtn2" style="display: none;">Finish & Review</button>
+          <button class="secondary-btn" id="returnToSummaryBtn2" style="display: none;">Return to Summary</button>
+        </div>
+      </div>
+      
+      <div class="editor-section" id="hardEditorSection" style="display: none;">
+        <h3>Hard Test (Short Answer)</h3>
+        
+        <!-- Step 1: Prompt Display -->
+        <div id="hardPromptStep" class="test-section">
+          <p style="color: #eee; font-size: 1.05rem; margin: 12px 0; font-weight: 500;">Copy the text below and paste it into Copilot <strong style="color: #4fc3f7;">along with your course material file</strong>:</p>
+          <textarea readonly class="prompt-box" id="hardPromptText">Create a short answer test using the attached file and the following format:
+
+Q1: Define functional requirements and explain their purpose.
+A1: Explanation: Functional requirements define what a system must do, describing its core features and tasks.
+
+Q2: Define non-functional requirements and explain their focus.
+A2: Explanation: Non-functional requirements focus on how the system performs, covering quality attributes like speed, security, and usability.
+
+Make sure when I copy from your clipboard there will be no asterisks in the text.</textarea>
+          <div style="margin-top: 12px; display: flex; gap: 12px;">
+            <button class="secondary-btn copy-prompt-btn" data-target="hardTestPrompt">Copy to Clipboard</button>
+            <button class="cta-button" id="hardOpenCopilotBtn" style="display: none;">Open Copilot</button>
+          </div>
+        </div>
+        
+        <!-- Step 1.5: Copilot Copy Confirmation -->
+        <div id="hardCopilotConfirmStep" class="test-section" style="display: none;">
+          <h2 style="color: #4fc3f7; font-size: 2.5rem; margin-bottom: 24px; text-align: center; text-shadow: 0 0 20px rgba(79, 195, 247, 0.5);">Did you copy from Copilot's clipboard?</h2>
+          <p style="color: #eee; margin-bottom: 16px; text-align: center;">After Copilot generates your test, use the <strong style="color: #4fc3f7;">Copy message</strong> button to copy the response:</p>
+          <div style="display: flex; justify-content: center;">
+            <img src="images/copilot-copy-button.png" alt="Copilot copy button location" style="max-width: 100%; height: auto; border-radius: 8px; margin: 20px 0; border: 2px solid rgba(79, 195, 247, 0.3);">
+          </div>
+          <div style="margin-top: 20px; display: flex; gap: 12px; justify-content: center;">
+            <button class="secondary-btn" id="hardBackToCopilotBtn">Back to Copilot</button>
+            <button class="cta-button" id="hardCopiedConfirmBtn">Yes, I've Copied</button>
+          </div>
+        </div>
+        
+        <!-- Step 2: Editor & Validation -->
+        <div id="hardEditorStep" class="test-section" style="display: none;">
+          <div class="editor-instructions">
+            <strong>Format Instructions:</strong>
+            <ul>
+              <li>Each question starts with <code>Q#</code> (question number)</li>
+              <li>Each answer starts with <code>A#</code> (matching question number)</li>
+              <li>Plain text questions and answers</li>
+              <li>Answer format "Explanation: details"</li>
+            </ul>
+          </div>
+          <p style="color: #bbb; margin: 12px 0;">Example format:</p>
+          <textarea readonly class="prompt-box" style="margin-bottom: 12px;">Q1: Define functional requirements and explain their purpose.
+A1: Explanation: Functional requirements define what a system must do, describing its core features and tasks.
+
+Q2: Define non-functional requirements and explain their focus.
+A2: Explanation: Non-functional requirements focus on how the system performs, covering quality attributes like speed, security, and usability.</textarea>
+          <textarea id="hardTestEditor" class="question-editor" rows="12" placeholder="Paste and edit Copilot's generated questions here..."></textarea>
+          <div style="display: flex; align-items: center; gap: 12px; margin-top: 12px;">
+            <button class="secondary-btn validate-section-btn" id="validateHardBtn">Validate Hard Test</button>
+            <div id="hardValidationMessage" class="validation-message" style="display: none;"></div>
+          </div>
+        </div>
+        
+        <div class="editor-actions">
+          <button class="cta-button" id="nextTestBtn3" style="display: none;">Continue to Next Test</button>
+          <button class="cta-button" id="finishTestsBtn3" style="display: none;">Finish & Review</button>
+          <button class="secondary-btn" id="returnToSummaryBtn3" style="display: none;">Return to Summary</button>
+        </div>
+      </div>
+      
+      <div class="edit-selection-section" id="editSelectionSection" style="display: none;">
+        <button class="back-btn" id="backFromEditSelectionBtn">← Back to Summary</button>
+        <h3>Select Test to Edit</h3>
+        <p style="color: #bbb; margin: 16px 0;">Choose which test you want to edit:</p>
+        <div id="editTestsList" style="max-width: 600px; margin: 20px auto;">
+          <!-- Will be populated by JavaScript -->
+        </div>
+      </div>
+      
+      <!-- Combined Editor Section for JSON files -->
+      <div class="combined-editor-section" id="combinedEditorSection" style="display: none;">
+        <h3>Edit All Tests</h3>
+        <p style="color: #bbb; margin: 16px 0;">Edit and validate all test types below:</p>
+        
+        <div style="max-width: 900px; margin: 20px auto;">
+          <!-- Easy Test Editor -->
+          <div style="margin-bottom: 30px;">
+            <h4 style="color: #51cf66;">Easy Test (Multiple Choice / True-False)</h4>
+            <div class="editor-instructions">
+              <strong>Format Instructions:</strong>
+              <ul>
+                <li>Each question starts with <code>Q#</code> (question number)</li>
+                <li>Each answer starts with <code>A#</code> (matching question number)</li>
+                <li>Use format "Question | Option1 | Option2 | ..." for multiple choice</li>
+                <li>Answer format "CorrectAnswer | Explanation: details"</li>
+              </ul>
+            </div>
+            <p style="color: #bbb; margin: 12px 0;">Example format:</p>
+            <textarea readonly class="prompt-box" style="margin-bottom: 12px;">Q1: Functional requirements define how a system should perform. | True | False
+A1: False | Explanation: Functional = what the system must do; the how is non-functional.
+
+Q2: Which requirements analysis strategy involves looking at past results to guide future actions? | Outcome Analysis | Technology Analysis | Activity Elimination | Informal Benchmarking
+A2: Outcome Analysis | Explanation: Outcome Analysis examines past results to inform future decisions.</textarea>
+            <textarea id="combinedEasyEditor" class="question-editor" rows="10" placeholder="Paste and edit Copilot's generated questions here..."></textarea>
+            <div id="combinedEasyValidation" class="validation-message" style="display: none;"></div>
+          </div>
+          
+          <!-- Medium Test Editor -->
+          <div style="margin-bottom: 30px;">
+            <h4 style="color: #ffd43b;">Medium Test (Fill in the Blanks)</h4>
+            <div class="editor-instructions">
+              <strong>Format Instructions:</strong>
+              <ul>
+                <li>Use <code>___</code> (three underscores) for blanks in questions</li>
+                <li>Each answer provides the missing words in order</li>
+                <li>Separate multiple answers with <code>|</code></li>
+              </ul>
+            </div>
+            <p style="color: #bbb; margin: 12px 0;">Example format:</p>
+            <textarea readonly class="prompt-box" style="margin-bottom: 12px;">Q1: Fill in the blanks: The two main development approaches are ___ and ___.
+A1: Agile | Waterfall | Explanation: Agile focuses on iteration; Waterfall is sequential.</textarea>
+            <textarea id="combinedMediumEditor" class="question-editor" rows="10" placeholder="Paste and edit Copilot's generated questions here..."></textarea>
+            <div id="combinedMediumValidation" class="validation-message" style="display: none;"></div>
+          </div>
+          
+          <!-- Hard Test Editor -->
+          <div style="margin-bottom: 30px;">
+            <h4 style="color: #ff6b6b;">Hard Test (Essay / Short Answer)</h4>
+            <div class="editor-instructions">
+              <strong>Format Instructions:</strong>
+              <ul>
+                <li>Questions are open-ended</li>
+                <li>Answers provide model responses or key points</li>
+              </ul>
+            </div>
+            <p style="color: #bbb; margin: 12px 0;">Example format:</p>
+            <textarea readonly class="prompt-box" style="margin-bottom: 12px;">Q1: Define functional requirements and explain their purpose.
+A1: Explanation: Functional requirements define what a system must do, describing its core features and tasks.</textarea>
+            <textarea id="combinedHardEditor" class="question-editor" rows="10" placeholder="Paste and edit Copilot's generated questions here..."></textarea>
+            <div id="combinedHardValidation" class="validation-message" style="display: none;"></div>
+          </div>
+        </div>
+        
+        <div style="margin-top: 30px; display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+          <button class="secondary-btn" id="validateAllBtn">Validate All Tests</button>
+          <button class="cta-button" id="downloadEditedBtn" style="display: none;">Download Test Script</button>
+          <button class="secondary-btn" id="backToHomeBtn">Back to Home</button>
+        </div>
+      </div>
+      
+      <div class="finalize-section" id="finalizeSection" style="display: none;">
+        <h3>Review Your Tests</h3>
+        <p style="color: #bbb; margin: 16px 0;">Your tests have been created. You can add more or download your file.</p>
+        <div id="completedTestsList" style="max-width: 500px; margin: 20px auto; text-align: left;">
+          <!-- Will be populated by JavaScript -->
+        </div>
+        <div style="margin-top: 30px; display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+          <button class="secondary-btn" id="addMoreTestsBtn">Add/Edit Tests</button>
+          <button class="cta-button" id="finalDownloadBtn">Download Test Script</button>
+        </div>
+        <div style="margin-top: 12px; display: flex; justify-content: center;">
+          <button class="cta-button" id="goToLandingBtn" style="display: none;">Go to Home Page</button>
+        </div>
+      </div>
+      
+      <div class="upload-area" id="uploadArea" style="display: none;">
         <div class="upload-icon">📄</div>
         <p class="upload-text">Click to browse or drag and drop</p>
         <p class="upload-hint">Supports .docx files up to 10MB</p>
@@ -239,78 +392,6 @@
   </div>
   
   <script src="javascript/script.js"></script>
-  <script>
-    // File upload handling
-    const uploadArea = document.getElementById('uploadArea');
-    const fileInput = document.getElementById('fileInput');
-    const statusMessage = document.getElementById('statusMessage');
-    
-    // Click to browse
-    uploadArea.addEventListener('click', () => {
-      fileInput.click();
-    });
-    
-    // File selected
-    fileInput.addEventListener('change', handleFileSelect);
-    
-    // Drag and drop
-    uploadArea.addEventListener('dragover', (e) => {
-      e.preventDefault();
-      uploadArea.classList.add('drag-over');
-    });
-    
-    uploadArea.addEventListener('dragleave', () => {
-      uploadArea.classList.remove('drag-over');
-    });
-    
-    uploadArea.addEventListener('drop', (e) => {
-      e.preventDefault();
-      uploadArea.classList.remove('drag-over');
-      
-      const files = e.dataTransfer.files;
-      if (files.length > 0) {
-        handleFile(files[0]);
-      }
-    });
-    
-    function handleFileSelect(e) {
-      const file = e.target.files[0];
-      if (file) {
-        handleFile(file);
-      }
-    }
-    
-    function handleFile(file) {
-      // Validate file type
-      if (!file.name.match(/\.(docx?|DOCX?)$/)) {
-        showStatus('Please upload a Word document (.docx or .doc)', 'error');
-        return;
-      }
-      
-      // Validate file size (10MB)
-      if (file.size > 10 * 1024 * 1024) {
-        showStatus('File size must be less than 10MB', 'error');
-        return;
-      }
-      
-      showStatus('Processing file: ' + file.name, 'info');
-      
-      // Simulate processing
-      setTimeout(() => {
-        showStatus('✓ Successfully generated 40 questions! Redirecting...', 'success');
-        
-        // Redirect to test page after 2 seconds
-        setTimeout(() => {
-          window.location.href = 'tests/SYSDEVTEST.html';
-        }, 2000);
-      }, 1500);
-    }
-    
-    function showStatus(message, type) {
-      statusMessage.textContent = message;
-      statusMessage.className = 'status-message ' + type;
-      statusMessage.style.display = 'block';
-    }
-  </script>
+  <script src="javascript/landing.js"></script>
 </body>
 </html>

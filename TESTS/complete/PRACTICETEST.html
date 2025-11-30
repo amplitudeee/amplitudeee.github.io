@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>System Development Practice Tests</title>
+    <!--
+    Name: Matt
+    File: SYSDEVTEST.html
+    Date: Nov 30 2025
+    SYSDEVTEST -->
+    <link href="../css/style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+  <div class="accents" aria-hidden="true">
+    <span class="blob b1"></span>
+    <span class="blob b2"></span>
+    <span class="blob b3"></span>
+  </div>
+  <div class="card-backdrop" aria-hidden="true"></div>
+  <div class="page">
+  <!-- Intro Page -->
+  <div id="introPage" class="intro-page">
+    <h1 class="shimmer">Custom Practice Tests</h1>
+    <p style="text-align: center; margin-bottom: 24px; font-size: 18px; color: #ddd;">Ideally to be ready for the real test you should be able to fill out the medium tests with ease and most of the hard test answers</p>
+    <p style="text-align: center; margin-bottom: 24px; font-size: 18px; color: #ddd;">Choose your test format</p>
+    <div class="test-options">
+      <div class="test-option-card" id="optionA">
+        <h2>Easy Test</h2>
+        <p class="test-type">Multiple Choice & True/False</p>
+        <ul class="test-features">
+          <li>✓ 10 randomized questions</li>
+          <li>✓ Multiple choice options</li>
+          <li>✓ True/False questions</li>
+          <li>✓ Instant feedback on each answer</li>
+          <li>✓ Detailed explanations provided</li>
+        </ul>
+        <button class="start-test-btn" data-test="A" id="startTestA">Start Easy Test</button>
+      </div>
+      <div class="test-option-card" id="optionC">
+        <h2>Medium Test</h2>
+        <p class="test-type">Fill in the Blanks</p>
+        <ul class="test-features">
+          <li>✓ 10 randomized questions</li>
+          <li>✓ Fill in missing words</li>
+          <li>✓ Case-insensitive matching</li>
+          <li>✓ Suggested answers provided</li>
+          <li>✓ Detailed explanations optional</li>
+        </ul>
+        <button class="start-test-btn" data-test="C" id="startTestC">Start Medium Test</button>
+      </div>
+      <div class="test-option-card" id="optionB">
+        <h2>Hard Test</h2>
+        <p class="test-type">Short Answer</p>
+        <ul class="test-features">
+          <li>✓ 10 randomized questions</li>
+          <li>✓ Open-ended responses</li>
+          <li>✓ Test your recall ability</li>
+          <li>✓ Suggested answers provided</li>
+          <li>✓ Comprehensive feedback</li>
+        </ul>
+        <button class="start-test-btn" data-test="B" id="startTestB">Start Hard Test</button>
+      </div>
+    </div>
+  </div>
+  
+
+  <!-- Optional: Plain-text question sources (easy to replace). One question per line. -->
+    <script type="text/plain" id="sourceA">
+    </script>
+
+    <script type="text/plain" id="sourceB">
+
+    </script>
+
+    <script type="text/plain" id="sourceC">
+
+    </script>
+
+ <!-- Test A -->
+  <form id="testA" class="test hidden">
+    <h2>Easy Test</h2>
+    <div class="progress" id="progressA" aria-live="polite">
+      <div class="progress-track"><div class="progress-fill" id="progressFillA"></div></div>
+      <div class="progress-text" id="progressTextA">1 / 10</div>
+    </div>
+    <!-- Questions are generated from #sourceA; static markup removed -->
+
+    <div class="form-actions">
+      <button type="button" id="btnPrevA" class="nav-btn">Prev</button>
+      <button type="button" id="btnCheckA" class="nav-btn">Show Answer</button>
+      <button type="button" id="btnNextA" class="nav-btn">Next</button>
+      <button type="button" id="btnSubmitA">Submit Easy Test</button>
+      <button type="button" class="help-shortcuts" id="helpA" aria-haspopup="true" aria-expanded="false" aria-label="Keyboard shortcuts help">?
+        <span class="popover" role="tooltip">Keyboard Shortcuts:<br>Next = Right Arrow<br>Prev = Left Arrow<br>Show Answer = Up Arrow<br>Hide Answer = Down Arrow<br>First = Home<br>Last = End</span>
+      </button>
+    </div>
+  </form>
+
+<!-- Test B -->
+  <form id="testB" class="test hidden">
+    <h2>Hard Test</h2>
+    <div class="progress" id="progressB" aria-live="polite">
+      <div class="progress-track"><div class="progress-fill" id="progressFillB"></div></div>
+      <div class="progress-text" id="progressTextB">1 / 10</div>
+    </div>
+    <!-- Questions are generated from #sourceB; static markup removed -->
+
+    <div class="form-actions">
+      <button type="button" id="btnPrevB" class="nav-btn">Prev</button>
+      <button type="button" id="btnCheckB" class="nav-btn">Show Answer</button>
+      <button type="button" id="btnResetB" class="nav-btn">Clear Question</button>
+      <button type="button" id="btnNextB" class="nav-btn">Next</button>
+      <button type="button" id="btnSubmitB">Submit Hard Test</button>
+      <button type="button" class="help-shortcuts" id="helpB" aria-haspopup="true" aria-expanded="false" aria-label="Keyboard shortcuts help">?
+        <span class="popover" role="tooltip">Keyboard Shortcuts:<br>Next = Right Arrow<br>Prev = Left Arrow<br>Show Answer = Up Arrow<br>Hide Answer = Down Arrow<br>First = Home<br>Last = End</span>
+      </button>
+    </div>
+  </form>
+
+<!-- Test C -->
+  <form id="testC" class="test hidden">
+    <h2>Medium Test</h2>
+    <div class="progress" id="progressC" aria-live="polite">
+      <div class="progress-track"><div class="progress-fill" id="progressFillC"></div></div>
+      <div class="progress-text" id="progressTextC">1 / 10</div>
+    </div>
+    <!-- Questions are generated from #sourceC -->
+
+    <div class="form-actions">
+      <button type="button" id="btnPrevC" class="nav-btn">Prev</button>
+      <button type="button" id="btnCheckC" class="nav-btn">Show Answer</button>
+      <button type="button" id="btnResetC" class="nav-btn">Clear Question</button>
+      <button type="button" id="btnNextC" class="nav-btn">Next</button>
+      <button type="button" id="btnSubmitC">Submit Medium Test</button>
+      <button type="button" class="help-shortcuts" id="helpC" aria-haspopup="true" aria-expanded="false" aria-label="Keyboard shortcuts help">?
+        <span class="popover" role="tooltip">Keyboard Shortcuts:<br>Next = Right Arrow<br>Prev = Left Arrow<br>Show Answer = Up Arrow<br>Hide Answer = Down Arrow<br>First = Home<br>Last = End</span>
+      </button>
+    </div>
+  </form>
+
+  <!-- Results Page -->
+  <div id="resultsPage" class="test hidden">
+    <h2 id="resultsTitle" tabindex="-1">Test Results</h2>
+    <div class="results-actions">
+      <button type="button" id="btnTryAgain">Try Again</button>
+      <span class="hint">Press Enter to try again</span>
+    </div>
+    <div class="results-summary" aria-live="polite">
+      <div class="score-display">
+        <div class="score-number" id="scoreNumber">0/10</div>
+        <div class="score-percentage" id="scorePercentage">0%</div>
+      </div>
+      <div class="results-message" id="resultsMessage"></div>
+    </div>
+    <div class="results-details" id="resultsDetails"></div>
+  </div>
+  <!-- Shortcut toast for keyboard feedback -->
+  <div id="shortcutToast" class="shortcut-toast" role="status" aria-live="polite" aria-atomic="true"></div>
+  <script src="../javascript/practice.js"></script>
+  <script src="../javascript/script.js"></script>
+  </div>
+</body>
+</html>
