@@ -912,7 +912,7 @@ A40: Activity Elimination improves efficiency by removing tasks that add no valu
       <button type="button" id="btnNextA" class="nav-btn">Next</button>
       <button type="button" id="btnSubmitA">Submit Easy Test</button>
       <button type="button" class="help-shortcuts" id="helpA" aria-haspopup="true" aria-expanded="false" aria-label="Keyboard shortcuts help">?
-        <span class="popover" role="tooltip">Keyboard Shortcuts:<br>Next = Right Arrow<br>Prev = Left Arrow<br>Show Answer = Up Arrow<br>Hide Answer = Down Arrow</span>
+        <span class="popover" role="tooltip">Keyboard Shortcuts:<br>Next = Right Arrow<br>Prev = Left Arrow<br>Show Answer = Up Arrow<br>Hide Answer = Down Arrow<br>First = Home<br>Last = End</span>
       </button>
     </div>
   </form>
@@ -933,7 +933,7 @@ A40: Activity Elimination improves efficiency by removing tasks that add no valu
       <button type="button" id="btnNextB" class="nav-btn">Next</button>
       <button type="button" id="btnSubmitB">Submit Hard Test</button>
       <button type="button" class="help-shortcuts" id="helpB" aria-haspopup="true" aria-expanded="false" aria-label="Keyboard shortcuts help">?
-        <span class="popover" role="tooltip">Keyboard Shortcuts:<br>Next = Right Arrow<br>Prev = Left Arrow<br>Show Answer = Up Arrow<br>Hide Answer = Down Arrow</span>
+        <span class="popover" role="tooltip">Keyboard Shortcuts:<br>Next = Right Arrow<br>Prev = Left Arrow<br>Show Answer = Up Arrow<br>Hide Answer = Down Arrow<br>First = Home<br>Last = End</span>
       </button>
     </div>
   </form>
@@ -954,7 +954,7 @@ A40: Activity Elimination improves efficiency by removing tasks that add no valu
       <button type="button" id="btnNextC" class="nav-btn">Next</button>
       <button type="button" id="btnSubmitC">Submit Medium Test</button>
       <button type="button" class="help-shortcuts" id="helpC" aria-haspopup="true" aria-expanded="false" aria-label="Keyboard shortcuts help">?
-        <span class="popover" role="tooltip">Keyboard Shortcuts:<br>Next = Right Arrow<br>Prev = Left Arrow<br>Show Answer = Up Arrow<br>Hide Answer = Down Arrow</span>
+        <span class="popover" role="tooltip">Keyboard Shortcuts:<br>Next = Right Arrow<br>Prev = Left Arrow<br>Show Answer = Up Arrow<br>Hide Answer = Down Arrow<br>First = Home<br>Last = End</span>
       </button>
     </div>
   </form>
@@ -1660,10 +1660,19 @@ function isEquivalentAnswer(user, expected){
         }
         form._kbHandler = function(ev){
           const key = ev.key.toLowerCase();
-          if (key === 'n') { ev.preventDefault(); nextQuestion(id); showToast('Next'); }
-          if (key === 'p') { ev.preventDefault(); prevQuestion(id); showToast('Prev'); }
           if (ev.key === 'ArrowRight') { ev.preventDefault(); nextQuestion(id); showToast('Next'); }
           if (ev.key === 'ArrowLeft') { ev.preventDefault(); prevQuestion(id); showToast('Prev'); }
+          if (ev.key === 'Home') {
+            ev.preventDefault();
+            showQuestion(id, 0);
+            showToast('First');
+          }
+          if (ev.key === 'End') {
+            ev.preventDefault();
+            const total = form.querySelectorAll('.question').length;
+            if (total > 0) showQuestion(id, total - 1);
+            showToast('Last');
+          }
           if (ev.key === 'ArrowUp') { ev.preventDefault();
             const shown = toggleAnswer(id, true);
             // Sync button label
