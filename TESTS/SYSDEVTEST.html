@@ -1734,6 +1734,17 @@ function isEquivalentAnswer(user, expected){
       // Responsive, edge-aware tooltip for keyboard shortcuts; click-to-toggle on mobile
       (function(){
         const helps = document.querySelectorAll('.help-shortcuts');
+        // Hide help buttons on small screens in addition to CSS (robust fallback)
+        function hideHelpsIfMobile(){
+          const isMobile = window.innerWidth <= 700 || (window.matchMedia && window.matchMedia('(pointer: coarse)').matches);
+          if (isMobile) {
+            helps.forEach(btn => { btn.style.display = 'none'; });
+          } else {
+            helps.forEach(btn => { btn.style.display = ''; });
+          }
+        }
+        hideHelpsIfMobile();
+        window.addEventListener('resize', hideHelpsIfMobile);
         function positionPopover(btn){
           const pop = btn.querySelector('.popover');
           if (!pop) return;
