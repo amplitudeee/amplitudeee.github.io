@@ -707,10 +707,8 @@ function isEquivalentAnswer(user, expected){
         }
         form._kbHandler = function(ev){
           const key = ev.key.toLowerCase();
-          // Only enable left/right/home/end shortcuts for Easy Test (testA)
+          // Only enable home/end shortcuts for Easy Test (testA)
           if (id === 'testA') {
-            if (ev.key === 'ArrowRight') { ev.preventDefault(); nextQuestion(id); showToast('Next'); }
-            if (ev.key === 'ArrowLeft') { ev.preventDefault(); prevQuestion(id); showToast('Prev'); }
             if (ev.key === 'Home') {
               ev.preventDefault();
               showQuestion(id, 0);
@@ -751,15 +749,24 @@ function isEquivalentAnswer(user, expected){
               showToast('Cleared');
             }
           }
+          // Enter for Next, Backspace for Prev (all tests)
           if (key === 'enter'){
             const active = document.activeElement;
             if (active && (active.tagName === 'INPUT' || active.tagName === 'TEXTAREA')){
               ev.preventDefault();
-              // Enter shows answer for quick reference
-              const shown = toggleAnswer(id, true);
-              const btn = document.getElementById(id === 'testA' ? 'btnCheckA' : (id === 'testB' ? 'btnCheckB' : 'btnCheckC'));
-              if (btn) btn.textContent = shown ? 'Hide Answer' : 'Show Answer';
-              showToast('Show Answer');
+              nextQuestion(id);
+              showToast('Next');
+            }
+          }
+          if (ev.key === 'Backspace'){
+            const active = document.activeElement;
+            // Only trigger if not in an input field or if input is empty
+            if (!active || (active.tagName !== 'INPUT' && active.tagName !== 'TEXTAREA') || 
+                (active.tagName === 'INPUT' && active.value === '') || 
+                (active.tagName === 'TEXTAREA' && active.value === '')) {
+              ev.preventDefault();
+              prevQuestion(id);
+              showToast('Prev');
             }
           }
         };
