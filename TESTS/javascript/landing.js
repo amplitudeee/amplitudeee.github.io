@@ -277,11 +277,11 @@ function validateSection(section) {
           return;
         }
         
-        // Validate question content (at least 4 words)
+        // Validate question content (at least 3 words)
         const questionContent = line.replace(/^Q\d+:\s*/, '').trim();
         const questionWords = questionContent.split(/\s+/).filter(w => w.length > 0);
-        if (questionWords.length < 4) {
-          showValidationMessage(section, `Q${qNum} must have at least 4 words (found ${questionWords.length})`, 'error');
+        if (questionWords.length < 3) {
+          showValidationMessage(section, `Q${qNum} must have at least 3 words (found ${questionWords.length})`, 'error');
           return;
         }
         
@@ -987,13 +987,13 @@ function convertPlainTextToJSON(easyContent, mediumContent, hardContent) {
           };
         }
         
-        // Validate question content (at least 4 words)
+        // Validate question content (at least 3 words)
         const questionContent = line.replace(/^Q\d+:\s*/, '').trim();
         const questionWords = questionContent.split(/\s+/).filter(w => w.length > 0);
-        if (questionWords.length < 4) {
+        if (questionWords.length < 3) {
           return {
             error: true,
-            message: `Q${qNum} must have at least 4 words (found ${questionWords.length})`,
+            message: `Q${qNum} must have at least 3 words (found ${questionWords.length})`,
             section: sectionName,
             line: line
           };
