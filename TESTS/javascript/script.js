@@ -760,10 +760,8 @@ function isEquivalentAnswer(user, expected){
           }
           if (ev.key === 'Backspace'){
             const active = document.activeElement;
-            // Only trigger if not in an input field or if input is empty
-            if (!active || (active.tagName !== 'INPUT' && active.tagName !== 'TEXTAREA') || 
-                (active.tagName === 'INPUT' && active.value === '') || 
-                (active.tagName === 'TEXTAREA' && active.value === '')) {
+            // Only trigger if not focused on an input field
+            if (!active || (active.tagName !== 'INPUT' && active.tagName !== 'TEXTAREA')) {
               ev.preventDefault();
               prevQuestion(id);
               showToast('Prev');
