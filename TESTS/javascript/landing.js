@@ -1303,7 +1303,7 @@ document.addEventListener('DOMContentLoaded', function() {
           const encodedData = encodeURIComponent(text);
           
           // Redirect with data in URL hash
-          window.location.href = 'complete/PRACTICETEST.HTML#' + encodedData;
+          window.location.href = 'complete/PRACTICETEST.html#' + encodedData;
           
         } catch (error) {
           alert('Error reading file: ' + error.message);
