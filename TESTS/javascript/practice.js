@@ -1,14 +1,21 @@
 // Load and populate test data from URL hash
 (function() {
+  console.log('practice.js loaded');
+  console.log('Current URL:', window.location.href);
+  console.log('URL hash:', window.location.hash);
+  
   // Get data from URL hash (after #)
   let testDataString = null;
   
   if (window.location.hash && window.location.hash.length > 1) {
     try {
       testDataString = decodeURIComponent(window.location.hash.substring(1));
-      console.log('Data loaded from URL hash');
+      console.log('Data loaded from URL hash, length:', testDataString.length);
     } catch (e) {
       console.error('Error decoding URL hash:', e);
+      alert('Error decoding test data from URL. Please try again.');
+      window.location.href = '../index.html';
+      return;
     }
   }
   
@@ -23,7 +30,7 @@
     }
   }
   
-  console.log('Test data string:', testDataString ? 'exists' : 'null');
+  console.log('Test data string:', testDataString ? 'exists (length: ' + testDataString.length + ')' : 'null');
   
   if (!testDataString) {
     alert('No test data found. Please upload a test file from the landing page.');

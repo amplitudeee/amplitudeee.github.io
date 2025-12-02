@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Bus4IT Practice Tests</title>
+    <!--
+    Name: Matt
+    File: BUS4IT.html
+    Date: Dec 2 2025
+    BUS4IT Practice Tests -->
+    <link href="../css/style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+  <div class="accents" aria-hidden="true">
+    <span class="blob b1"></span>
+    <span class="blob b2"></span>
+    <span class="blob b3"></span>
+  </div>
+  <div class="card-backdrop" aria-hidden="true"></div>
+  <div class="page">
+  <!-- Intro Page -->
+  <div id="introPage" class="intro-page">
+    <h1 class="shimmer">Bus4IT Practice Tests</h1>
+    <p style="text-align: center; margin-bottom: 24px; font-size: 18px; color: #ddd;">Ideally to be ready for the real test you should be able to fill out the medium tests with ease and most of the hard test answers</p>
+    <p style="text-align: center; margin-bottom: 24px; font-size: 18px; color: #ddd;">Choose your test format</p>
+    <div class="test-options">
+      <div class="test-option-card" id="optionA">
+        <h2>Easy Test</h2>
+        <p class="test-type">Multiple Choice & True/False</p>
+        <ul class="test-features">
+          <li>✓ 10 randomized questions</li>
+          <li>✓ Multiple choice options</li>
+          <li>✓ True/False questions</li>
+          <li>✓ Instant feedback on each answer</li>
+          <li>✓ Detailed explanations provided</li>
+        </ul>
+        <button class="start-test-btn" data-test="A" id="startTestA">Start Easy Test</button>
+      </div>
+      <div class="test-option-card" id="optionC">
+        <h2>Medium Test</h2>
+        <p class="test-type">Fill in the Blanks</p>
+        <ul class="test-features">
+          <li>✓ 10 randomized questions</li>
+          <li>✓ Fill in missing words</li>
+          <li>✓ Case-insensitive matching</li>
+          <li>✓ Suggested answers provided</li>
+          <li>✓ Detailed explanations optional</li>
+        </ul>
+        <button class="start-test-btn" data-test="C" id="startTestC">Start Medium Test</button>
+      </div>
+      <div class="test-option-card" id="optionB">
+        <h2>Hard Test</h2>
+        <p class="test-type">Short Answer</p>
+        <ul class="test-features">
+          <li>✓ 10 randomized questions</li>
+          <li>✓ Open-ended responses</li>
+          <li>✓ Test your recall ability</li>
+          <li>✓ Suggested answers provided</li>
+          <li>✓ Comprehensive feedback</li>
+        </ul>
+        <button class="start-test-btn" data-test="B" id="startTestB">Start Hard Test</button>
+      </div>
+    </div>
+  </div>
+  
+
+  <!-- Optional: Plain-text question sources (easy to replace). One question per line. -->
+  <script type="text/plain" id="sourceA">
+Q1: Leadership is the ability to influence, motivate, and enable others to contribute to organizational success. | True | False
+A1: True | Explanation: Leadership focuses on inspiring and enabling people toward success.
+
+Q2: Management is primarily about controlling a group of individuals to achieve a specific objective. | True | False
+A2: True | Explanation: Management emphasizes control and coordination to meet goals.
+
+Q3: A personal mission statement should describe what you are, how you want to be seen, and what matters to you. | True | False
+A3: True | Explanation: Mission statements distill identity, values, and priorities.
+
+Q4: Which statement focuses on tomorrow and what an organization wants to ultimately become? | Mission Statement | Vision Statement | Value Statement | SMART Goal
+A4: Vision Statement | Explanation: Vision statements define future aspirations.
+
+Q5: Value statements define guiding principles and expected behaviors in an organization. | True | False
+A5: True | Explanation: They set moral direction and behavioral expectations.
+
+Q6: SMART goals are defined as Specific, Measurable, Achievable, Relevant, and Testable. | True | False
+A6: False | Explanation: SMART is an acronym for effective goal-setting. Specific, Measurable, Achievable, Relevant, and Time-Bound.
+
+Q7: SWOT analysis examines strengths, weaknesses, objectives, and threats. | True | False
+A7: False | Explanation: SWOT analysis examines strengths, weaknesses, opportunities, and threats.
+
+Q8: The STAR method is used to structure responses in interviews. | True | False
+A8: True | Explanation: STAR = Situation, Task, Action, Result.
+
+Q9: Which of the following is a verbal communication method? | Text | Email | Face to Face | Body Language
+A9: Face to Face | Explanation: Spoken communication is verbal.
+
+Q10: The purpose of a job description is to provide detailed performance evaluations of employees. | True | False
+A10: False | Explanation: Job descriptions define duties, responsibilities, and requirements, not performance evaluations.
+
+Q11: Which ethical lens emphasizes equitable treatment and impartial distribution of benefits and burdens? | Rights Lens | Justice Lens | Common Good Lens | Virtue Lens
+A11: Justice Lens | Explanation: The justice lens focuses on fairness in how advantages and responsibilities are shared.
+
+Q12: Change resistance refers to opposition to new processes or structures. | True | False
+A12: True | Explanation: Resistance is natural in organizational change.
+
+Q13: The first step in strategic planning is conducting a detailed SWOT analysis before defining the vision and mission. | True | False
+A13: False | Explanation: Strategic planning begins with vision and mission, while SWOT analysis follows to assess context.
+
+Q14: Which role is not typically part of HR? | Recruitment | Payroll | Marketing | Training
+A14: Marketing | Explanation: HR does not handle marketing.
+
+Q15: Which communication method is asynchronous? | Face to Face | Phone Call | Email | Video Conference
+A15: Email | Explanation: Email does not require simultaneous interaction.
+
+Q16: Performance appraisals are primarily designed to measure future potential rather than past contributions. | True | False
+A16: False | Explanation: While appraisals may inform future development, their core purpose is to evaluate past performance and contributions.
+
+Q17: Ethics is limited to workplace conduct and does not influence personal or societal decision-making. | True | False
+A17: False | Explanation: Ethics extends beyond the workplace, shaping choices in personal, professional, and societal contexts.
+
+Q18: Change management is primarily about enforcing compliance with new procedures rather than guiding people through transitions. | True | False
+A18: False | Explanation: Effective change management emphasizes planning, communication, and support to ease transitions, not just compliance.
+
+Q19: The change curve is used exclusively to track organizational performance metrics during transformation. | True | False
+A19: False | Explanation: The change curve models emotional and psychological stages of transition, not performance metrics.
+
+Q20: Non-verbal communication excludes posture and gestures, focusing only on tone of voice. | True | False
+A20: False | Explanation: Tone of voice is paralinguistic, but non-verbal communication also includes posture, gestures, and facial expressions.
+
+Q21: Active listening is demonstrated primarily by maintaining eye contact, without requiring thoughtful responses. | True | False
+A21: False | Explanation: Eye contact helps, but active listening requires concentration, understanding, and meaningful responses.
+
+Q22: Which of the following is NOT a type of normal corporate communication | Text | Email/Letter | Face to Face | Indirect
+A22: Indirect | Explanation: Only three types were listed.
+
+Q23: Strategic change is concerned with broad, long-term, organization-wide issues. | True | False
+A23: True | Explanation: Strategic change focuses on future state.
+
+Q24: Operational change relates to new systems, procedures, or technology with immediate effects. | True | False
+A24: True | Explanation: Operational change impacts daily work.
+
+Q25: Transformational change is primarily concerned with minor process improvements and incremental adjustments to existing practices. | True | False
+A25: False | Explanation: Transformational change goes beyond incremental improvements, involving fundamental shifts in structures, culture, and behaviors.
+
+Q26: Which ethical lens asks "Am I being a good person?" | Rights Lens | Virtue Lens | Care Ethics Lens | Common Good Lens
+A26: Virtue Lens | Explanation: Virtue lens emphasizes character.
+
+Q27: Which ethical lens asks "What's best for the whole group?" | Justice Lens | Common Good Lens | Utilitarian Lens | Care Ethics Lens
+A27: Common Good Lens | Explanation: It focuses on collective benefit.
+
+Q28: Human resource management includes employing, training, compensating, and retaining people. | True | False
+A28: True | Explanation: HRM manages workforce processes.
+
+Q29: Which recruitment strategy leverages platforms like LinkedIn, Twitter, or Facebook to reach potential candidates? | Employee Referral Program | Social Media Recruiting | Job Board Sponsorship | Talent Pool Re-engagement
+A29: Social Media Recruiting | Explanation: This strategy uses social platforms to actively attract and engage candidates.
+
+Q30: Financial management is the management of funds received and spent to support goals. | True | False
+A30: True | Explanation: It ensures resources align with objectives.
+
+Q31: A budget is primarily designed to record past financial transactions rather than plan future income and expenses. | True | False
+A31: False | Explanation: Budgets are forward-looking tools that organize and plan income and expenses over a set period, not just historical records.
+
+Q32: Which of the following is NOT an expense component in a budget? | Fixed | Variable | Discretionary | Unlimited
+A32: Unlimited | Explanation: Budgets classify expenses as fixed/variable or discretionary/nondiscretionary.
+
+Q33: Marketing involves planning and executing conception, pricing, promotion, and distribution of goods/services. | True | False
+A33: True | Explanation: Marketing creates exchanges to satisfy goals.
+
+Q34: Which stage of the product life cycle comes after growth? | Development | Introduction | Maturity | Decline
+A34: Maturity | Explanation: Growth leads to maturity.
+
+Q35: CIO stands for Chief Interrogation Officer. | True | False
+A35: False | Explanation: CIO is a senior IT executive. Chief Information Officer
+
+Q36: One of the three primary functions of IT is exclusively focused on hardware maintenance. | True | False
+A36: False | Explanation: IT's major functions typically include managing networks, systems, and information resources—not just hardware maintenance.
+
+Q37: Performance management is an ongoing process of planning, monitoring, and reviewing employee work. | True | False
+A37: True | Explanation: It supports development and achievement.
+
+Q38: Which of the following is NOT listed as a type of employee problem? | Attendance | Performance | Conduct | Creativity
+A38: Creativity | Explanation: Problems listed were attendance, performance, conduct.
+
+Q39: Branding is the process of creating a unique identity for a product or company. | True | False
+A39: True | Explanation: Branding differentiates and builds recognition.
+
+Q40: Which stage of the product life cycle is characterized by declining sales and reduced market share? | Introduction | Growth | Maturity | Decline
+A40: Decline | Explanation: The decline stage occurs when demand decreases and the product loses market relevance.
+  </script>
+
+  <script type="text/plain" id="sourceC">
+Q1: The role of management is to ___ a group of individuals to achieve a specific ___
+A1: Control | Objective | Explanation: Management focuses on directing people toward defined goals.
+
+Q2: A personal mission statement distills ___ you are, ___ you want to be seen, and ___ matters to you
+A2: What | How | Who/What | Explanation: Mission statements clarify identity, perception, and priorities.
+
+Q3: Leadership is the ability to ___, ___, and ___ others to contribute to success
+A3: Influence | Motivate | Enable | Explanation: Leadership empowers people to achieve organizational goals.
+
+Q4: A vision statement focuses on ___ and what an organization wants to ___
+A4: Tomorrow | Become | Explanation: Vision statements are future-oriented and aspirational.
+
+Q5: Value statements are the ___ principles of an organization that define ___ and ___
+A5: Guiding | Beliefs | Behaviors | Explanation: Values shape culture and expected conduct.
+
+Q6: A value statement is the ___ direction of the organization guiding ___ and ___
+A6: Moral | Decisions | Actions | Explanation: Values provide ethical direction.
+
+Q7: A SMART goal is ___, ___, ___, ___, and ___
+A7: Specific | Measurable | Achievable | Relevant | Time-bound | Explanation: SMART goals ensure clarity and feasibility.
+
+Q8: SWOT stands for ___, ___, ___, and ___
+A8: Strengths | Weaknesses | Opportunities | Threats | Explanation: SWOT is a strategic analysis tool.
+
+Q9: The STAR method helps with ___ and ___ during interviews
+A9: Structuring answers | Demonstrating skills | Explanation: STAR organizes responses with Situation, Task, Action, Result.
+
+Q10: The STAR method stands for ___, ___, ___, ___
+A10: Situation | Task | Action | Result | Explanation: STAR provides a framework for behavioral questions.
+
+Q11: A verbal communication method includes ___
+A11: Face to face | Explanation: Spoken communication is verbal.
+
+Q12: A job description defines ___, ___, and ___ of a role
+A12: Duties | Responsibilities | Requirements | Explanation: Job descriptions clarify expectations.
+
+Q13: The ethical lens focusing on fairness and justice is the ___ lens
+A13: Justice | Explanation: Justice lens emphasizes equality.
+
+Q14: Change resistance is the ___ to ___ change
+A14: Opposition | Organizational | Explanation: Resistance occurs when people push back against change.
+
+Q15: The first step in strategic planning is defining ___
+A15: Vision | Explanation: Vision sets the direction.
+
+Q16: A role not typically part of HR is ___
+A16: CIO | Explanation: CIO belongs to IT, not HR.
+
+Q17: An asynchronous communication method is ___
+A17: Email | Explanation: Asynchronous methods don't require simultaneous interaction.
+
+Q18: Performance appraisals evaluate employee ___
+A18: Contributions | Explanation: Appraisals measure performance and impact.
+
+Q19: Ethics applies to ___
+A19: Everyone | Explanation: Ethics governs universal behavior.
+
+Q20: Change management involves ___ and ___ change
+A20: Planning | Introducing | Explanation: Change management ensures smooth transitions.
+
+Q21: Communication and change management ask ___, ___, and ___
+A21: How | What | How much | Explanation: Communication clarifies message delivery.
+
+Q22: The change curve explains stages of ___ and ___ change
+A22: Personal transition | Organizational | Explanation: It models adaptation to change.
+
+Q23: Non-verbal elements of communication include ___ and ___
+A23: Body language | Facial expressions | Explanation: Non-verbal cues convey meaning.
+
+Q24: Active listening involves ___ and ___
+A24: Paying attention | Responding appropriately | Explanation: Active listening ensures understanding.
+
+Q25: Three types of communication are ___, ___, and ___
+A25: Text | Email/letter | Face to face | Explanation: These are common communication modes.
+
+Q26: Three types of change are ___, ___, and ___
+A26: Strategic | Operational | Transformational | Explanation: Change varies by scope and impact.
+
+Q27: Strategic change is concerned with ___, ___, and ___ issues
+A27: Broad | Long-term | Organization-wide | Explanation: Strategic change defines future direction.
+
+Q28: Operational change relates to new ___, ___, or ___
+A28: Systems | Procedures | Technology | Explanation: Operational change affects daily work.
+
+Q29: Transformational change involves ___, ___, and ___ changes
+A29: Structures | Processes | Behaviors | Explanation: Transformational change is comprehensive.
+
+Q30: The rights lens asks if ___ are being treated ___
+A30: Everyone | Fairly | Explanation: Rights lens emphasizes fairness.
+
+Q31: The utilitarian lens asks what choice helps the most people feel ___
+A31: Happy | Explanation: Utilitarianism maximizes collective well-being.
+
+Q32: The common good lens asks what's best for the ___
+A32: Whole group | Explanation: Common good prioritizes community.
+
+Q33: The virtue lens asks if I am being a ___ person
+A33: Good | Explanation: Virtue lens emphasizes character.
+
+Q34: The care ethics lens asks if I am being ___ and considering ___
+A34: Kind | Others' feelings | Explanation: Care ethics emphasizes empathy.
+
+Q35: Human resource management involves ___, ___, and ___ people
+A35: Employing | Training | Compensating | Explanation: HRM manages workforce needs.
+
+Q36: Recruitment strategies include ___ and ___
+A36: Social media | Employee referral program | Explanation: Recruitment uses multiple channels.
+
+Q37: Financial management is the management of ___ received and ___
+A37: Funds | Spent | Explanation: Financial management ensures resources align with goals.
+
+Q38: A budget plans for ___ and ___ over a set period
+A38: Income | Expenses | Explanation: Budgets organize financial activity.
+
+Q39: Expense components in a budget include ___ and ___ categories
+A39: Fixed/variable | Discretionary/nondiscretionary | Explanation: Expenses differ by flexibility.
+
+Q40: The product life cycle includes ___, ___, ___, ___, and ___
+A40: Development | Introduction | Growth | Maturity | Decline | Explanation: Products evolve through stages.
+  </script>
+
+  <script type="text/plain" id="sourceB">
+Q1: Define management and explain its role.
+A1: Explanation: Management is controlling a group of individuals to achieve a specific objective.
+
+Q2: Define a personal mission statement and explain its purpose.
+A2: Explanation: A mission statement distills identity, values, and priorities into a guiding plan.
+
+Q3: Define leadership and explain its importance.
+A3: Explanation: Leadership is influencing, motivating, and enabling others to contribute to success.
+
+Q4: Define a vision statement and explain its focus.
+A4: Explanation: A vision statement focuses on the future and what an organization wants to become.
+
+Q5: Define a value statement and explain its role.
+A5: Explanation: Value statements outline guiding principles and expected behaviors in an organization.
+
+Q6: Explain how a value statement provides moral direction.
+A6: Explanation: It guides decisions and actions based on ethical principles.
+
+Q7: Define SMART goals and explain their components.
+A7: Explanation: SMART goals are Specific, Measurable, Achievable, Relevant, and Time-bound.
+
+Q8: Define SWOT analysis and explain its purpose.
+A8: Explanation: SWOT identifies strengths, weaknesses, opportunities, and threats for strategic planning.
+
+Q9: Explain what the STAR method helps with.
+A9: Explanation: STAR helps structure interview answers to demonstrate skills and experiences.
+
+Q10: Define the STAR method and explain its steps.
+A10: Explanation: STAR stands for Situation, Task, Action, Result.
+
+Q11: Identify one verbal communication method.
+A11: Explanation: Face-to-face communication is a verbal method.
+
+Q12: Explain the purpose of a job description.
+A12: Explanation: It defines duties, responsibilities, and requirements of a role.
+
+Q13: Identify the ethical lens that focuses on fairness and justice.
+A13: Explanation: The justice lens emphasizes fairness for everyone.
+
+Q14: Define change resistance Please.
+A14: Explanation: Change resistance is opposition to organizational change.
+
+Q15: Identify the first step in strategic planning.
+A15: Explanation: Defining vision is the first step.
+
+Q16: Identify a role not typically part of HR.
+A16: Explanation: CIO is not part of HR.
+
+Q17: Identify an asynchronous communication method.
+A17: Explanation: Email is asynchronous.
+
+Q18: Explain the purpose of performance appraisals.
+A18: Explanation: They evaluate employee contributions and performance.
+
+Q19: Explain what ethics applies to.
+A19: Explanation: Ethics applies to everyone and all actions.
+
+Q20: Define change management Please.
+A20: Explanation: Change management is planning and introducing change systematically.
+
+Q21: Identify three big questions in communication and change management.
+A21: Explanation: How to communicate, what to communicate, and how much to communicate.
+
+Q22: Explain the purpose of the change curve.
+A22: Explanation: It models stages of personal transition and organizational change.
+
+Q23: Identify non-verbal elements of communication.
+A23: Explanation: Body language and facial expressions are non-verbal elements.
+
+Q24: Define active listening please.
+A24: Explanation: Active listening means paying attention and responding appropriately.
+
+Q25: Identify three types of communication.
+A25: Explanation: Text, email/letter, and face-to-face.
+
+Q26: Identify three types of change.
+A26: Explanation: Strategic, operational, and transformational.
+
+Q27: Define strategic change please.
+A27: Explanation: Strategic change addresses broad, long-term, organization-wide issues.
+
+Q28: Define operational change please.
+A28: Explanation: Operational change involves new systems, procedures, or technology.
+
+Q29: Define transformational change please.
+A29: Explanation: Transformational change involves fundamental changes in structures, processes, and behaviors.
+
+Q30: Explain the rights lens in ethics.
+A30: Explanation: It asks if everyone is treated fairly and gets what they deserve.
+
+Q31: Explain the utilitarian lens in ethics.
+A31: Explanation: It asks what choice helps the most people feel happy.
+
+Q32: Explain the common good lens in ethics.
+A32: Explanation: It asks what is best for the whole group.
+
+Q33: Explain the virtue lens in ethics.
+A33: Explanation: It asks if one is being a good person.
+
+Q34: Explain the care ethics lens in ethics.
+A34: Explanation: It asks if one is being kind and considering others' feelings.
+
+Q35: Define human resource management.
+A35: Explanation: HRM involves employing, training, compensating, and retaining people.
+
+Q36: Identify two recruitment strategies.
+A36: Explanation: Using social media and employee referral programs are recruitment strategies.
+
+Q37: Define financial management please.
+A37: Explanation: It is managing funds received and spent to support organizational goals.
+
+Q38: Define a budget please.
+A38: Explanation: A budget plans income and expenses over a set period.
+
+Q39: Identify expense components in a budget.
+A39: Explanation: Fixed/variable and discretionary/nondiscretionary expenses.
+
+Q40: Identify the stages of the product life cycle.
+A40: Explanation: Development, introduction, growth, maturity, and decline.
+  </script>
+
+ <!-- Test A -->
+  <form id="testA" class="test hidden">
+    <h2>Easy Test</h2>
+    <div class="progress" id="progressA" aria-live="polite">
+      <div class="progress-track"><div class="progress-fill" id="progressFillA"></div></div>
+      <div class="progress-text" id="progressTextA">1 / 10</div>
+    </div>
+    <!-- Questions are generated from #sourceA; static markup removed -->
+
+    <div class="form-actions">
+      <button type="button" id="btnPrevA" class="nav-btn">Prev</button>
+      <button type="button" id="btnCheckA" class="nav-btn">Show Answer</button>
+      <button type="button" id="btnNextA" class="nav-btn">Next</button>
+      <button type="button" id="btnSubmitA">Submit Easy Test</button>
+      <button type="button" class="help-shortcuts" id="helpA" aria-haspopup="true" aria-expanded="false" aria-label="Keyboard shortcuts help">?
+        <span class="popover" role="tooltip">Keyboard Shortcuts:<br>Next = Enter<br>Prev = Backspace<br>Show Answer = Up Arrow<br>Hide Answer = Down Arrow<br>First = Home<br>Last = End</span>
+      </button>
+    </div>
+  </form>
+
+<!-- Test B -->
+  <form id="testB" class="test hidden">
+    <h2>Hard Test</h2>
+    <div class="progress" id="progressB" aria-live="polite">
+      <div class="progress-track"><div class="progress-fill" id="progressFillB"></div></div>
+      <div class="progress-text" id="progressTextB">1 / 10</div>
+    </div>
+    <!-- Questions are generated from #sourceB; static markup removed -->
+
+    <div class="form-actions">
+      <button type="button" id="btnPrevB" class="nav-btn">Prev</button>
+      <button type="button" id="btnCheckB" class="nav-btn">Show Answer</button>
+      <button type="button" id="btnResetB" class="nav-btn">Clear Question</button>
+      <button type="button" id="btnNextB" class="nav-btn">Next</button>
+      <button type="button" id="btnSubmitB">Submit Hard Test</button>
+      <button type="button" class="help-shortcuts" id="helpB" aria-haspopup="true" aria-expanded="false" aria-label="Keyboard shortcuts help">?
+        <span class="popover" role="tooltip">Keyboard Shortcuts:<br>Next = Enter<br>Prev = Backspace<br>Show Answer = Up Arrow<br>Hide Answer = Down Arrow<br>Clear = Escape</span>
+      </button>
+    </div>
+  </form>
+
+<!-- Test C -->
+  <form id="testC" class="test hidden">
+    <h2>Medium Test</h2>
+    <div class="progress" id="progressC" aria-live="polite">
+      <div class="progress-track"><div class="progress-fill" id="progressFillC"></div></div>
+      <div class="progress-text" id="progressTextC">1 / 10</div>
+    </div>
+    <!-- Questions are generated from #sourceC -->
+
+    <div class="form-actions">
+      <button type="button" id="btnPrevC" class="nav-btn">Prev</button>
+      <button type="button" id="btnCheckC" class="nav-btn">Show Answer</button>
+      <button type="button" id="btnResetC" class="nav-btn">Clear Question</button>
+      <button type="button" id="btnNextC" class="nav-btn">Next</button>
+      <button type="button" id="btnSubmitC">Submit Medium Test</button>
+      <button type="button" class="help-shortcuts" id="helpC" aria-haspopup="true" aria-expanded="false" aria-label="Keyboard shortcuts help">?
+        <span class="popover" role="tooltip">Keyboard Shortcuts:<br>Next = Enter<br>Prev = Backspace<br>Show Answer = Up Arrow<br>Hide Answer = Down Arrow<br>Clear = Escape</span>
+      </button>
+    </div>
+  </form>
+
+  <!-- Results Page -->
+  <div id="resultsPage" class="test hidden">
+    <h2 id="resultsTitle" tabindex="-1">Test Results</h2>
+    <div class="results-actions">
+      <button type="button" id="btnTryAgain">Try Again</button>
+      <span class="hint">Press Enter to try again</span>
+    </div>
+    <div class="results-summary" aria-live="polite">
+      <div class="score-display">
+        <div class="score-number" id="scoreNumber">0/10</div>
+        <div class="score-percentage" id="scorePercentage">0%</div>
+      </div>
+      <div class="results-message" id="resultsMessage"></div>
+    </div>
+    <div class="results-details" id="resultsDetails"></div>
+  </div>
+  <!-- Shortcut toast for keyboard feedback -->
+  <div id="shortcutToast" class="shortcut-toast" role="status" aria-live="polite" aria-atomic="true"></div>
+  <script src="../javascript/script.js"></script>
+  </div>
+</body>
+</html>
