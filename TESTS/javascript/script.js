@@ -198,10 +198,15 @@ function isEquivalentAnswer(user, expected){
     function showResults(test, correctCount, totalCount, details) {
       lastTest = test;
       // Hide tests, show results
-      document.getElementById('testA').classList.add('hidden');
-      document.getElementById('testB').classList.add('hidden');
-      document.getElementById('testC').classList.add('hidden');
-      document.getElementById('resultsPage').classList.remove('hidden');
+      const testAEl = document.getElementById('testA');
+      const testBEl = document.getElementById('testB');
+      const testCEl = document.getElementById('testC');
+      const resultsPageEl = document.getElementById('resultsPage');
+      
+      if (testAEl) testAEl.classList.add('hidden');
+      if (testBEl) testBEl.classList.add('hidden');
+      if (testCEl) testCEl.classList.add('hidden');
+      if (resultsPageEl) resultsPageEl.classList.remove('hidden');
       // Ensure results page can capture key events: set focus
       const rp = document.getElementById('resultsPage');
       if (rp) { rp.setAttribute('tabindex','0'); try { rp.focus({ preventScroll: true }); } catch(_) { rp.focus(); } }
