@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>System Development Practice Tests</title>
+    <!--
+    Name: Matt
+    File: SYSDEVTEST.html
+    Date: Nov 30 2025
+    SYSDEVTEST -->
+    <link href="../css/style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+  <div class="accents" aria-hidden="true">
+    <span class="blob b1"></span>
+    <span class="blob b2"></span>
+    <span class="blob b3"></span>
+  </div>
+  <div class="card-backdrop" aria-hidden="true"></div>
+  <div class="page">
+  <!-- Intro Page -->
+  <div id="introPage" class="intro-page">
+    <h1 class="shimmer">System Development Practice Tests</h1>
+    <p style="text-align: center; margin-bottom: 24px; font-size: 18px; color: #ddd;">Ideally to be ready for the real test you should be able to fill out the medium tests with ease and most of the hard test answers</p>
+    <p style="text-align: center; margin-bottom: 24px; font-size: 18px; color: #ddd;">Choose your test format</p>
+    <div class="test-options">
+      <div class="test-option-card" id="optionA">
+        <h2>Easy Test</h2>
+        <p class="test-type">Multiple Choice & True/False</p>
+        <ul class="test-features">
+          <li>✓ 10 randomized questions</li>
+          <li>✓ Multiple choice options</li>
+          <li>✓ True/False questions</li>
+          <li>✓ Instant feedback on each answer</li>
+          <li>✓ Detailed explanations provided</li>
+        </ul>
+        <button class="start-test-btn" data-test="A" id="startTestA">Start Easy Test</button>
+      </div>
+      <div class="test-option-card" id="optionC">
+        <h2>Medium Test</h2>
+        <p class="test-type">Fill in the Blanks</p>
+        <ul class="test-features">
+          <li>✓ 10 randomized questions</li>
+          <li>✓ Fill in missing words</li>
+          <li>✓ Case-insensitive matching</li>
+          <li>✓ Suggested answers provided</li>
+          <li>✓ Detailed explanations optional</li>
+        </ul>
+        <button class="start-test-btn" data-test="C" id="startTestC">Start Medium Test</button>
+      </div>
+      <div class="test-option-card" id="optionB">
+        <h2>Hard Test</h2>
+        <p class="test-type">Short Answer</p>
+        <ul class="test-features">
+          <li>✓ 10 randomized questions</li>
+          <li>✓ Open-ended responses</li>
+          <li>✓ Test your recall ability</li>
+          <li>✓ Suggested answers provided</li>
+          <li>✓ Comprehensive feedback</li>
+        </ul>
+        <button class="start-test-btn" data-test="B" id="startTestB">Start Hard Test</button>
+      </div>
+    </div>
+  </div>
+  
+
+  <!-- Optional: Plain-text question sources (easy to replace). One question per line. -->
+  <script type="text/plain" id="sourceA">
+Here’s a **40-question beginner JavaScript test** in the exact format you requested. It alternates between True/False and Multiple Choice, with explanations grounded in MDN concepts. No asterisks are used, and answer labels match question numbers.
+
+---
+
+Q1: JavaScript is a compiled language. | True | False  
+A1: False | Explanation: JavaScript is interpreted, though modern engines use Just-In-Time compilation.
+
+Q2: Which method converts a JSON string into a JavaScript object? | JSON.stringify | JSON.parse | Object.create | String.split  
+A2: JSON.parse | Explanation: JSON.parse reads a JSON string and returns a JavaScript object.
+
+Q3: The `let` keyword allows redeclaration of the same variable in the same scope. | True | False  
+A3: False | Explanation: `let` does not allow redeclaration in the same scope, unlike `var`.
+
+Q4: Which operator checks both value and type equality? | == | === | = | !=  
+A4: === | Explanation: The strict equality operator `===` compares both value and type.
+
+Q5: Functions in JavaScript are first-class objects. | True | False  
+A5: True | Explanation: Functions can be assigned to variables, passed as arguments, and returned.
+
+Q6: Which method adds one or more elements to the end of an array? | push | pop | shift | unshift  
+A6: push | Explanation: `push` appends elements to the end of an array.
+
+Q7: The `const` keyword prevents reassignment of the variable binding. | True | False  
+A7: True | Explanation: `const` creates a constant binding, though object contents can still be mutated.
+
+Q8: Which statement stops execution of a loop and continues with the next iteration? | break | continue | return | exit  
+A8: continue | Explanation: `continue` skips to the next iteration without exiting the loop.
+
+Q9: JavaScript is single-threaded by design. | True | False  
+A9: True | Explanation: JavaScript runs in a single-threaded event loop model.
+
+Q10: Which method returns a new array with elements that pass a test function? | map | filter | reduce | forEach  
+A10: filter | Explanation: `filter` creates a new array with elements that satisfy the condition.
+
+Q11: The `typeof null` returns "null". | True | False  
+A11: False | Explanation: `typeof null` returns "object" due to a legacy bug.
+
+Q12: Which keyword declares a block-scoped variable? | var | let | const | all of the above  
+A12: let | Explanation: `let` declares block-scoped variables, unlike `var`.
+
+Q13: Arrow functions bind their own `this`. | True | False  
+A13: False | Explanation: Arrow functions do not bind `this`; they inherit it lexically.
+
+Q14: Which method executes a function once for each array element? | map | forEach | reduce | every  
+A14: forEach | Explanation: `forEach` runs a callback for each element without returning a new array.
+
+Q15: JavaScript can manipulate the DOM directly. | True | False  
+A15: True | Explanation: JavaScript interacts with the DOM via APIs like `document.querySelector`.
+
+Q16: Which operator is used to assign default values in destructuring? | = | ? | || | ??  
+A16: = | Explanation: Default values in destructuring use the `=` operator.
+
+Q17: The `NaN` value is equal to itself. | True | False  
+A17: False | Explanation: `NaN === NaN` is false; use `Number.isNaN()` to check.
+
+Q18: Which method combines two arrays into one? | concat | join | splice | slice  
+A18: concat | Explanation: `concat` merges arrays into a new array.
+
+Q19: JavaScript supports prototypal inheritance. | True | False  
+A19: True | Explanation: Objects inherit directly from other objects via prototypes.
+
+Q20: Which statement defines a block of code to handle errors? | try | catch | finally | throw  
+A20: try | Explanation: `try` encloses code that may throw errors.
+
+Q21: The `undefined` type is the same as `null`. | True | False  
+A21: False | Explanation: `undefined` means uninitialized; `null` is an intentional empty value.
+
+Q22: Which method returns the index of the first occurrence of a value in an array? | find | indexOf | includes | search  
+A22: indexOf | Explanation: `indexOf` returns the position of the first match.
+
+Q23: Template literals allow embedded expressions using `${}`. | True | False  
+A23: True | Explanation: Template literals support interpolation with `${expression}`.
+
+Q24: Which loop is guaranteed to run at least once? | for | while | do...while | for...in  
+A24: do...while | Explanation: `do...while` executes before checking the condition.
+
+Q25: JavaScript variables are dynamically typed. | True | False  
+A25: True | Explanation: Types are determined at runtime, not at declaration.
+
+Q26: Which method returns a string representation of an array? | toString | join | stringify | slice  
+A26: toString | Explanation: `toString` converts array elements into a comma-separated string.
+
+Q27: The `this` keyword always refers to the global object. | True | False  
+A27: False | Explanation: `this` depends on context: global, object, or function invocation.
+
+Q28: Which operator spreads elements of an array or object? | ... | * | & | =>  
+A28: ... | Explanation: The spread operator expands iterable elements.
+
+Q29: JavaScript supports asynchronous programming with promises. | True | False  
+A29: True | Explanation: Promises represent eventual completion or failure of async operations.
+
+Q30: Which method returns a new array with results of applying a function to each element? | map | filter | reduce | forEach  
+A30: map | Explanation: `map` transforms each element and returns a new array.
+
+Q31: The `==` operator performs type coercion. | True | False  
+A31: True | Explanation: `==` converts operands to the same type before comparison.
+
+Q32: Which keyword is used to create a class in JavaScript? | object | class | function | prototype  
+A32: class | Explanation: ES6 introduced the `class` keyword for syntactic sugar over prototypes.
+
+Q33: JavaScript can run outside the browser. | True | False  
+A33: True | Explanation: Environments like Node.js allow JavaScript execution outside browsers.
+
+Q34: Which method removes the last element from an array? | pop | shift | splice | slice  
+A34: pop | Explanation: `pop` removes and returns the last element.
+
+Q35: The `async` keyword makes a function return a promise. | True | False  
+A35: True | Explanation: `async` functions always return promises.
+
+Q36: Which operator is used for exponentiation in JavaScript? | ^ | ** | pow | exp  
+A36: ** | Explanation: The `**` operator performs exponentiation.
+
+Q37: JavaScript is case-sensitive.  | True | False
+A37: True | Explanation: Variable and function names are case-sensitive.
+
+Q38: Which method converts a JavaScript object into a JSON string? | JSON.parse | JSON.stringify | Object.toString | Stringify  
+A38: JSON.stringify | Explanation: `JSON.stringify` serializes objects to JSON format.
+
+Q39: The `void` operator evaluates an expression and returns `undefined`. | True | False
+A39: True | Explanation: `void` discards the return value of an expression.
+
+Q40: Which method adds one or more elements to the beginning of an array? | unshift | push | shift | pop
+A40: unshift | Explanation: `unshift` prepends elements to the start of an array.
+  </script>
+
+  <script type="text/plain" id="sourceB">
+Q1: Define functional requirements and explain their purpose.
+A1: Functional requirements define what a system must do, describing its core features and tasks.
+
+Q2: Define non-functional requirements and explain their focus.
+A2: Non-functional requirements focus on how the system performs, covering quality attributes like speed, security, and usability.
+
+Q3: How are functional requirements adjusted in scope during a project?
+A3: They are adjusted through structured processes such as change control (Waterfall) or backlog refinement (Agile).
+
+Q4: Name two structured processes used to adjust functional requirements.
+A4: Change control in Waterfall and backlog refinement in Agile.
+
+Q5: List four aspects covered by non-functional requirements.
+A5: Performance, usability, reliability, security, maintainability.
+
+Q6: Which non-functional category includes Portability and Maintainability?
+A6: Operational — includes portability, maintainability, technical environment, and system integration.
+
+Q7: Which non-functional category includes Speed and Capacity?
+A7: Performance — includes speed, capacity, availability, reliability.
+
+Q8: Which non-functional category includes Access Control and Encryption?
+A8: Security — includes system value, access control, encryption & authentication, virus control.
+
+Q9: Which non-functional category includes Laws and Government Regulations?
+A9: Cultural & Political — includes laws, government regulations, language differences, centralized vs local control.
+
+Q10: What is the goal of Problem Analysis in requirements analysis?
+A10: Problem Analysis identifies and articulates the business problem, focusing on 'why' before 'what'.
+
+Q11: What is the goal of Root Cause Analysis?
+A11: Root Cause Analysis identifies underlying causes of problems rather than just symptoms.
+
+Q12: What does Duration Analysis examine?
+A12: Duration Analysis examines the time taken for activities to find efficiency opportunities.
+
+Q13: What does Activity-Based Costing include beyond direct costs?
+A13: Activity-Based Costing includes indirect costs like rent, utilities, salaries, and marketing in addition to direct costs.
+
+Q14: What is Informal Benchmarking used for?
+A14: Informal Benchmarking compares processes with other businesses to identify areas for improvement.
+
+Q15: What is Outcome Analysis used for?
+A15: Outcome Analysis uses past results to guide future actions.
+
+Q16: What is Technology Analysis used for?
+A16: Technology Analysis examines current technology environment and trends to inform investment decisions.
+
+Q17: What is Activity Elimination used for?
+A17: Activity Elimination removes non–value-adding activities to free resources.
+
+Q18: What is the main benefit of Interviewing as a requirements gathering technique?
+A18: Interviewing provides in-depth understanding and builds relationships with stakeholders.
+
+Q19: What is the main benefit of Observation as a requirements gathering technique?
+A19: Observation provides real-world understanding of user behavior and reduces miscommunication.
+
+Q20: What is the main benefit of Questionnaires as a requirements gathering technique?
+A20: Questionnaires scale to large groups, provide quantitative data, and allow anonymity.
+
+Q21: What is the main benefit of Document Analysis as a requirements gathering technique?
+A21: Document Analysis provides comprehensive understanding of systems and identifies gaps efficiently.
+
+Q22: What is Shadowing used for in requirements gathering?
+A22: Shadowing involves following users to observe their work and uncover implicit requirements.
+
+Q23: Who defines requirements in a project?
+A23: Business analysts and stakeholders define requirements.
+
+Q24: Who does the work after requirements are defined?
+A24: Project managers and developers do the work after requirements are defined.
+
+Q25: What does WBS stand for and what is its purpose?
+A25: Work Breakdown Structure — decomposes a project into smaller components for clarity and scope management.
+
+Q26: What are the three trade-offs of effort estimation?
+A26: Scope, Time, Cost — the three trade-offs of effort estimation.
+
+Q27: What is scope creep?
+A27: Scope creep is adding new requirements after a project has started.
+
+Q28: Why is open communication important in project teams?
+A28: Open communication prevents team conflict and supports collaboration.
+
+Q29: Why are skill sets important when staffing a project team?
+A29: Skill sets ensure the team has the right expertise for tasks.
+
+Q30: What does high morale indicate in a project team?
+A30: High morale indicates the team has 'jelled' and is working well together.
+
+Q31: What is a possible team motivation strategy?
+A31: Rewards and recognition motivate teams and improve performance.
+
+Q32: What does Kanban do?
+A32: Kanban visualizes work processes and flow.
+
+Q33: Why is effort estimation critical for cost control?
+A33: Effort estimation is critical for cost control because it predicts resource needs and expenses.
+
+Q34: What is an important consideration when forming a group project?
+A34: Member availability and skills are important considerations when forming a group project.
+
+Q35: Why is rewards and recognition important for team motivation?
+A35: Rewards and recognition encourage motivation, engagement, and sustained performance.
+
+Q36: What does Kanban help visualize in project management?
+A36: Kanban helps visualize workflow, bottlenecks, and task progress.
+
+Q37: Why is effort estimation critical for managing project costs?
+A37: Effort estimation ensures accurate budgeting and prevents overspending.
+
+Q38: What are two important considerations when forming a group project team?
+A38: Member availability and skills — ensures tasks are covered and team balance is maintained.
+
+Q39: Give an example of how Outcome Analysis might influence future software releases.
+A39: Outcome Analysis might lead to more thorough testing if past releases caused support issues.
+
+Q40: Explain how Activity Elimination can improve efficiency in a business process.
+A40: Activity Elimination improves efficiency by removing tasks that add no value, freeing resources for useful work.
+  </script>
+
+ <!-- Test A -->
+  <form id="testA" class="test hidden">
+    <h2>Easy Test</h2>
+    <div class="progress" id="progressA" aria-live="polite">
+      <div class="progress-track"><div class="progress-fill" id="progressFillA"></div></div>
+      <div class="progress-text" id="progressTextA">1 / 10</div>
+    </div>
+    <!-- Questions are generated from #sourceA; static markup removed -->
+
+    <div class="form-actions">
+      <button type="button" id="btnPrevA" class="nav-btn">Prev</button>
+      <button type="button" id="btnCheckA" class="nav-btn">Show Answer</button>
+      <button type="button" id="btnNextA" class="nav-btn">Next</button>
+      <button type="button" id="btnSubmitA">Submit Easy Test</button>
+      <button type="button" class="help-shortcuts" id="helpA" aria-haspopup="true" aria-expanded="false" aria-label="Keyboard shortcuts help">?
+        <span class="popover" role="tooltip">Keyboard Shortcuts:<br>Next = Enter<br>Prev = Backspace<br>Show Answer = Up Arrow<br>Hide Answer = Down Arrow<br>First = Home<br>Last = End</span>
+      </button>
+    </div>
+  </form>
+
+<!-- Test B -->
+  <form id="testB" class="test hidden">
+    <h2>Hard Test</h2>
+    <div class="progress" id="progressB" aria-live="polite">
+      <div class="progress-track"><div class="progress-fill" id="progressFillB"></div></div>
+      <div class="progress-text" id="progressTextB">1 / 10</div>
+    </div>
+    <!-- Questions are generated from #sourceB; static markup removed -->
+
+    <div class="form-actions">
+      <button type="button" id="btnPrevB" class="nav-btn">Prev</button>
+      <button type="button" id="btnCheckB" class="nav-btn">Show Answer</button>
+      <button type="button" id="btnResetB" class="nav-btn">Clear Question</button>
+      <button type="button" id="btnNextB" class="nav-btn">Next</button>
+      <button type="button" id="btnSubmitB">Submit Hard Test</button>
+      <button type="button" class="help-shortcuts" id="helpB" aria-haspopup="true" aria-expanded="false" aria-label="Keyboard shortcuts help">?
+        <span class="popover" role="tooltip">Keyboard Shortcuts:<br>Next = Enter<br>Prev = Backspace<br>Show Answer = Up Arrow<br>Hide Answer = Down Arrow<br>Clear = Escape</span>
+      </button>
+    </div>
+  </form>
+
+<!-- Test C -->
+  <form id="testC" class="test hidden">
+    <h2>Medium Test</h2>
+    <div class="progress" id="progressC" aria-live="polite">
+      <div class="progress-track"><div class="progress-fill" id="progressFillC"></div></div>
+      <div class="progress-text" id="progressTextC">1 / 10</div>
+    </div>
+    <!-- Questions are generated from #sourceC -->
+
+    <div class="form-actions">
+      <button type="button" id="btnPrevC" class="nav-btn">Prev</button>
+      <button type="button" id="btnCheckC" class="nav-btn">Show Answer</button>
+      <button type="button" id="btnResetC" class="nav-btn">Clear Question</button>
+      <button type="button" id="btnNextC" class="nav-btn">Next</button>
+      <button type="button" id="btnSubmitC">Submit Medium Test</button>
+      <button type="button" class="help-shortcuts" id="helpC" aria-haspopup="true" aria-expanded="false" aria-label="Keyboard shortcuts help">?
+        <span class="popover" role="tooltip">Keyboard Shortcuts:<br>Next = Enter<br>Prev = Backspace<br>Show Answer = Up Arrow<br>Hide Answer = Down Arrow<br>Clear = Escape</span>
+      </button>
+    </div>
+  </form>
+
+  <!-- Results Page -->
+  <div id="resultsPage" class="test hidden">
+    <h2 id="resultsTitle" tabindex="-1">Test Results</h2>
+    <div class="results-actions">
+      <button type="button" id="btnTryAgain">Try Again</button>
+      <span class="hint">Press Enter to try again</span>
+    </div>
+    <div class="results-summary" aria-live="polite">
+      <div class="score-display">
+        <div class="score-number" id="scoreNumber">0/10</div>
+        <div class="score-percentage" id="scorePercentage">0%</div>
+      </div>
+      <div class="results-message" id="resultsMessage"></div>
+    </div>
+    <div class="results-details" id="resultsDetails"></div>
+  </div>
+  <!-- Shortcut toast for keyboard feedback -->
+  <div id="shortcutToast" class="shortcut-toast" role="status" aria-live="polite" aria-atomic="true"></div>
+  <script src="../javascript/script.js"></script>
+  </div>
+</body>
+</html>

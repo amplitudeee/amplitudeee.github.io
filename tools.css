@@ -1,14 +1,14 @@
-<!--CSS--><!--CSS--><!--CSS--><!--CSS--><!--CSS--><!--CSS--><!--CSS-->
-<!--CSS REFERENCE-->
+/* CSS  CSS  CSS  CSS  CSS  CSS  CSS  CSS  CSS  CSS  CSS  CSS  CSS  CSS  CSS*/
+/*CSS REFERENCES*/
 <link rel="stylesheet" href="./style.css"/></html><!--Internal-->
 <link rel="stylesheet" href="https://www.w3schools.com/html/styles.css"> <!--External-->
 
-<!--BACKGROUND STYLES-->
+/* BACKGROUND STYLES */
 body {background-image:url("snow.jpg");
       background-repeat: no-repeat;
       background-position: right top;}
 
-<!--BORDER-->
+/* BORDER */
 p{border-style: dotted;
   border-width: 25px 10px 4px 35px; /* top, right, bottom, left */
   border-width: 25px 10px; /* top/bottom, right/left */
