@@ -42,125 +42,126 @@
 
   <!-- Optional: Plain-text question sources (easy to replace). One question per line. -->
   <script type="text/plain" id="sourceA">
-Q1: JavaScript is a compiled language. | True | False
-A1: False | Explanation: JavaScript is interpreted, though modern engines use Just-In-Time compilation.
+Q1: The method `document.querySelector("p")` selects all `<p>` elements in a document. | True | False  
+A1: False | Explanation: `querySelector("p")` selects only the first `<p>` element.
 
-Q2: Which method converts a JSON string into a JavaScript object? | JSON.stringify | JSON.parse | Object.create | String.split  
-A2: JSON.parse | Explanation: JSON.parse reads a JSON string and returns a JavaScript object.
+Q2: Which method returns all elements that match a CSS selector? | querySelector | querySelectorAll | getElementById | getElementsByTagName  
+A2: querySelectorAll | Explanation: `querySelectorAll` returns all matching elements.
 
-Q3: The `let` keyword allows redeclaration of the same variable in the same scope. | True | False  
-A3: False | Explanation: `let` does not allow redeclaration in the same scope, unlike `var`.
+Q3: `getElementById("myId")` returns multiple elements if more than one has the same ID. | True | False  
+A3: False | Explanation: IDs must be unique; it returns only one element.
 
-Q4: Which operator checks both value and type equality? | == | === | = | !=  
-A4: === | Explanation: The strict equality operator `===` compares both value and type.
+Q4: Which method returns an array-like object of elements by tag name? | getElementById | getElementsByTagName | querySelector | createElement  
+A4: getElementsByTagName | Explanation: It returns a live HTMLCollection of elements.
 
-Q5: Functions in JavaScript are first-class objects. | True | False  
-A5: True | Explanation: Functions can be assigned to variables, passed as arguments, and returned.
+Q5: `createElement("p")` creates a new paragraph element. | True | False  
+A5: True | Explanation: `createElement("p")` generates a new `<p>` node.
 
-Q6: Which method adds one or more elements to the end of an array? | push | pop | shift | unshift  
-A6: push | Explanation: `push` appends elements to the end of an array.
+Q6: Which property sets the text inside an element? | innerHTML | textContent | appendChild | createTextNode  
+A6: textContent | Explanation: `textContent` sets or returns the text content.
 
-Q7: The `const` keyword prevents reassignment of the variable binding. | True | False  
-A7: True | Explanation: `const` creates a constant binding, though object contents can still be mutated.
+Q7: `appendChild()` adds a new child node to a parent element. | True | False  
+A7: True | Explanation: It attaches the node to the DOM tree.
 
-Q8: Which statement stops execution of a loop and continues with the next iteration? | break | continue | return | exit  
-A8: continue | Explanation: `continue` skips to the next iteration without exiting the loop.
+Q8: Which method creates a text node? | createElement | createTextNode | appendChild | querySelector  
+A8: createTextNode | Explanation: It creates a text node object.
 
-Q9: JavaScript is single-threaded by design. | True | False  
-A9: True | Explanation: JavaScript runs in a single-threaded event loop model.
+Q9: `removeChild()` requires a reference to the parent element. | True | False  
+A9: True | Explanation: It removes a child from its parent.
 
-Q10: Which method returns a new array with elements that pass a test function? | map | filter | reduce | forEach  
-A10: filter | Explanation: `filter` creates a new array with elements that satisfy the condition.
+Q10: Which method removes an element directly without referencing its parent? | removeChild | remove | splice | shift  
+A10: remove | Explanation: `remove()` deletes the element itself.
 
-Q11: The `typeof null` returns "null". | True | False  
-A11: False | Explanation: `typeof null` returns "object" due to a legacy bug.
+Q11: The `.classList.add("highlight")` method adds a CSS class to an element. | True | False  
+A11: True | Explanation: It dynamically applies a class.
 
-Q12: Which keyword declares a block-scoped variable? | var | let | const | all of the above  
-A12: let | Explanation: `let` declares block-scoped variables, unlike `var`.
+Q12: Which event type is triggered when a mouse button is clicked? | click | dblclick | mouseover | mousemove  
+A12: click | Explanation: `click` fires on a single mouse click.
 
-Q13: Arrow functions bind their own `this`. | True | False  
-A13: False | Explanation: Arrow functions do not bind `this`; they inherit it lexically.
+Q13: `dblclick` triggers when a mouse button is pressed once. | True | False  
+A13: False | Explanation: `dblclick` requires two clicks.
 
-Q14: Which method executes a function once for each array element? | map | forEach | reduce | every  
-A14: forEach | Explanation: `forEach` runs a callback for each element without returning a new array.
+Q14: Which event occurs when the mouse pointer enters an element’s area? | mouseover | mouseout | mousemove | mousedown  
+A14: mouseover | Explanation: It fires when the pointer enters.
 
-Q15: JavaScript can manipulate the DOM directly. | True | False  
-A15: True | Explanation: JavaScript interacts with the DOM via APIs like `document.querySelector`.
+Q15: `preventDefault()` stops the default action of an event. | True | False  
+A15: True | Explanation: It prevents default browser behavior.
 
-Q16: Which operator is used to assign default values in destructuring? | = | ? | || | ??  
-A16: = | Explanation: Default values in destructuring use the `=` operator.
+Q16: Which method attaches an event handler to an element? | addEventListener | removeEventListener | appendChild | querySelector  
+A16: addEventListener | Explanation: It registers event handlers.
 
-Q17: The `NaN` value is equal to itself. | True | False  
-A17: False | Explanation: `NaN === NaN` is false; use `Number.isNaN()` to check.
+Q17: `removeEventListener()` detaches an event handler. | True | False  
+A17: True | Explanation: It removes a previously attached listener.
 
-Q18: Which method combines two arrays into one? | concat | join | splice | slice  
-A18: concat | Explanation: `concat` merges arrays into a new array.
+Q18: Which event occurs when a mouse button is released? | mouseup | mousedown | click | dblclick  
+A18: mouseup | Explanation: It fires when the button is released.
 
-Q19: JavaScript supports prototypal inheritance. | True | False  
-A19: True | Explanation: Objects inherit directly from other objects via prototypes.
+Q19: Form validation can prevent submission if required fields are empty. | True | False  
+A19: True | Explanation: Validation ensures required input.
 
-Q20: Which statement defines a block of code to handle errors? | try | catch | finally | throw  
-A20: try | Explanation: `try` encloses code that may throw errors.
+Q20: Which operator is used for strict equality? | == | === | != | !==  
+A20: === | Explanation: `===` checks value and type.
 
-Q21: The `undefined` type is the same as `null`. | True | False  
-A21: False | Explanation: `undefined` means uninitialized; `null` is an intentional empty value.
+Q21: The ternary operator uses `?` and `:`. | True | False  
+A21: True | Explanation: It provides conditional shorthand.
 
-Q22: Which method returns the index of the first occurrence of a value in an array? | find | indexOf | includes | search  
-A22: indexOf | Explanation: `indexOf` returns the position of the first match.
+Q22: Which keyword is used in a switch statement to handle unmatched cases? | case | default | break | continue  
+A22: default | Explanation: It runs if no case matches.
 
-Q23: Template literals allow embedded expressions using `${}`. | True | False  
-A23: True | Explanation: Template literals support interpolation with `${expression}`.
+Q23: A `for...of` loop iterates over object properties. | True | False  
+A23: False | Explanation: It iterates over iterable values.
 
-Q24: Which loop is guaranteed to run at least once? | for | while | do...while | for...in  
-A24: do...while | Explanation: `do...while` executes before checking the condition.
+Q24: Which function converts a string to a number? | parseInt | Number | String | Boolean  
+A24: Number | Explanation: `Number(string)` converts to numeric type.
 
-Q25: JavaScript variables are dynamically typed. | True | False  
-A25: True | Explanation: Types are determined at runtime, not at declaration.
+Q25: Template literals use backticks (`). | True | False  
+A25: True | Explanation: Backticks allow interpolation.
 
-Q26: Which method returns a string representation of an array? | toString | join | stringify | slice  
-A26: toString | Explanation: `toString` converts array elements into a comma-separated string.
+Q26: Which method returns the length of a string? | length | size | count | indexOf  
+A26: length | Explanation: `.length` gives string length.
 
-Q27: The `this` keyword always refers to the global object. | True | False  
-A27: False | Explanation: `this` depends on context: global, object, or function invocation.
+Q27: `.toUpperCase()` converts a string to lowercase. | True | False  
+A27: False | Explanation: It converts to uppercase.
 
-Q28: Which operator spreads elements of an array or object? | ... | * | & | =>  
-A28: ... | Explanation: The spread operator expands iterable elements.
+Q28: Which method checks if a string contains a substring? | includes | slice | replace | map  
+A28: includes | Explanation: `.includes()` returns true/false.
 
-Q29: JavaScript supports asynchronous programming with promises. | True | False  
-A29: True | Explanation: Promises represent eventual completion or failure of async operations.
+Q29: `.slice(1,4)` extracts characters from index 1 to 3. | True | False  
+A29: True | Explanation: End index is exclusive.
 
-Q30: Which method returns a new array with results of applying a function to each element? | map | filter | reduce | forEach  
-A30: map | Explanation: `map` transforms each element and returns a new array.
+Q30: Which method replaces all occurrences of a substring? | replace | replaceAll | slice | filter  
+A30: replaceAll | Explanation: It replaces every match.
 
-Q31: The `==` operator performs type coercion. | True | False  
-A31: True | Explanation: `==` converts operands to the same type before comparison.
+Q31: `.map()` applies a function to each array element. | True | False  
+A31: True | Explanation: It returns a new array.
 
-Q32: Which keyword is used to create a class in JavaScript? | object | class | function | prototype  
-A32: class | Explanation: ES6 introduced the `class` keyword for syntactic sugar over prototypes.
+Q32: Which method filters array elements based on a condition? | map | filter | splice | push  
+A32: filter | Explanation: It returns elements that meet the condition.
 
-Q33: JavaScript can run outside the browser. | True | False  
-A33: True | Explanation: Environments like Node.js allow JavaScript execution outside browsers.
+Q33: `window.print()` can be triggered by a button. | True | False  
+A33: True | Explanation: It opens the print dialog.
 
-Q34: Which method removes the last element from an array? | pop | shift | splice | slice  
-A34: pop | Explanation: `pop` removes and returns the last element.
+Q34: Which method writes directly into an HTML element? | innerHTML | textContent | appendChild | querySelector  
+A34: innerHTML | Explanation: It sets HTML content.
 
-Q35: The `async` keyword makes a function return a promise. | True | False  
-A35: True | Explanation: `async` functions always return promises.
+Q35: `document.write()` is safe for updating existing content. | True | False  
+A35: False | Explanation: It clears the document first.
 
-Q36: Which operator is used for exponentiation in JavaScript? | ^ | ** | pow | exp  
-A36: ** | Explanation: The `**` operator performs exponentiation.
+Q36: Which method displays a message in an alert box? | console.log | window.alert | innerHTML | print  
+A36: window.alert | Explanation: It shows a popup alert.
 
-Q37: JavaScript is case-sensitive.  | True | False
-A37: True | Explanation: Variable and function names are case-sensitive.
+Q37: Arrays in JavaScript are zero-indexed. | True | False  
+A37: True | Explanation: Index starts at 0.
 
-Q38: Which method converts a JavaScript object into a JSON string? | JSON.parse | JSON.stringify | Object.toString | Stringify  
-A38: JSON.stringify | Explanation: `JSON.stringify` serializes objects to JSON format.
+Q38: Which method adds an element to the end of an array? | push | shift | splice | indexOf  
+A38: push | Explanation: It appends to the array.
 
-Q39: The `void` operator evaluates an expression and returns `undefined`. | True | False
-A39: True | Explanation: `void` discards the return value of an expression.
+Q39: `.splice(index, 1)` removes one element at the given index. | True | False  
+A39: True | Explanation: It removes specified elements.
 
-Q40: Which method adds one or more elements to the beginning of an array? | unshift | push | shift | pop
-A40: unshift | Explanation: `unshift` prepends elements to the start of an array.
+Q40: Which keyword defines an object property method shorthand? | function | method | bio() | introduceSelf()  
+A40: bio() | Explanation: Method shorthand omits `function` keyword.
+
   </script>
 
 

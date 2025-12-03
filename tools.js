@@ -126,6 +126,7 @@ switch (expression) {
     break;
 }
 
+
 //--LOOPS----------------------------------------------------------------------------------
 for (const cat of cats) {
   console.log(cat);
@@ -229,3 +230,4 @@ const person = {                  // Object in an Object
   },
   status: "single",
 };
+
