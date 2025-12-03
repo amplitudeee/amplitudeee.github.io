@@ -66,10 +66,16 @@ function isEquivalentAnswer(user, expected){
 
     function toggleTest(test) {
       // Hide all forms including results page
-      document.getElementById('testA').classList.add('hidden');
-      document.getElementById('testB').classList.add('hidden');
-      document.getElementById('testC').classList.add('hidden');
-      document.getElementById('resultsPage').classList.add('hidden');
+      const testA = document.getElementById('testA');
+      const testB = document.getElementById('testB');
+      const testC = document.getElementById('testC');
+      const resultsPage = document.getElementById('resultsPage');
+      
+      if (testA) testA.classList.add('hidden');
+      if (testB) testB.classList.add('hidden');
+      if (testC) testC.classList.add('hidden');
+      if (resultsPage) resultsPage.classList.add('hidden');
+      
       // Hide intro page once a test is selected
       const intro = document.getElementById('introPage');
       if (intro) intro.style.display = 'none';

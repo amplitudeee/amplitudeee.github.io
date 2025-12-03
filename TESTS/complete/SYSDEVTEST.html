@@ -67,125 +67,125 @@
 
   <!-- Optional: Plain-text question sources (easy to replace). One question per line. -->
   <script type="text/plain" id="sourceA">
-Q1: Functional requirements define how a system should perform. | True | False
-A1: False | Functional = what the system must do; the how is non-functional.
+Q1: JavaScript is a compiled language. | True | False
+A1: False | Explanation: JavaScript is interpreted, though modern engines use Just-In-Time compilation.
 
-Q2: Non-functional requirements focus on how a system should perform. | True | False
-A2: True | Non-functional defines how the system performs (quality attributes).
+Q2: Which method converts a JSON string into a JavaScript object? | JSON.stringify | JSON.parse | Object.create | String.split  
+A2: JSON.parse | Explanation: JSON.parse reads a JSON string and returns a JavaScript object.
 
-Q3: Functional requirements are not static and can be adjusted via structured processes. | True | False
-A3: True | Functional requirements can be adjusted through change control or backlog refinement.
+Q3: The `let` keyword allows redeclaration of the same variable in the same scope. | True | False  
+A3: False | Explanation: `let` does not allow redeclaration in the same scope, unlike `var`.
 
-Q4: Change control is used in Agile to adjust the scope of functional requirements. | True | False
-A4: False | Change Control is used in Waterfall; Agile uses Backlog Refinement.
+Q4: Which operator checks both value and type equality? | == | === | = | !=  
+A4: === | Explanation: The strict equality operator `===` compares both value and type.
 
-Q5: Backlog refinement is used in Agile to adjust functional requirements. | True | False
-A5: True | In Agile, backlog refinement adjusts the scope of functional requirements.
+Q5: Functions in JavaScript are first-class objects. | True | False  
+A5: True | Explanation: Functions can be assigned to variables, passed as arguments, and returned.
 
-Q6: Performance, reliability, and security are examples of non-functional requirement aspects. | True | False
-A6: True | These are all non-functional requirement aspects.
+Q6: Which method adds one or more elements to the end of an array? | push | pop | shift | unshift  
+A6: push | Explanation: `push` appends elements to the end of an array.
 
-Q7: Portability and maintainability belong to Operational non-functional requirements. | True | False
-A7: True | Portability, Maintainability, System Integration and Technical Environment are part of Operational non-functional requirements.
+Q7: The `const` keyword prevents reassignment of the variable binding. | True | False  
+A7: True | Explanation: `const` creates a constant binding, though object contents can still be mutated.
 
-Q8: Availability and reliability are part of Performance non-functional requirements. | True | False
-A8: False | Availability and Reliability, Speed and Capacity are part of Operational requirements.
+Q8: Which statement stops execution of a loop and continues with the next iteration? | break | continue | return | exit  
+A8: continue | Explanation: `continue` skips to the next iteration without exiting the loop.
 
-Q9: Access control and encryption are examples of Security non-functional requirements. | True | False
-A9: True | Access Control, Encryption, Virus Control and System Value are Security non-functional requirements.
+Q9: JavaScript is single-threaded by design. | True | False  
+A9: True | Explanation: JavaScript runs in a single-threaded event loop model.
 
-Q10: Laws and government regulations are part of Cultural & Political requirements. | True | False
-A10: True | Laws & government regulations, Centralized vs Local Control, Language Differences and Scrutiny of Local Laws in a Globalized Organizationare are Cultural & Political requirements.
+Q10: Which method returns a new array with elements that pass a test function? | map | filter | reduce | forEach  
+A10: filter | Explanation: `filter` creates a new array with elements that satisfy the condition.
 
-Q11: Problem Analysis focuses on understanding ‘why’ before ‘what’. | True | False
-A11: True | Problem Analysis identifies the business problem, focusing on 'why' first.
+Q11: The `typeof null` returns "null". | True | False  
+A11: False | Explanation: `typeof null` returns "object" due to a legacy bug.
 
-Q12: Root Cause Analysis focuses on symptoms rather than underlying issues. | True | False
-A12: False | Root Cause Analysis digs into underlying causes, not just symptoms.
+Q12: Which keyword declares a block-scoped variable? | var | let | const | all of the above  
+A12: let | Explanation: `let` declares block-scoped variables, unlike `var`.
 
-Q13: Duration Analysis looks at time taken for process activities to find efficiency opportunities. | True | False
-A13: True | Duration Analysis examines time taken to identify efficiency opportunities.
+Q13: Arrow functions bind their own `this`. | True | False  
+A13: False | Explanation: Arrow functions do not bind `this`; they inherit it lexically.
 
-Q14: Activity-Based Costing includes only direct costs. | True | False
-A14: False | Activity-Based Costing includes both direct and indirect costs.
+Q14: Which method executes a function once for each array element? | map | forEach | reduce | every  
+A14: forEach | Explanation: `forEach` runs a callback for each element without returning a new array.
 
-Q15: Informal Benchmarking involves analyzing the current technology environment and trends, to inform decisions about technology investments. | True | False
-A15: False | Informal Benchmarking compares processes with other businesses for improvement ideas.
+Q15: JavaScript can manipulate the DOM directly. | True | False  
+A15: True | Explanation: JavaScript interacts with the DOM via APIs like `document.querySelector`.
 
-Q16: Outcome Analysis identifying activities that do not add value and can be eliminated. | True | False
-A16: False | Outcome Analysis uses past results to guide future actions.
+Q16: Which operator is used to assign default values in destructuring? | = | ? | || | ??  
+A16: = | Explanation: Default values in destructuring use the `=` operator.
 
-Q17: Technology Analysis examines current environment and trends to inform investments. | True | False
-A17: True | Technology Analysis looks at current tech environment and trends for investment decisions.
+Q17: The `NaN` value is equal to itself. | True | False  
+A17: False | Explanation: `NaN === NaN` is false; use `Number.isNaN()` to check.
 
-Q18: Activity Elimination targets non–value-adding activities to free resources. | True | False
-A18: True | Activity Elimination removes non–value-adding activities to free up resources.
+Q18: Which method combines two arrays into one? | concat | join | splice | slice  
+A18: concat | Explanation: `concat` merges arrays into a new array.
 
-Q19: Open communication helps prevent success. | True | False
-A19: False | Open communication is key to preventing team conflict.
+Q19: JavaScript supports prototypal inheritance. | True | False  
+A19: True | Explanation: Objects inherit directly from other objects via prototypes.
 
-Q20: Effort estimation is not important for cost control. | True | False
-A20: False | Effort estimation is crucial for cost control.
+Q20: Which statement defines a block of code to handle errors? | try | catch | finally | throw  
+A20: try | Explanation: `try` encloses code that may throw errors.
 
-Q21: Which process adjusts functional requirements in Waterfall? | Change Control | Backlog Refinement | Scope Creep | Kanban
-A21: Change Control | Change Control is the formal process in Waterfall for adjusting requirements.
+Q21: The `undefined` type is the same as `null`. | True | False  
+A21: False | Explanation: `undefined` means uninitialized; `null` is an intentional empty value.
 
-Q22: Which non-functional category includes Availability? | Operational | Performance | Security | Cultural & Political
-A22: Operational | Availability is part of Operational non-functional requirements.
+Q22: Which method returns the index of the first occurrence of a value in an array? | find | indexOf | includes | search  
+A22: indexOf | Explanation: `indexOf` returns the position of the first match.
 
-Q23: Which analysis strategy identifies inefficient code as the cause of performance issues? | Problem Analysis | Root Cause Analysis | Duration Analysis | Outcome Analysis
-A23: Root Cause Analysis | Root Cause Analysis digs deep to find the underlying cause of issues.
+Q23: Template literals allow embedded expressions using `${}`. | True | False  
+A23: True | Explanation: Template literals support interpolation with `${expression}`.
 
-Q24: Which requirements gathering technique builds relationships with stakeholders? | Interviewing | Observation | Questionnaire | Document Analysis
-A24: Interviewing | Interviewing builds relationships and gathers detailed information.
+Q24: Which loop is guaranteed to run at least once? | for | while | do...while | for...in  
+A24: do...while | Explanation: `do...while` executes before checking the condition.
 
-Q25: Who defines requirements? | Project Managers and Developers | Testers and Customers | Business Analysts and Stakeholders | System Architects and End Users
-A25: Business Analysts and Stakeholders | Business Analysts work with Stakeholders to define requirements.
+Q25: JavaScript variables are dynamically typed. | True | False  
+A25: True | Explanation: Types are determined at runtime, not at declaration.
 
-Q26: What does WBS stand for? | Work Breakdown Structure | Workflow Business System | Work Balance Sheet | Work Budget Strategy
-A26: Work Breakdown Structure | WBS breaks down a project into smaller, manageable tasks.
+Q26: Which method returns a string representation of an array? | toString | join | stringify | slice  
+A26: toString | Explanation: `toString` converts array elements into a comma-separated string.
 
-Q27: Which are the three trade-offs of effort estimation? | Speed, Reliability, Security | Skills, Morale, Rewards | Scope, Time, Cost | Availability, Portability, Maintainability
-A27: Scope, Time, Cost | The project triangle balances Scope, Time, and Cost.
+Q27: The `this` keyword always refers to the global object. | True | False  
+A27: False | Explanation: `this` depends on context: global, object, or function invocation.
 
-Q28: What is scope creep? | Breaking down project tasks | Adding new requirements after project starts | Visualizing workflow | Estimating costs
-A28: Adding new requirements after project starts | Scope creep is uncontrolled expansion of project requirements.
+Q28: Which operator spreads elements of an array or object? | ... | * | & | =>  
+A28: ... | Explanation: The spread operator expands iterable elements.
 
-Q29: Which method visualizes work process and flow? | WBS | Benchmarking | Shadowing | Kanban 
-A29: Kanban | Kanban boards visualize workflow and help manage tasks.
+Q29: JavaScript supports asynchronous programming with promises. | True | False  
+A29: True | Explanation: Promises represent eventual completion or failure of async operations.
 
-Q30: High morale indicates what? | Scope creep | Team has jelled | Poor communication | Cost control
-A30: Team has jelled | High morale means the team has bonded and works well together.
+Q30: Which method returns a new array with results of applying a function to each element? | map | filter | reduce | forEach  
+A30: map | Explanation: `map` transforms each element and returns a new array.
 
-Q31: Which requirements gathering technique provides a comprehensive understanding of system functionalities and business processes? | Interviewing | Observation | Questionnaire | Document Analysis
-A31: Document Analysis | Document Analysis provides comprehensive system and process understanding.
+Q31: The `==` operator performs type coercion. | True | False  
+A31: True | Explanation: `==` converts operands to the same type before comparison.
 
-Q32: Which requirements analysis strategy involves looking at past results to guide future actions? | Outcome Analysis | Technology Analysis | Activity Elimination | Informal Benchmarking
-A32: Outcome Analysis | Outcome Analysis examines past results to inform future decisions.
+Q32: Which keyword is used to create a class in JavaScript? | object | class | function | prototype  
+A32: class | Explanation: ES6 introduced the `class` keyword for syntactic sugar over prototypes.
 
-Q33: Which non-functional category includes Portability? | Performance | Security | Cultural & Political | Operational
-A33: Operational | Portability, Maintainability, System integration, and Technical Envrionment are all part of Operational non-functional requirements.
+Q33: JavaScript can run outside the browser. | True | False  
+A33: True | Explanation: Environments like Node.js allow JavaScript execution outside browsers.
 
-Q34: Which strategy involves analyzing the current technology environment and trends? | Problem Analysis | Technology Analysis | Duration Analysis | Activity-Based Costing
-A34: Technology Analysis | Technology Analysis examines current tech environment and trends.
+Q34: Which method removes the last element from an array? | pop | shift | splice | slice  
+A34: pop | Explanation: `pop` removes and returns the last element.
 
-Q35: Which requirements gathering technique can scale to a large number of respondents? | Interviewing | Observation | Questionnaire | Shadowing
-A35: Questionnaire | Questionnaires can efficiently gather input from many respondents.
+Q35: The `async` keyword makes a function return a promise. | True | False  
+A35: True | Explanation: `async` functions always return promises.
 
-Q36: Which strategy involves identifying all costs associated with a business activity? | Activity-Based Costing | Root Cause Analysis | Outcome Analysis | Duration Analysis
-A36: Activity-Based Costing | Activity-Based Costing identifies all direct and indirect costs.
+Q36: Which operator is used for exponentiation in JavaScript? | ^ | ** | pow | exp  
+A36: ** | Explanation: The `**` operator performs exponentiation.
 
-Q37: Which non-functional category includes Virus Control? | Operational | Performance | Security | Cultural & Political
-A37: Security | Virus Control is part of Security non-functional requirements.
+Q37: JavaScript is case-sensitive.  | True | False
+A37: True | Explanation: Variable and function names are case-sensitive.
 
-Q38: Which strategy involves comparing processes with other businesses? | Technology Analysis | Activity Elimination | Informal Benchmarking | Problem Analysis
-A38: Informal Benchmarking | Informal Benchmarking compares processes with other organizations.
+Q38: Which method converts a JavaScript object into a JSON string? | JSON.parse | JSON.stringify | Object.toString | Stringify  
+A38: JSON.stringify | Explanation: `JSON.stringify` serializes objects to JSON format.
 
-Q39: Which requirements gathering technique ensures design is centered around user needs? | Interviewing | Observation | Questionnaire | Document Analysis
-A39: Observation | Observation ensures design is based on actual user behavior and needs.
+Q39: The `void` operator evaluates an expression and returns `undefined`. | True | False
+A39: True | Explanation: `void` discards the return value of an expression.
 
-Q40: Which factor is important when forming a project team? | High morale | Member availability and skills | Office Location Preference | How Much Beer your each member drank on the weekend
-A40: Member availability and skills | Team formation requires matching member availability and skills to project needs.
+Q40: Which method adds one or more elements to the beginning of an array? | unshift | push | shift | pop
+A40: unshift | Explanation: `unshift` prepends elements to the start of an array.
   </script>
 
   <script type="text/plain" id="sourceC">
