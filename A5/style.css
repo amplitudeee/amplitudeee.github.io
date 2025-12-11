@@ -23,7 +23,7 @@ h1, h2, h3 {
   color: #2a2a2a;
 }
 
-p, input, li, table, label {
+p, input, li, table, label, textarea, button {
   font-family: 'Open Sans Condensed', sans-serif;
   color: #2a2a2a;
 }
@@ -236,7 +236,8 @@ audio {
   text-align: right;
 }
 
-.comment-form input {
+.comment-form input,
+.comment-form textarea {
   margin-left: 1rem;
   flex: 6;
 }
@@ -246,21 +247,27 @@ audio {
   width: 150px;
 }
 
-.comment-form input, .comment-form label, .show-hide {
+.comment-form input,
+.comment-form textarea,
+.comment-form label,
+.show-hide {
   font-size: 1.6rem;
   line-height: 32px;
 }
 
-.comment-form input[type="submit"], .show-hide {
+.comment-form button[type="submit"],
+.show-hide {
   background: #333;
   border: 0;
   color: white;
+  cursor: pointer;
 }
 
-.comment-form input[type="submit"] {
+.comment-form button[type="submit"] {
   width: 30%;
   display: block;
   margin: 0 auto;
+  padding: 8px 16px;
 }
 
 .comment-container {
