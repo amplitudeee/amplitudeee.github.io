@@ -188,6 +188,16 @@ img, audio {
   margin: 0 auto;
 }
 
+figure {
+  width: 400px; /* Set desired width */
+}
+
+figure img {
+  width: 100%;
+  height: auto;
+}
+
+
 audio {
   width: 500px;
 }
