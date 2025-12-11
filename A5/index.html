@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8">
 
@@ -32,7 +32,8 @@
       </ul>
 
       <form class="search">
-        <input type="search" name="q" placeholder="Search query">
+        <label for="q" class="visually-hidden">Search: </label>
+        <input type="search" name="q" id="q" placeholder="Search query">
         <button>Go!</button>
       </form>
     </nav>
@@ -41,7 +42,7 @@
       <article>
         <h2>The trouble with Bears</h2>
 
-        <address>By Evan Wild<address>
+        <address>By Evan Wild</address>
 
         <p>
           Tall, lumbering, angry, dangerous. The real live bears of this world are proud, independent creatures, self-serving and always on the hunt for food. Nothing like the bears you see on TV, like Baloo from renowned documentary, The Jungle Book.
@@ -89,9 +90,9 @@
         <h3>Habitats and Eating habits</h3>
 
         <figure>
-          <figurecaption>
+          <figcaption>
           Wild bears eat a variety of meat, fish, fruit, nuts, and other natually growing ingredients. In general they will hunt for food themselves in woodland or rivers, but at a push they will track down their sustenance from farms or country houses. They tend to live in relative isolation, in caves, tents, or cottages.
-          </figurecaption>
+          </figcaption>
           <img src="media/wild-bear.jpg" alt="Wild bear standing on its hind legs">
           <figcaption>
             Urban (gentrified) bears on the other hand have largely abandoned the old ways. They will hunt other urban creatures if necessary (including other predators like rats and foxes), but prefer to scavenge from readily available urban food outlets like dumpsters, bins, and fast food joints. When food has proven scarce, urban bears have even been known to break into people's kitchens and steal essentials like baked beans, ready meals, and microwave ovens.
@@ -135,7 +136,7 @@
         </aside>
 
         <section class="comments">
-          <div class="show-hide">Show comments</div>
+          <button class="show-hide">Show comments</button>
 
           <div class="comment-wrapper">
 
@@ -155,7 +156,7 @@
               </div>
             </form>
 
-            <h2>Comments<h2>
+            <h2>Comments</h2>
 
             <ul class="comment-container">
               <li>
@@ -167,7 +168,7 @@
         </section>
       </article>
 
-      <div class="secondary">
+      <aside class="secondary">
         <h2>Related</h2>
 
         <ul>
@@ -177,14 +178,12 @@
           <li><a href="#">The trouble with Octopi</a></li>
           <li><a href="#">The trouble with Lemurs</a></li>
         </ul>
-      </div>
+      </aside>
     </main>
 
     <footer>
-      <p>©Copyright 2050 by nobody. All rights reversed.</p>
+      <p><small>&copy; Copyright 2050 by nobody. All rights reversed.</small></p>
     </footer>
-
     <script src="main.js"></script>
-
   </body>
 </html>
