@@ -114,6 +114,10 @@ nav .right a span {
     flex: 5;
 }
 
+.hero-section .text p {
+    margin-bottom: 20px;
+}
+
 .hero-section .text .links {
     margin-top: 25px;
 }
