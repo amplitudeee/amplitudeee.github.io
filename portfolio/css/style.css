@@ -1,7 +1,26 @@
 :root {
+    /* Default theme: dark slate to match headshot background */
+    --background-color: #2b3440;
+    --text-color: #f2f4f8;
+    --muted-text-color: #c6cfdb;
+    --link-color: #8fb3ff;
+
+    --surface-color: #364152;
+    --surface-muted-color: #2f3946;
+    --border-color: rgba(242, 244, 248, 0.18);
+    --shadow-color: rgba(0, 0, 0, 0.35);
+}
+
+body.theme-light {
     --text-color: #1a1c20;
+    --muted-text-color: #555;
     --link-color: #4a76ee;
     --background-color: #eeeff1;
+
+    --surface-color: #ffffff;
+    --surface-muted-color: #f9f9f9;
+    --border-color: #d3d3d3;
+    --shadow-color: rgba(0, 0, 0, 0.1);
 }
 
 * {
@@ -12,6 +31,7 @@
 
 html {
     scroll-behavior: smooth;
+    background-color: var(--background-color);
 }
 
 body {
@@ -19,6 +39,7 @@ body {
     background-color: var(--background-color);
     max-width: 1400px;
     margin: 0 auto;
+    color: var(--text-color);
 }
 
 a {
@@ -52,6 +73,22 @@ nav .right a:last-child {
     background-color: var(--text-color);
     padding: 5px 15px;
     border-radius: 5px;
+}
+
+nav .right .theme-toggle {
+    appearance: none;
+    border: 1px solid var(--border-color);
+    background: transparent;
+    color: var(--text-color);
+    padding: 5px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font: inherit;
+    margin-left: 10px;
+}
+
+nav .right .theme-toggle:hover {
+    border-color: var(--text-color);
 }
 
 nav .right a span {
@@ -97,14 +134,24 @@ nav .right a span {
 }
 
 .hero-section .headshot {
-    flex: 2;
-    display: flex; /* center the image vertically */
-    justify-content: right; /* align the image to the right */;
+    /* Bubble (frame) */
+    flex: 0 0 auto;
+    width: 350px;
+    height: 350px;
+    margin-left: auto;
+    align-self: center;
+    border-radius: 50%;
+    overflow: hidden;
 }
 
 .hero-section .headshot img {
-    width: 350px;
-    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    /* Move the photo inside the bubble without moving the bubble */
+    transform: translateX(-2px) scaleX(-1) rotate(7deg);
+    transform-origin: center;
 }
 
 /* SECTION 2: SKILLS */
@@ -137,7 +184,7 @@ nav .right a span {
     width: 50px;
     padding: 10px 20px;
     margin: 10px;
-    border: 1.5px solid #d3d3d3;
+    border: 1.5px solid var(--border-color);
     border-radius: 5px;
 }
 
@@ -174,16 +221,16 @@ nav .right a span {
 }
 
 .project-card {
-    background: white;
+    background: var(--surface-color);
     padding: 25px;
     border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 8px var(--shadow-color);
     transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .project-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 4px 16px var(--shadow-color);
 }
 
 .project-card h3 {
@@ -201,7 +248,7 @@ nav .right a span {
 
 .project-card .description {
     font-size: 14px;
-    color: #666;
+    color: var(--muted-text-color);
     line-height: 1.6;
     margin-bottom: 20px;
 }
@@ -264,13 +311,13 @@ nav .right a span {
 
 .project-description {
     font-size: 14px;
-    color: #555;
+    color: var(--muted-text-color);
     line-height: 1.6;
     margin-bottom: 15px;
 }
 
 .features {
-    background: #f9f9f9;
+    background: var(--surface-muted-color);
     padding: 12px 15px;
     border-radius: 6px;
     margin-bottom: 15px;
@@ -292,7 +339,7 @@ nav .right a span {
 
 .features li {
     font-size: 13px;
-    color: #666;
+    color: var(--muted-text-color);
     padding: 4px 0;
     padding-left: 20px;
     position: relative;
@@ -439,8 +486,10 @@ nav .right a span {
     .hero-section {
         flex-direction: column-reverse;
     }
-    .hero-section .headshot img {
+    .hero-section .headshot {
         width: 300px;
+        height: 300px;
+        margin-left: 0;
     }
 
     /* SECTION 3: PROJECTS SECTION */
@@ -479,8 +528,19 @@ nav .right a span {
         padding: 0;
     }
 
+    nav .right .theme-toggle {
+        padding: 0;
+        border: none;
+        background: transparent;
+        margin-left: 12px;
+    }
+
     nav .right a span{
         display: none
+    }
+
+    nav .right .theme-toggle span {
+        display: none;
     }
     /* SECTION 1: HERO SECTION */
     .hero-section {
