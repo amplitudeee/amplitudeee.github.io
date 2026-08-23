@@ -8,8 +8,8 @@
 
   function getInitialTheme() {
     const saved = window.localStorage.getItem(STORAGE_KEY);
-    if (saved === LIGHT) return LIGHT;
-    return 'dark';
+    if (saved === 'dark') return 'dark';
+    return LIGHT;
   }
 
   function updateToggleUi(button) {
