@@ -1,2 +1,2 @@
 # amplitudeee.github.io
-Intro to Web Dev Labs
+My Web Page
